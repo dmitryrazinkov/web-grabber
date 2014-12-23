@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e78bce88-c4ea-444e-b9f3-3dafc45faf27" name="Default" comment="Simple">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/app/Launcher.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Frame/mainGrabForm.form" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Frame/mainGrabForm.java" />
-      <change type="DELETED" beforePath="C:\Users\Дмитрий\Desktop\Practice\src\main\resources\casperJs\1419354082360.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Дмитрий\Desktop\Practice\target\classes\whithCasper\CasperAccessor$1.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/whithCasper/CasperAccessor.class" afterPath="$PROJECT_DIR$/target/classes/whithCasper/CasperAccessor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/casperJs/Thumbs.db" afterPath="$PROJECT_DIR$/src/main/resources/casperJs/Thumbs.db" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/casperJs/Thumbs.db" afterPath="$PROJECT_DIR$/target/classes/casperJs/Thumbs.db" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/whithCasper/CasperAccessor.java" afterPath="$PROJECT_DIR$/src/main/java/whithCasper/CasperAccessor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/casperJs/google.js" afterPath="$PROJECT_DIR$/src/main/resources/casperJs/google.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/casperJs/google.js" afterPath="$PROJECT_DIR$/target/classes/casperJs/google.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+    <list default="true" id="e78bce88-c4ea-444e-b9f3-3dafc45faf27" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Practice.iws" />
@@ -40,11 +27,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="CasperAccessor.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CasperAccessor.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/whithCasper/CasperAccessor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="833">
-              <caret line="26" column="39" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
+            <state vertical-scroll-proportion="0.13144329" vertical-offset="51" max-vertical-offset="833">
+              <caret line="6" column="27" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#252#260#0" expanded="true" />
@@ -55,12 +42,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mainGrabForm.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mainGrabForm.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Frame/mainGrabForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.36266667" vertical-offset="0" max-vertical-offset="799">
-              <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="368" max-vertical-offset="799">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="e#585#1157#0" expanded="true" />
                 <element signature="e#1156#1157#0" expanded="true" />
               </folding>
@@ -126,9 +114,9 @@
         <option value="$PROJECT_DIR$/src/main/java/app/CasperAccessor.java" />
         <option value="$PROJECT_DIR$/src/main/java/app/Launcher.java" />
         <option value="$PROJECT_DIR$/src/main/resources/casperJs/google.js" />
-        <option value="$PROJECT_DIR$/src/main/java/whithCasper/CasperAccessor.java" />
         <option value="$PROJECT_DIR$/src/main/java/Frame/mainGrabForm.form" />
         <option value="$PROJECT_DIR$/src/main/java/Frame/mainGrabForm.java" />
+        <option value="$PROJECT_DIR$/src/main/java/whithCasper/CasperAccessor.java" />
       </list>
     </option>
   </component>
@@ -566,10 +554,17 @@
       <option name="number" value="Default" />
       <updated>1418666254052</updated>
     </task>
+    <task id="LOCAL-00001" summary="Simple screen first request(with gui)">
+      <created>1419370616459</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1419370616459</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1382" height="728" extended-state="0" />
+    <frame x="-8" y="0" width="1382" height="728" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -613,6 +608,8 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
+    <MESSAGE value="Simple screen first request(with gui)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Simple screen first request(with gui)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -825,16 +822,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/whithCasper/CasperAccessor.java">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="833">
-          <caret line="26" column="39" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#252#260#0" expanded="true" />
-            <element signature="e#311#312#0" expanded="true" />
-            <element signature="e#345#346#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.43814433" vertical-offset="0" max-vertical-offset="388">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -850,26 +842,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Frame/mainGrabForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="368" max-vertical-offset="799">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#585#1157#0" expanded="true" />
+            <element signature="e#1156#1157#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Frame/mainGrabForm.form">
       <provider selected="true" editor-type-id="ui-designer">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/whithCasper/CasperAccessor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43814433" vertical-offset="0" max-vertical-offset="388">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Frame/mainGrabForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36266667" vertical-offset="0" max-vertical-offset="799">
-          <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
+        <state vertical-scroll-proportion="0.13144329" vertical-offset="51" max-vertical-offset="833">
+          <caret line="6" column="27" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
           <folding>
-            <element signature="e#585#1157#0" expanded="true" />
-            <element signature="e#1156#1157#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#252#260#0" expanded="true" />
+            <element signature="e#311#312#0" expanded="true" />
+            <element signature="e#345#346#0" expanded="true" />
           </folding>
         </state>
       </provider>
