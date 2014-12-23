@@ -6,28 +6,15 @@ var casper = require('casper').create({
 casper.start('http://google.com/');
 
 casper.thenEvaluate(function(term) {
-    document.querySelector('input[name="q"]').setAttribute('value', term);
-    document.querySelector('form[name="gbqf"]').submit();
-}, 'vk');
+     document.querySelector('input[name="q"]').setAttribute('value', term);
+     document.querySelector('form[name="gbqf"]').submit();
+                    },  casper.cli.get(0));
 
 casper.then(function() {
-    // Click on 1st result link
-	
     path=this.getElementAttribute("h3.r a","href");
 	this.thenOpen(path);
-
 });
 
-/*casper.then(function() {
-	this.fill('form[name="login"]', {
-		'email':'',
-		'pass':''
-	}, true);
-}
-);
-*/
-
-//casper.thenOpen(path);
 
 casper.then( function() {
     var now=new Date().getTime();
