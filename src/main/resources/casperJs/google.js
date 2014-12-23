@@ -30,7 +30,9 @@ casper.then(function() {
 //casper.thenOpen(path);
 
 casper.then( function() {
-    this.capture('screen.jpg', undefined, {
+    var now=new Date().getTime();
+    var name=now+".jpg";
+    this.capture(name, undefined, {
         format: 'jpg',
         quality: 100
     })

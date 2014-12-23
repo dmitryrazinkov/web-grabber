@@ -20,8 +20,8 @@ casper.then(function() {
 
 /*casper.then(function() {
 	this.fill('form[name="login"]', {
-		'email':'asdewqzxcv@mail.ru',
-		'pass':'2222demon2441'
+		'email':'',
+		'pass':''
 	}, true);
 }
 );
@@ -30,7 +30,9 @@ casper.then(function() {
 //casper.thenOpen(path);
 
 casper.then( function() {
-    this.capture('screen.jpg', undefined, {
+    var now=new Date().getTime();
+    var name=now+".jpg";
+    this.capture(name, undefined, {
         format: 'jpg',
         quality: 100
     })
