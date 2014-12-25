@@ -8,6 +8,11 @@ import java.util.List;
 @Component
 public class Sites {
     private List<String> sites=new ArrayList<String>();
+
+    public List<String> getSitesForGrub() {
+        return sitesForGrub;
+    }
+
     private List<String> sitesForGrub=new ArrayList<String>();
 
     public List<String> getSites() {
@@ -21,6 +26,5 @@ public class Sites {
     public void addSiteForGrub(String site){
         sites.remove(site);
         sitesForGrub.add(site);
-
     }
 }
