@@ -27,4 +27,9 @@ public class Sites {
         sites.remove(site);
         sitesForGrub.add(site);
     }
+
+    public void deleteSiteFromGrub(String site){
+        sitesForGrub.remove(site);
+        sites.add(site);
+    }
 }

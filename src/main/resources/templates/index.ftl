@@ -10,6 +10,7 @@
 </head>
 <body>
 <div class="container">
+
     <form method="post" action="" name="grub" style="margin:60px 0px 0px 0px;">
         <div class="form-group">
             <label>Select site:</label>
@@ -27,7 +28,6 @@
     <table class="table table-striped" id="table">
         <thead>
         <tr>
-
             <th data-type="string"></th>
             <th></th>
             <th></th>
@@ -35,19 +35,16 @@
         </thead>
         <tbody>
         <#list onTaskSites as site>
-
             <tr>
-
                 <td>${site}</td>
                 <td>
                     <span class="glyphicon glyphicon-remove"></span>
-                    <a href="#">Delete</a>
+                    <a href="/delete/${site}">Delete</a>
                 </td>
                 <td>
                     <a href="#">Details</a>
                 </td>
             </tr>
-
         </#list>
         </tbody>
     </table>

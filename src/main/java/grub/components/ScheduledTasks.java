@@ -12,7 +12,7 @@ public class ScheduledTasks {
     @Autowired
     Sites sites;
 
-    @Scheduled(fixedDelay = 1000000000)
+    @Scheduled(fixedDelay = 1000)
     public void grub() throws IOException {
         CasperAccessor casperAccessor=new CasperAccessor();
         System.out.print("task run");

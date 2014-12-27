@@ -10,7 +10,8 @@
 </head>
 <body>
 <div class="container">
-    <form method="post" action="" name="grub">
+
+    <form method="post" action="" name="grub" style="margin:60px 0px 0px 0px;">
         <div class="form-group">
             <label>Select site:</label>
             <select name="site" class="form-control">
@@ -21,7 +22,32 @@
         </div>
         <input type="submit" value="Submit" class="btn btn-default">
     </form>
+
     <hr>
+
+    <table class="table table-striped" id="table">
+        <thead>
+        <tr>
+            <th data-type="string"></th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <#list onTaskSites as site>
+            <tr>
+                <td>${site}</td>
+                <td>
+                    <span class="glyphicon glyphicon-remove"></span>
+                    <a href="/delete/${site}">Delete</a>
+                </td>
+                <td>
+                    <a href="#">Details</a>
+                </td>
+            </tr>
+        </#list>
+        </tbody>
+    </table>
 
 </div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
