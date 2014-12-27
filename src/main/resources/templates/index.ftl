@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class="container">
-
+<#if sites??>
     <form method="post" action="" name="grub" style="margin:60px 0px 0px 0px;">
         <div class="form-group">
             <label>Select site:</label>
@@ -22,6 +22,7 @@
         </div>
         <input type="submit" value="Submit" class="btn btn-default">
     </form>
+</#if>
 
     <hr>
 
