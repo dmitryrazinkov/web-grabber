@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 import java.sql.Date;
 import java.util.Calendar;
+import java.util.List;
 
 @Component
 public class ScheduledTasks {
@@ -24,12 +25,11 @@ public class ScheduledTasks {
         System.out.print("task run");
         for (String site : sites.getSitesForGrub()) {
             CasperAccessor casperAccessor = new CasperAccessor();
-            if (site.equals("google")) {
-                casperAccessor.google("google");
-            }
+            casperAccessor.execute(site);
 
+            List<String> list=casperAccessor.getListFromCmd();
             Date now = new Date(Calendar.getInstance().getTime().getTime());
-            grubResultService.addOne(new GrubResult(now, site, ""));
+            grubResultService.addOne(new GrubResult(now, site, list.get(9)+";"+list.get(10)));
         }
     }
 }

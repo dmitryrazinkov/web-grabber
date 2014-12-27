@@ -21,7 +21,7 @@ public class mainGrabForm extends JFrame {
             public void actionPerformed(ActionEvent event) {
                 try {
                     CasperAccessor accessor = new CasperAccessor();
-                    accessor.google(requestTxt.getText());
+                    accessor.execute(requestTxt.getText());
                     ArrayList<String> list = accessor.getListFromCmd();
                     for (String s : list) {
                         cmdTextArea.append(s + "\n");

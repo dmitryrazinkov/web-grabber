@@ -25,17 +25,19 @@ public class CasperAccessor {
         outStream = cmd.getOutputStream();
     }
 
-    public void google(String request) {
+    public void execute(String site) {
         PrintWriter pWriter = new PrintWriter(outStream);
         pWriter.println("chcp 65001");
         pWriter.println("cd src\\main\\resources\\casperJs\\");
-        pWriter.println("casperjs google.js " + request);
+        pWriter.println("casperjs "+site+".js");
         pWriter.flush();
         pWriter.close();
         InputStreamReader reader = new InputStreamReader(iStream);
         Scanner scan = new Scanner(reader);
         while (scan.hasNextLine()) {
-            listFromCmd.add(scan.nextLine());
+            String s=scan.nextLine();
+            listFromCmd.add(s);
+            System.out.println(s);
         }
 
     }
