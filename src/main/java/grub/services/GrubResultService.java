@@ -10,7 +10,7 @@ public class GrubResultService {
     @Autowired
     GrubResultRepository grubResultRepository;
 
-    public GrubResult addOne(GrubResult grubResult){
+    public GrubResult addOne(GrubResult grubResult) {
         return grubResultRepository.save(grubResult);
     }
 }

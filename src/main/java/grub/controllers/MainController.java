@@ -16,23 +16,23 @@ public class MainController {
     Sites sites;
 
 
-    @RequestMapping(value = "",method = RequestMethod.GET)
-    public String index(ModelMap modelMap){
-        modelMap.addAttribute("sites",sites.getSites());
-        if(sites.getSitesForGrub()!=null){
-            modelMap.addAttribute("onTaskSites",sites.getSitesForGrub());
+    @RequestMapping(value = "", method = RequestMethod.GET)
+    public String index(ModelMap modelMap) {
+        modelMap.addAttribute("sites", sites.getSites());
+        if (sites.getSitesForGrub() != null) {
+            modelMap.addAttribute("onTaskSites", sites.getSitesForGrub());
         }
         return "index";
     }
 
-    @RequestMapping(value = "",method = RequestMethod.POST)
-    public String addSite(@ModelAttribute("site") String site){
+    @RequestMapping(value = "", method = RequestMethod.POST)
+    public String addSite(@ModelAttribute("site") String site) {
         sites.addSiteForGrub(site);
         return "redirect:/";
     }
 
     @RequestMapping("/delete/{site}")
-    public String delete(@PathVariable String site){
+    public String delete(@PathVariable String site) {
         sites.deleteSiteFromGrub(site);
         return "redirect:/";
     }

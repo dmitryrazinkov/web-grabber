@@ -10,7 +10,7 @@ public class Launcher {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                SpringApplication.run(Config.class,args);
+                SpringApplication.run(Config.class, args);
                 JFrame jFrame = new mainGrabForm("Grub");
                 jFrame.setDefaultCloseOperation(jFrame.EXIT_ON_CLOSE);
                 jFrame.setLocation(450, 150);

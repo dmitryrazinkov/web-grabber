@@ -22,14 +22,14 @@ public class ScheduledTasks {
     @Scheduled(fixedDelay = 1000)
     public void grub() throws IOException {
         System.out.print("task run");
-        for(String site: sites.getSitesForGrub()) {
-            CasperAccessor casperAccessor=new CasperAccessor();
+        for (String site : sites.getSitesForGrub()) {
+            CasperAccessor casperAccessor = new CasperAccessor();
             if (site.equals("google")) {
                 casperAccessor.google("google");
             }
 
-            Date now=new Date(Calendar.getInstance().getTime().getTime());
-            grubResultService.addOne(new GrubResult(now,site,""));
+            Date now = new Date(Calendar.getInstance().getTime().getTime());
+            grubResultService.addOne(new GrubResult(now, site, ""));
         }
     }
 }
