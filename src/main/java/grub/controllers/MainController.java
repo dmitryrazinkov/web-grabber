@@ -18,6 +18,9 @@ public class MainController {
     @RequestMapping(value = "",method = RequestMethod.GET)
     public String index(ModelMap modelMap){
         modelMap.addAttribute("sites",sites.getSites());
+        if(sites.getSitesForGrub()!=null){
+            modelMap.addAttribute("onTaskSites",sites.getSitesForGrub());
+        }
         return "index";
     }
 
