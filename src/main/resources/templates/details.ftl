@@ -10,42 +10,27 @@
 </head>
 <body>
 <div class="container">
-<#if sites??>
-    <form method="post" action="" style="margin:60px 0px 0px 0px;">
-        <div class="form-group">
-            <label>Select site:</label>
-            <select name="site1" class="form-control">
-                <#list sites as site1>
-                    <option>${site1}</option>
-                </#list>
-            </select>
-        </div>
-        <input type="submit" value="Add" class="btn btn-default">
-    </form>
-</#if>
 
-    <hr>
-
+    <h2 align="center">Details</h2>
     <table class="table table-striped" id="table">
         <thead>
         <tr>
-            <th data-type="string"></th>
-            <th></th>
-            <th></th>
+
+            <th>Date</th>
+            <th>Site</th>
+            <th>Details</th>
         </tr>
         </thead>
         <tbody>
-        <#list onTaskSites as site>
+        <#list resultList as result>
+
             <tr>
-                <td>${site}</td>
-                <td>
-                    <span class="glyphicon glyphicon-remove"></span>
-                    <a href="/delete/${site}">Delete</a>
-                </td>
-                <td>
-                    <a href="/${site}">Details</a>
-                </td>
+
+                <td>${result.date}</td>
+                <td>${result.site}</td>
+                <td>${result.details}</td>
             </tr>
+
         </#list>
         </tbody>
     </table>

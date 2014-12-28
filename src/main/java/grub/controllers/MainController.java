@@ -1,6 +1,7 @@
 package grub.controllers;
 
 import grub.components.Sites;
+import grub.services.GrubResultService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -15,6 +16,8 @@ public class MainController {
     @Autowired
     Sites sites;
 
+    @Autowired
+    GrubResultService grubResultService;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String index(ModelMap modelMap) {
@@ -23,9 +26,6 @@ public class MainController {
         }
 
         modelMap.addAttribute("onTaskSites", sites.getSitesForGrub());
-
-
-
         return "index";
     }
 
@@ -44,6 +44,12 @@ public class MainController {
     public String delete(@PathVariable String site) {
         sites.deleteSiteFromGrub(site);
         return "redirect:/";
+    }
+
+    @RequestMapping("/{site}")
+    public String details(@PathVariable String site, ModelMap modelMap){
+        modelMap.addAttribute("resultList",grubResultService.findBySite(site));
+        return "details";
     }
 
 
