@@ -8,7 +8,6 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
-import java.sql.Date;
 import java.util.Calendar;
 import java.util.List;
 
@@ -20,7 +19,7 @@ public class ScheduledTasks {
     @Autowired
     GrubResultService grubResultService;
 
-    @Scheduled(fixedDelay = 1000)
+    @Scheduled(cron = "0 0/10 * 1/1 * ?")
     public void grub() throws IOException {
         System.out.print("task run");
         for (String site : sites.getSitesForGrub()) {
@@ -28,8 +27,9 @@ public class ScheduledTasks {
             casperAccessor.execute(site);
 
             List<String> list=casperAccessor.getListFromCmd();
-            Date now = new Date(Calendar.getInstance().getTime().getTime());
-            grubResultService.addOne(new GrubResult(now, site, list.get(9)+";"+list.get(10)));
+            java.util.Date now = new java.util.Date(Calendar.getInstance().getTime().getTime());
+
+            grubResultService.addOne(new GrubResult(now, site, list.get(9) + ";" + list.get(10)));
         }
     }
 }

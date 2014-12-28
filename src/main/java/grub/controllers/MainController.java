@@ -21,9 +21,9 @@ public class MainController {
         if (!sites.getSites().isEmpty()) {
             modelMap.addAttribute("sites", sites.getSites());
         }
-        if (!sites.getSitesForGrub().isEmpty()) {
-            modelMap.addAttribute("onTaskSites", sites.getSitesForGrub());
-        }
+
+        modelMap.addAttribute("onTaskSites", sites.getSitesForGrub());
+
 
 
         return "index";

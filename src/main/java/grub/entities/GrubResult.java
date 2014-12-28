@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.sql.Date;
 
 @Entity
 public class GrubResult {
@@ -12,7 +11,7 @@ public class GrubResult {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private Date date;
+    private java.util.Date date;
 
     private String site;
 
@@ -21,17 +20,17 @@ public class GrubResult {
     public GrubResult() {
     }
 
-    public GrubResult(Date date, String site, String details) {
+    public GrubResult(java.util.Date date, String site, String details) {
         this.date = date;
         this.site = site;
         this.details = details;
     }
 
-    public Date getDate() {
+    public java.util.Date getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(java.util.Date date) {
         this.date = date;
     }
 
