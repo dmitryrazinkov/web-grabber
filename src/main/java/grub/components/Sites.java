@@ -21,7 +21,8 @@ public class Sites {
 
     public Sites() {
       //  sites.add("google");
-        sites.add("pogoda.yandex");
+        sites.add("pogoda-yandex");
+        sites.add("moex");
     }
 
     public void addSiteForGrub(String site) {

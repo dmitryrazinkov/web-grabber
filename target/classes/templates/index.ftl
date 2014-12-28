@@ -11,12 +11,12 @@
 <body>
 <div class="container">
 <#if sites??>
-    <form method="post" action="" name="grub" style="margin:60px 0px 0px 0px;">
+    <form method="post" action="" style="margin:60px 0px 0px 0px;">
         <div class="form-group">
             <label>Select site:</label>
-            <select name="site" class="form-control">
-                <#list sites as site>
-                    <option>${site}</option>
+            <select name="site1" class="form-control">
+                <#list sites as site1>
+                    <option>${site1}</option>
                 </#list>
             </select>
         </div>

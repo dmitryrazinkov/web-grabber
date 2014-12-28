@@ -30,9 +30,14 @@ public class MainController {
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST)
-    public String addSite(@ModelAttribute("site") String site) {
-        sites.addSiteForGrub(site);
-        return "redirect:/";
+    public String addSite(@ModelAttribute("site1") String site1, ModelMap modelMap) {
+        sites.addSiteForGrub(site1);
+        if (!sites.getSites().isEmpty()) {
+            modelMap.addAttribute("sites", sites.getSites());
+        }
+
+        modelMap.addAttribute("onTaskSites", sites.getSitesForGrub());
+        return "index";
     }
 
     @RequestMapping("/delete/{site}")

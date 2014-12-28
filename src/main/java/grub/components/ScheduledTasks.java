@@ -19,7 +19,7 @@ public class ScheduledTasks {
     @Autowired
     GrubResultService grubResultService;
 
-    @Scheduled(cron = "0 0/10 * 1/1 * ?")
+    @Scheduled(cron = "0 0/1 * 1/1 * ?")
     public void grub() throws IOException {
         System.out.print("task run");
         for (String site : sites.getSitesForGrub()) {
