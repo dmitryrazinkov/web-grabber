@@ -10,19 +10,19 @@
 </head>
 <body>
 <div class="container">
-<#if sites??>
-    <form method="post" action="" style="margin:60px 0px 0px 0px;">
-        <div class="form-group">
-            <label>Select site:</label>
-            <select name="site1" class="form-control">
-                <#list sites as site1>
-                    <option>${site1}</option>
-                </#list>
-            </select>
-        </div>
-        <input type="submit" value="Add" class="btn btn-default">
-    </form>
-</#if>
+    <#if sites??>
+        <form method="post" action="" style="margin:60px 0px 0px 0px;">
+            <div class="form-group">
+                <label>Select site:</label>
+                <select name="site1" class="form-control">
+                    <#list sites as site1>
+                        <option>${site1}</option>
+                    </#list>
+                </select>
+            </div>
+            <input type="submit" value="Add" class="btn btn-default">
+        </form>
+    </#if>
 
     <hr>
     <label>Current sites:</label>
