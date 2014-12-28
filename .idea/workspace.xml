@@ -2,16 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e78bce88-c4ea-444e-b9f3-3dafc45faf27" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\Дмитрий\Desktop\Practice\target\classes\casperJs\pogoda.yandex.js" afterPath="" />
-      <change type="MOVED" beforePath="C:\Users\Дмитрий\Desktop\Practice\src\main\resources\casperJs\pogoda.yandex.js" afterPath="$PROJECT_DIR$/src/main/resources/casperJs/pogoda-yandex.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/grub/controllers/MainController.class" afterPath="$PROJECT_DIR$/target/classes/grub/controllers/MainController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/grub/components/ScheduledTasks.class" afterPath="$PROJECT_DIR$/target/classes/grub/components/ScheduledTasks.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/grub/components/Sites.class" afterPath="$PROJECT_DIR$/target/classes/grub/components/Sites.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/grub/controllers/MainController.java" afterPath="$PROJECT_DIR$/src/main/java/grub/controllers/MainController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/grub/components/ScheduledTasks.java" afterPath="$PROJECT_DIR$/src/main/java/grub/components/ScheduledTasks.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/grub/components/Sites.java" afterPath="$PROJECT_DIR$/src/main/java/grub/components/Sites.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/index.ftl" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/index.ftl" afterPath="$PROJECT_DIR$/target/classes/templates/index.ftl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Practice.iws" />
@@ -95,7 +85,7 @@
       <file leaf-file-name="index.ftl" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/index.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6572935" vertical-offset="0" max-vertical-offset="1088">
+            <state vertical-scroll-proportion="0.42988506" vertical-offset="0" max-vertical-offset="1088">
               <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
               <folding>
                 <element signature="n#style#0;n#form#0;n#\sif#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -954,7 +944,13 @@
       <option name="project" value="LOCAL" />
       <updated>1419725739820</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="add moex site, fix add bug">
+      <created>1419783532537</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1419783532537</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -978,7 +974,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32996634" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -991,7 +987,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22921109" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32996634" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32575756" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32575756" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32996634" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18176973" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1033,7 +1029,8 @@
     <MESSAGE value="pogoda.yandex grub" />
     <MESSAGE value="isEmpty fix" />
     <MESSAGE value="cron, fix Date" />
-    <option name="LAST_COMMIT_MESSAGE" value="cron, fix Date" />
+    <MESSAGE value="add moex site, fix add bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="add moex site, fix add bug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1455,7 +1452,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/index.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6572935" vertical-offset="0" max-vertical-offset="1088">
+        <state vertical-scroll-proportion="0.42988506" vertical-offset="0" max-vertical-offset="1088">
           <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
           <folding>
             <element signature="n#style#0;n#form#0;n#\sif#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
