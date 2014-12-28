@@ -20,7 +20,7 @@ public class Sites {
     }
 
     public Sites() {
-      //  sites.add("google");
+        //  sites.add("google");
         sites.add("pogoda-yandex");
         sites.add("moex");
     }

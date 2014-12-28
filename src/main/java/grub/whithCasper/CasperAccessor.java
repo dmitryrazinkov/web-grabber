@@ -29,13 +29,13 @@ public class CasperAccessor {
         PrintWriter pWriter = new PrintWriter(outStream);
         pWriter.println("chcp 65001");
         pWriter.println("cd src\\main\\resources\\casperJs\\");
-        pWriter.println("casperjs "+site+".js");
+        pWriter.println("casperjs " + site + ".js");
         pWriter.flush();
         pWriter.close();
         InputStreamReader reader = new InputStreamReader(iStream);
         Scanner scan = new Scanner(reader);
         while (scan.hasNextLine()) {
-            String s=scan.nextLine();
+            String s = scan.nextLine();
             listFromCmd.add(s);
             System.out.println(s);
         }

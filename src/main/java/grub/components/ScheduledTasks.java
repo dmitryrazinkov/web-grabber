@@ -26,10 +26,18 @@ public class ScheduledTasks {
             CasperAccessor casperAccessor = new CasperAccessor();
             casperAccessor.execute(site);
 
-            List<String> list=casperAccessor.getListFromCmd();
+            List<String> list = casperAccessor.getListFromCmd();
             java.util.Date now = new java.util.Date(Calendar.getInstance().getTime().getTime());
 
-            grubResultService.addOne(new GrubResult(now, site, list.get(9) + ";" + list.get(10)));
+            grubResultService.addOne(new GrubResult(now, site, message(list)));
         }
+    }
+
+    public String message(List<String> list) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 9; i < list.size() - 1; i++) {
+            sb.append(list.get(i)).append(" ");
+        }
+        return sb.toString();
     }
 }

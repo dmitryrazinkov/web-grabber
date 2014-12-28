@@ -47,8 +47,8 @@ public class MainController {
     }
 
     @RequestMapping("/{site}")
-    public String details(@PathVariable String site, ModelMap modelMap){
-        modelMap.addAttribute("resultList",grubResultService.findBySite(site));
+    public String details(@PathVariable String site, ModelMap modelMap) {
+        modelMap.addAttribute("resultList", grubResultService.findBySite(site));
         return "details";
     }
 

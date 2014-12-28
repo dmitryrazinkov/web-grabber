@@ -20,12 +20,12 @@
                 </#list>
             </select>
         </div>
-        <input type="submit" value="Submit" class="btn btn-default">
+        <input type="submit" value="Add" class="btn btn-default">
     </form>
 </#if>
 
     <hr>
-
+    <label>Current sites:</label>
     <table class="table table-striped" id="table">
         <thead>
         <tr>
@@ -43,7 +43,7 @@
                     <a href="/delete/${site}">Delete</a>
                 </td>
                 <td>
-                    <a href="#">Details</a>
+                    <a href="/${site}">Details</a>
                 </td>
             </tr>
         </#list>
