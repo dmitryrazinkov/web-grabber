@@ -17,6 +17,7 @@ public class Launcher {
                 //   jFrame.setLocation(450, 150);
                 //   jFrame.setSize(500, 400);
                 //   jFrame.setVisible(true);
+
                 Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
                 if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
                     try {

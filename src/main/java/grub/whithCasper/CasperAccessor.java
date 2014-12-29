@@ -1,44 +1,35 @@
 package grub.whithCasper;
 
-import java.io.*;
-import java.util.ArrayList;
-import java.util.Scanner;
+import org.springframework.stereotype.Service;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
+@Service
 public class CasperAccessor {
-    private InputStream iStream;
-    private OutputStream outStream;
 
-    private ArrayList<String> listFromCmd = new ArrayList<String>();
-
-    public ArrayList<String> getListFromCmd() {
-        return listFromCmd;
+    public CasperAccessor() {
     }
 
-    public CasperAccessor() throws IOException {
-        ProcessBuilder builder = new ProcessBuilder("cmd.exe");
-        builder.redirectErrorStream(true);
-        Process cmd = builder.start();
+    public String execute(String site) {
+        StringBuffer output = new StringBuffer();
 
-        iStream = cmd.getInputStream();
+        Process p;
+        try {
+            p = Runtime.getRuntime().exec("casperjs src\\main\\resources\\casperJs\\" + site + ".js");
+            p.waitFor();
+            BufferedReader reader =
+                    new BufferedReader(new InputStreamReader(p.getInputStream()));
 
-        outStream = cmd.getOutputStream();
-    }
+            String line = "";
+            while ((line = reader.readLine()) != null) {
+                output.append(line + "\n");
+            }
 
-    public void execute(String site) {
-        PrintWriter pWriter = new PrintWriter(outStream);
-        pWriter.println("chcp 65001");
-        pWriter.println("cd src\\main\\resources\\casperJs\\");
-        pWriter.println("casperjs " + site + ".js");
-        pWriter.flush();
-        pWriter.close();
-        InputStreamReader reader = new InputStreamReader(iStream);
-        Scanner scan = new Scanner(reader);
-        while (scan.hasNextLine()) {
-            String s = scan.nextLine();
-            listFromCmd.add(s);
-            System.out.println(s);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+        return output.toString();
 
     }
 
