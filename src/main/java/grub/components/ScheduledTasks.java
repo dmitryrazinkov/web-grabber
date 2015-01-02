@@ -8,7 +8,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
-import java.util.Calendar;
+import java.util.Date;
 
 @Component
 public class ScheduledTasks {
@@ -25,7 +25,7 @@ public class ScheduledTasks {
     public void grub() throws IOException {
         System.out.println("task run");
         for (String site : sites.getSitesForGrub()) {
-            java.util.Date now = new java.util.Date(Calendar.getInstance().getTime().getTime());
+            Date now = new Date();
             grubResultService.addOne(new GrubResult(now, site, casperAccessor.execute(site)));
         }
     }

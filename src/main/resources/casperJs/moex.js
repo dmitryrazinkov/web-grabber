@@ -6,7 +6,7 @@ var casper = require('casper').create({
 casper.start('http://moex.com/ru/markets/currency/');
 
 casper.then(function(){
-	if(this.exists('button[type="button"]')){
+	if(this.exists('button[type="button"]')) {
 		this.click('button[type="button"]');
 		};
 });
