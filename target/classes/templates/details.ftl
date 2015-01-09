@@ -17,7 +17,7 @@
         <tr>
 
             <th>Date</th>
-            <th>Site</th>
+            <th></th>
             <th>Details</th>
         </tr>
         </thead>
@@ -27,7 +27,7 @@
             <tr>
 
                 <td>${result.date}</td>
-                <td>${result.site}</td>
+                <td></td>
                 <td>${result.details}</td>
             </tr>
 
