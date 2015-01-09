@@ -1,6 +1,7 @@
 package grub.services;
 
 import grub.entities.GrubResult;
+import grub.entities.Scripts;
 import grub.repositories.GrubResultRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,9 +21,9 @@ public class GrubResultService {
     }
 
     @Transactional
-    public List<GrubResult> findBySite(String site) {
+    public List<GrubResult> findByScript(Scripts script) {
         List<GrubResult> grubResults = new ArrayList<GrubResult>();
-        for (GrubResult grubResult : grubResultRepository.findBySite(site)) {
+        for (GrubResult grubResult : grubResultRepository.findByScript(script)) {
             grubResults.add(grubResult);
         }
         return grubResults;

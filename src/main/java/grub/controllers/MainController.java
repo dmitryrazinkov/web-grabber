@@ -21,34 +21,38 @@ public class MainController {
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String index(ModelMap modelMap) {
+        sites.init();
         if (!sites.getSites().isEmpty()) {
             modelMap.addAttribute("sites", sites.getSites());
         }
 
+        
         modelMap.addAttribute("onTaskSites", sites.getSitesForGrub());
+
         return "index";
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST)
     public String addSite(@ModelAttribute("site1") String site1, ModelMap modelMap) {
-        sites.addSiteForGrub(site1);
+    /*    sites.addSiteForGrub(site1);
         if (!sites.getSites().isEmpty()) {
             modelMap.addAttribute("sites", sites.getSites());
         }
 
         modelMap.addAttribute("onTaskSites", sites.getSitesForGrub());
+        */
         return "index";
     }
 
     @RequestMapping("/delete/{site}")
     public String delete(@PathVariable String site) {
-        sites.deleteSiteFromGrub(site);
+     //   sites.deleteSiteFromGrub(site);
         return "redirect:/";
     }
 
     @RequestMapping("/{site}")
     public String details(@PathVariable String site, ModelMap modelMap) {
-        modelMap.addAttribute("resultList", grubResultService.findBySite(site));
+     //   modelMap.addAttribute("resultList", grubResultService.findBySite(site));
         return "details";
     }
 

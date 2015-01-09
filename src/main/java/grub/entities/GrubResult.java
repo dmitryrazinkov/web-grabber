@@ -1,9 +1,6 @@
 package grub.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class GrubResult {
@@ -13,42 +10,15 @@ public class GrubResult {
 
     private java.util.Date date;
 
-    private String site;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "Sc_Id")
+    private Scripts script;
 
     private String details;
 
     public GrubResult() {
     }
 
-    public GrubResult(java.util.Date date, String site, String details) {
-        this.date = date;
-        this.site = site;
-        this.details = details;
-    }
-
-    public java.util.Date getDate() {
-        return date;
-    }
-
-    public void setDate(java.util.Date date) {
-        this.date = date;
-    }
-
-    public String getSite() {
-        return site;
-    }
-
-    public void setSite(String site) {
-        this.site = site;
-    }
-
-    public String getDetails() {
-        return details;
-    }
-
-    public void setDetails(String details) {
-        this.details = details;
-    }
 
 
 }

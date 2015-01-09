@@ -1,6 +1,7 @@
 package grub.app;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.context.ApplicationContext;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,7 +12,9 @@ public class Launcher {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                SpringApplication.run(Config.class, args);
+                ApplicationContext context= SpringApplication.run(Config.class, args);
+              //  ScriptsRepository scriptsRepository=context.getBean(ScriptsRepository.class);
+              //  scriptsRepository.save(new Scripts("23"));
                 //   JFrame jFrame = new mainGrabForm("Grub");
                 //   jFrame.setDefaultCloseOperation(jFrame.EXIT_ON_CLOSE);
                 //   jFrame.setLocation(450, 150);
