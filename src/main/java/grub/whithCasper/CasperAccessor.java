@@ -8,13 +8,13 @@ import java.io.InputStreamReader;
 @Service
 public class CasperAccessor {
 
-    public String execute(String site) {
+    public String execute(String path) {
         StringBuffer output = new StringBuffer();
 
         Process p;
         try {
             // TODO handle OS errors
-            p = Runtime.getRuntime().exec("casperjs src\\main\\resources\\casperJs\\" + site + ".js");
+            p = Runtime.getRuntime().exec("casperjs " + path);
             p.waitFor();
             BufferedReader reader =
                     new BufferedReader(new InputStreamReader(p.getInputStream()));

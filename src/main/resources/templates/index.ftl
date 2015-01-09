@@ -43,7 +43,7 @@
                     <a href="/delete/${site.getName()}">Delete</a>
                 </td>
                 <td>
-                    <a href="/${site}">Details</a>
+                    <a href="/${site.getName()}">Details</a>
                 </td>
             </tr>
         </#list>
