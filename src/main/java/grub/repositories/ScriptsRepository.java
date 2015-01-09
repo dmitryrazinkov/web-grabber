@@ -8,7 +8,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ScriptsRepository extends CrudRepository<Scripts,Integer> {
+public interface ScriptsRepository extends CrudRepository<Scripts, Integer> {
     @Query("Select s from Scripts s")
     List<Scripts> allScripts();
+
+    Scripts findByName(String name);
 }

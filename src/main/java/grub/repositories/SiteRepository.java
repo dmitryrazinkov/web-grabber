@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 import java.net.URL;
 
 @Repository
-public interface SiteRepository extends CrudRepository<Site,URL> {
+public interface SiteRepository extends CrudRepository<Site, URL> {
 }

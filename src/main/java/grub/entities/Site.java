@@ -14,7 +14,7 @@ public class Site {
     private URL url;
 
     @OneToMany(mappedBy = "site", fetch = FetchType.EAGER)
-    List<Scripts> scripts=new ArrayList<Scripts>();
+    List<Scripts> scripts = new ArrayList<Scripts>();
 
 
 }

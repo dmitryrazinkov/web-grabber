@@ -13,12 +13,16 @@ public class ScriptsService {
     @Autowired
     ScriptsRepository scriptsRepository;
 
-    public List<Scripts> allScripts(){
-        List<Scripts> scripts=new ArrayList<Scripts>();
-        for(Scripts script: scriptsRepository.findAll()){
+    public List<Scripts> allScripts() {
+        List<Scripts> scripts = new ArrayList<Scripts>();
+        for (Scripts script : scriptsRepository.findAll()) {
             scripts.add(script);
             System.out.println(script.getName());
         }
         return scripts;
+    }
+
+    public Scripts findByName(String name) {
+        return scriptsRepository.findByName(name);
     }
 }

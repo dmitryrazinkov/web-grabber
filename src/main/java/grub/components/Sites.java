@@ -5,7 +5,9 @@ import grub.services.ScriptsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 @Component
@@ -13,16 +15,16 @@ public class Sites {
     @Autowired
     ScriptsService scriptsService;
 
-    private List<String> sites = new ArrayList<String>();
+    private List<Scripts> scripts = new ArrayList<Scripts>();
 
-    public List<String> getSitesForGrub() {
-        return sitesForGrub;
+    public List<Scripts> getScriptsForGrub() {
+        return scriptsForGrub;
     }
 
-    private List<String> sitesForGrub = new ArrayList<String>();
+    private List<Scripts> scriptsForGrub = new ArrayList<Scripts>();
 
-    public List<String> getSites() {
-        return sites;
+    public List<Scripts> getScripts() {
+        return scripts;
     }
 
 
@@ -30,21 +32,29 @@ public class Sites {
         //  sites.add("google");
 
     }
+    @PostConstruct
+    public void init() {
 
-    public void init(){
-
-        for (Scripts script: scriptsService.allScripts()) {
-            sites.add(script.getName());
+        for (Scripts script : scriptsService.allScripts()) {
+            scripts.add(script);
         }
     }
 
-    public void addSiteForGrub(String site) {
-        sites.remove(site);
-        sitesForGrub.add(site);
+    public void addScriptForGrub(Scripts script) {
+        Iterator<Scripts> it=scripts.iterator();
+        while (it.hasNext()){
+            if (it.next().getName().equals(script.getName()))
+                it.remove();
+        }
+        scriptsForGrub.add(script);
     }
 
-    public void deleteSiteFromGrub(String site) {
-        sitesForGrub.remove(site);
-        sites.add(site);
+    public void deleteScriptFromGrub(Scripts script) {
+        Iterator<Scripts> it=scriptsForGrub.iterator();
+        while (it.hasNext()){
+            if (it.next().getName().equals(script.getName()))
+                it.remove();
+        }
+        scripts.add(script);
     }
 }

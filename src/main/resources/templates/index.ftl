@@ -16,7 +16,7 @@
                 <label>Select site:</label>
                 <select name="site1" class="form-control">
                     <#list sites as site1>
-                        <option>${site1}</option>
+                        <option>${site1.getName()}</option>
                     </#list>
                 </select>
             </div>
@@ -37,10 +37,10 @@
         <tbody>
         <#list onTaskSites as site>
             <tr>
-                <td>${site}</td>
+                <td>${site.getName()}</td>
                 <td>
                     <span class="glyphicon glyphicon-remove"></span>
-                    <a href="/delete/${site}">Delete</a>
+                    <a href="/delete/${site.getName()}">Delete</a>
                 </td>
                 <td>
                     <a href="/${site}">Details</a>

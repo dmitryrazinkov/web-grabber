@@ -2,6 +2,7 @@ package grub.controllers;
 
 import grub.components.Sites;
 import grub.services.GrubResultService;
+import grub.services.ScriptsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -19,40 +20,40 @@ public class MainController {
     @Autowired
     GrubResultService grubResultService;
 
+    @Autowired
+    ScriptsService scriptsService;
+
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String index(ModelMap modelMap) {
-        sites.init();
-        if (!sites.getSites().isEmpty()) {
-            modelMap.addAttribute("sites", sites.getSites());
+        //sites.init();
+        if (!sites.getScripts().isEmpty()) {
+            modelMap.addAttribute("sites", sites.getScripts());
         }
-
-        
-        modelMap.addAttribute("onTaskSites", sites.getSitesForGrub());
-
+        modelMap.addAttribute("onTaskSites", sites.getScriptsForGrub());
         return "index";
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST)
     public String addSite(@ModelAttribute("site1") String site1, ModelMap modelMap) {
-    /*    sites.addSiteForGrub(site1);
-        if (!sites.getSites().isEmpty()) {
-            modelMap.addAttribute("sites", sites.getSites());
+        sites.addScriptForGrub(scriptsService.findByName(site1));
+        if (!sites.getScripts().isEmpty()) {
+            modelMap.addAttribute("sites", sites.getScripts());
         }
 
-        modelMap.addAttribute("onTaskSites", sites.getSitesForGrub());
-        */
+        modelMap.addAttribute("onTaskSites", sites.getScriptsForGrub());
+
         return "index";
     }
 
     @RequestMapping("/delete/{site}")
     public String delete(@PathVariable String site) {
-     //   sites.deleteSiteFromGrub(site);
+        sites.deleteScriptFromGrub(scriptsService.findByName(site));
         return "redirect:/";
     }
 
     @RequestMapping("/{site}")
     public String details(@PathVariable String site, ModelMap modelMap) {
-     //   modelMap.addAttribute("resultList", grubResultService.findBySite(site));
+        //   modelMap.addAttribute("resultList", grubResultService.findBySite(site));
         return "details";
     }
 

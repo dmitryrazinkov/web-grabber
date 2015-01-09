@@ -15,7 +15,7 @@ public class Scripts {
     private Site site;
 
     @Lob
-    @Basic(fetch=FetchType.LAZY)
+    @Basic(fetch = FetchType.LAZY)
     private byte[] file;
 
     private String name;
@@ -23,7 +23,7 @@ public class Scripts {
     private String description;
 
     @OneToMany(mappedBy = "script", fetch = FetchType.EAGER)
-    List<GrubResult> results =new ArrayList<GrubResult>();
+    List<GrubResult> results = new ArrayList<GrubResult>();
 
     public Scripts() {
     }
@@ -76,7 +76,33 @@ public class Scripts {
         this.results = results;
     }
 
-  //  public Scripts(String name) {
- //       this.name = name;
- //   }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Scripts)) return false;
+
+        Scripts scripts = (Scripts) o;
+
+        if (description != null ? !description.equals(scripts.description) : scripts.description != null) return false;
+        if (id != null ? !id.equals(scripts.id) : scripts.id != null) return false;
+        if (name != null ? !name.equals(scripts.name) : scripts.name != null) return false;
+        if (results != null ? !results.equals(scripts.results) : scripts.results != null) return false;
+        if (site != null ? !site.equals(scripts.site) : scripts.site != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (site != null ? site.hashCode() : 0);
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (description != null ? description.hashCode() : 0);
+        result = 31 * result + (results != null ? results.hashCode() : 0);
+        return result;
+    }
+
+    //  public Scripts(String name) {
+    //       this.name = name;
+    //   }
 }
