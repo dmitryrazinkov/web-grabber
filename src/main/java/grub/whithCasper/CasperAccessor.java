@@ -1,5 +1,7 @@
 package grub.whithCasper;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
@@ -7,8 +9,10 @@ import java.io.InputStreamReader;
 
 @Service
 public class CasperAccessor {
-
+    private static final Logger log = LoggerFactory.getLogger(CasperAccessor.class);
     public String execute(String path) {
+        log.debug("CasperAccessor start");
+
         StringBuffer output = new StringBuffer();
 
         Process p;
@@ -25,8 +29,9 @@ public class CasperAccessor {
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("Failed access to CasperJs",e);
         }
+        log.debug("CasperAccessor done");
         return output.toString();
 
     }
