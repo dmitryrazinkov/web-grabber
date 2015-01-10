@@ -13,14 +13,13 @@ public class CasperAccessor {
 
     public String execute(String path) {
         log.debug("CasperAccessor start");
-
         StringBuffer output = new StringBuffer();
         Process p;
         try {
             p = Runtime.getRuntime().exec("casperjs " + path);
             p.waitFor();
             if (p.exitValue() != 0) {
-                log.error("CasperJs can't be execute, checking PATH");
+                log.error("CasperJs can't be execute, checking PATH or internet connection");
                 return "error";
             } else {
                 log.debug("CasperJs calling success");
@@ -30,16 +29,18 @@ public class CasperAccessor {
 
             String line = "";
             while ((line = reader.readLine()) != null) {
-                output.append(line + "\n");
+                if (!line.isEmpty()) {
+                    output.append(line + "\n");
+                }
             }
-
         } catch (Exception e) {
             log.error("Failed access to CasperJs", e);
         }
         log.debug("CasperAccessor done");
+        if (output.toString().isEmpty()) {
+            log.error("Can't get result");
+            return "error";
+        }
         return output.toString();
-
     }
-
-
 }

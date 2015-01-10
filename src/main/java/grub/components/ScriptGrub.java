@@ -2,6 +2,8 @@ package grub.components;
 
 import grub.entities.Scripts;
 import grub.services.ScriptsService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -12,6 +14,7 @@ import java.util.List;
 
 @Component
 public class ScriptGrub {
+    private static final Logger log = LoggerFactory.getLogger(ScriptGrub.class);
     @Autowired
     ScriptsService scriptsService;
 
@@ -29,16 +32,14 @@ public class ScriptGrub {
 
 
     public ScriptGrub() {
-        //  sites.add("google");
-
     }
 
     @PostConstruct
     public void init() {
-
         for (Scripts script : scriptsService.allScripts()) {
             scripts.add(script);
         }
+        log.debug("ScriptGrub initialized");
     }
 
     public void addScriptForGrub(Scripts script) {
