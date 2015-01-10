@@ -16,7 +16,7 @@ import java.util.Date;
 @Component
 public class ScheduledTasks {
     @Autowired
-    Sites sites;
+    ScriptGrub scriptGrub;
 
     @Autowired
     GrubResultService grubResultService;
@@ -30,7 +30,7 @@ public class ScheduledTasks {
     public void grub() throws IOException {
         System.out.println("task run");
 
-        for (Scripts script : sites.getScriptsForGrub()) {
+        for (Scripts script : scriptGrub.getScriptsForGrub()) {
             Date now = new Date();
 
             System.out.println("run");

@@ -11,7 +11,7 @@ import java.util.Iterator;
 import java.util.List;
 
 @Component
-public class Sites {
+public class ScriptGrub {
     @Autowired
     ScriptsService scriptsService;
 
@@ -28,7 +28,7 @@ public class Sites {
     }
 
 
-    public Sites() {
+    public ScriptGrub() {
         //  sites.add("google");
 
     }
