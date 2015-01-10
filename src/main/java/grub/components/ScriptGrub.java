@@ -32,6 +32,7 @@ public class ScriptGrub {
         //  sites.add("google");
 
     }
+
     @PostConstruct
     public void init() {
 
@@ -41,8 +42,8 @@ public class ScriptGrub {
     }
 
     public void addScriptForGrub(Scripts script) {
-        Iterator<Scripts> it=scripts.iterator();
-        while (it.hasNext()){
+        Iterator<Scripts> it = scripts.iterator();
+        while (it.hasNext()) {
             if (it.next().getName().equals(script.getName()))
                 it.remove();
         }
@@ -50,8 +51,8 @@ public class ScriptGrub {
     }
 
     public void deleteScriptFromGrub(Scripts script) {
-        Iterator<Scripts> it=scriptsForGrub.iterator();
-        while (it.hasNext()){
+        Iterator<Scripts> it = scriptsForGrub.iterator();
+        while (it.hasNext()) {
             if (it.next().getName().equals(script.getName()))
                 it.remove();
         }

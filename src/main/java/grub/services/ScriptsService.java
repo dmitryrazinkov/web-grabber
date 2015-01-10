@@ -5,6 +5,7 @@ import grub.repositories.ScriptsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +14,7 @@ public class ScriptsService {
     @Autowired
     ScriptsRepository scriptsRepository;
 
+    @Transactional
     public List<Scripts> allScripts() {
         List<Scripts> scripts = new ArrayList<Scripts>();
         for (Scripts script : scriptsRepository.findAll()) {
@@ -22,6 +24,7 @@ public class ScriptsService {
         return scripts;
     }
 
+    @Transactional
     public Scripts findByName(String name) {
         return scriptsRepository.findByName(name);
     }

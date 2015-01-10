@@ -10,6 +10,7 @@ import java.io.InputStreamReader;
 @Service
 public class CasperAccessor {
     private static final Logger log = LoggerFactory.getLogger(CasperAccessor.class);
+
     public String execute(String path) {
         log.debug("CasperAccessor start");
 
@@ -18,11 +19,10 @@ public class CasperAccessor {
         try {
             p = Runtime.getRuntime().exec("casperjs " + path);
             p.waitFor();
-            if (p.exitValue()!=0) {
+            if (p.exitValue() != 0) {
                 log.error("CasperJs can't be execute, checking PATH");
                 return "error";
-            }
-            else {
+            } else {
                 log.debug("CasperJs calling success");
             }
             BufferedReader reader =
@@ -34,7 +34,7 @@ public class CasperAccessor {
             }
 
         } catch (Exception e) {
-            log.error("Failed access to CasperJs",e);
+            log.error("Failed access to CasperJs", e);
         }
         log.debug("CasperAccessor done");
         return output.toString();
