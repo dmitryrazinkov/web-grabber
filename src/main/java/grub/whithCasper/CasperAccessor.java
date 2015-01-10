@@ -14,12 +14,17 @@ public class CasperAccessor {
         log.debug("CasperAccessor start");
 
         StringBuffer output = new StringBuffer();
-
         Process p;
         try {
-            // TODO handle OS errors
             p = Runtime.getRuntime().exec("casperjs " + path);
             p.waitFor();
+            if (p.exitValue()!=0) {
+                log.error("CasperJs can't be execute, checking PATH");
+                return "error";
+            }
+            else {
+                log.debug("CasperJs calling success");
+            }
             BufferedReader reader =
                     new BufferedReader(new InputStreamReader(p.getInputStream()));
 
