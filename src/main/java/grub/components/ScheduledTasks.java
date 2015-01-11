@@ -1,5 +1,6 @@
 package grub.components;
 
+import grub.Frame.ChangeAlertDialog;
 import grub.Strategy.OnChangeStrategy;
 import grub.entities.GrubResult;
 import grub.entities.Scripts;
@@ -35,6 +36,9 @@ public class ScheduledTasks {
     @Scheduled(cron = "0 0/1 * 1/1 * ?")
     public void grub() {
         log.debug("task run");
+        //      ChangeAlertDialog dialog = new ChangeAlertDialog();
+        //      dialog.pack();
+        //     dialog.setVisible(true);
 
         for (Scripts script : scriptGrub.getScriptsForGrub()) {
             Date now = new Date();
@@ -46,7 +50,13 @@ public class ScheduledTasks {
                 fileOutputStream.close();
                 grubResultService.addOne(new GrubResult(now, script, casperAccessor.execute(path)));
                 if (script.getDescription() != null && script.getDescription().equals("onchange")) {
-                    log.debug("on change strategy result: {}", onChangeStrategy.isChanged(script));
+                    if (onChangeStrategy.isChanged(script)) {
+                        ChangeAlertDialog dialog = new ChangeAlertDialog(script.getName(),
+                                script.getSite().getUrl().toString(), now);
+                        dialog.pack();
+                        dialog.setVisible(true);
+                        log.debug("GhangeAlertDialog open");
+                    }
                 }
                 file.delete();
             } catch (Exception e) {

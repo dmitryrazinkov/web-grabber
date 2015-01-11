@@ -17,6 +17,7 @@ public class Launcher {
             @Override
             public void run() {
                 ApplicationContext context = SpringApplication.run(Config.class, args);
+
                 //   JFrame jFrame = new mainGrabForm("Grub");
                 //   jFrame.setDefaultCloseOperation(jFrame.EXIT_ON_CLOSE);
                 //   jFrame.setLocation(450, 150);
