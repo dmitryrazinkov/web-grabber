@@ -19,7 +19,7 @@ public class CasperAccessor {
             p = Runtime.getRuntime().exec("casperjs " + path);
             p.waitFor();
             if (p.exitValue() != 0) {
-                log.error("CasperJs can't be execute, checking PATH or internet connection");
+                log.error("CasperJs can't be execute");
                 return "error";
             } else {
                 log.debug("CasperJs calling success");

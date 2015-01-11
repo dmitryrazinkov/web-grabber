@@ -1,5 +1,6 @@
 package grub.components;
 
+import grub.Strategy.OnChangeStrategy;
 import grub.entities.GrubResult;
 import grub.entities.Scripts;
 import grub.services.GrubResultService;
@@ -26,6 +27,9 @@ public class ScheduledTasks {
     @Autowired
     CasperAccessor casperAccessor;
 
+    @Autowired
+    OnChangeStrategy onChangeStrategy;
+
     private String path = "D:\\testing.js";
 
     @Scheduled(cron = "0 0/1 * 1/1 * ?")
@@ -41,9 +45,11 @@ public class ScheduledTasks {
                 fileOutputStream.write(script.getFile());
                 fileOutputStream.close();
                 grubResultService.addOne(new GrubResult(now, script, casperAccessor.execute(path)));
+                if (script.getDescription() != null && script.getDescription().equals("onchange")) {
+                    log.debug("on change strategy result: {}", onChangeStrategy.isChanged(script));
+                }
                 file.delete();
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 log.error("Failed create tmp file and execute casperJs", e);
             }
         }

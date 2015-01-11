@@ -9,4 +9,5 @@ import java.util.List;
 public interface GrubResultRepository extends CrudRepository<GrubResult, Integer> {
 
     List<GrubResult> findByScript(Scripts script);
+
 }

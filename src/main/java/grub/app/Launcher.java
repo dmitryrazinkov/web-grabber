@@ -11,6 +11,7 @@ import java.net.URL;
 
 public class Launcher {
     private static final Logger log = LoggerFactory.getLogger(Launcher.class);
+
     public static void main(final String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
@@ -27,7 +28,7 @@ public class Launcher {
                     try {
                         desktop.browse(new URL("http://localhost:4040").toURI());
                     } catch (Exception e) {
-                        log.error("Failed open browser tab",e);
+                        log.error("Failed open browser tab", e);
                     }
                 }
 
