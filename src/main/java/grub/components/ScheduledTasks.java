@@ -36,9 +36,6 @@ public class ScheduledTasks {
     @Scheduled(cron = "0 0/1 * 1/1 * ?")
     public void grub() {
         log.debug("task run");
-        //      ChangeAlertDialog dialog = new ChangeAlertDialog();
-        //      dialog.pack();
-        //     dialog.setVisible(true);
 
         for (Scripts script : scriptGrub.getScriptsForGrub()) {
             Date now = new Date();
