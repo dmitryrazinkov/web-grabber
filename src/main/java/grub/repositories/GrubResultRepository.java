@@ -10,4 +10,6 @@ public interface GrubResultRepository extends CrudRepository<GrubResult, Integer
 
     List<GrubResult> findByScript(Scripts script);
 
+    void deleteByScript(Scripts script);
+
 }

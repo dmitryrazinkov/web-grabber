@@ -22,7 +22,7 @@ public class OnChangeStrategy {
         GrubResult last = null;
         GrubResult preLast = null;
         int size = results.size();
-        while ((last == null || preLast == null) && size > 1) {
+        while ((last == null || preLast == null) && size > 0) {
             if (last == null) {
                 if (results.get(size - 1).getDetails().equals("error")) {
                     size = size - 1;
@@ -41,7 +41,7 @@ public class OnChangeStrategy {
             }
 
         }
-        if (last != null || preLast != null) {
+        if (last != null && preLast != null) {
             log.debug("Find last two result");
             return !last.getDetails().equals(preLast.getDetails());
         } else {

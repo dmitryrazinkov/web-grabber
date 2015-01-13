@@ -37,7 +37,7 @@ public class CasperAccessor {
             log.error("Failed access to CasperJs", e);
             return "error";
         }
-        log.debug("CasperAccessor done");
+        log.debug("Casper access done");
         if (output.toString().isEmpty()) {
             log.error("Can't get result");
             return "error";

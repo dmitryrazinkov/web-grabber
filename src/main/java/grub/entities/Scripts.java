@@ -102,7 +102,7 @@ public class Scripts {
         return result;
     }
 
-    //  public Scripts(String name) {
-    //       this.name = name;
-    //   }
+      public Scripts(String name) {
+           this.name = name;
+       }
 }

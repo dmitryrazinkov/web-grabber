@@ -28,4 +28,14 @@ public class ScriptsService {
     public Scripts findByName(String name) {
         return scriptsRepository.findByName(name);
     }
+
+    @Transactional
+    public Scripts save(Scripts script){
+        return scriptsRepository.save(script);
+    }
+
+    @Transactional
+    public void delete(Scripts script){
+        scriptsRepository.delete(script);
+    }
 }

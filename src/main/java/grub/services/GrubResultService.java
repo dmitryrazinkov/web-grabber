@@ -28,4 +28,14 @@ public class GrubResultService {
         }
         return grubResults;
     }
+
+    @Transactional
+    public void delete(GrubResult grubResult){
+        grubResultRepository.delete(grubResult);
+    }
+
+    @Transactional
+    public void deleteByScript(Scripts script){
+        grubResultRepository.deleteByScript(script);
+    }
 }
