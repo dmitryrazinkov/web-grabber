@@ -19,11 +19,15 @@ public class TestCasperAccessor {
     @Autowired()
     CasperAccessor casperAccessor;
 
-    @Test
+    @Test()
     public void testError() {
         String result=casperAccessor.execute("D://testNotFile.js","");
         assertEquals(result,"error");
-        result=casperAccessor.execute("D://test.js","");
+    }
+
+    @Test
+    public void testNotError(){
+        String result=casperAccessor.execute("D://test.js","");
         assertFalse(result.equals("error"));
     }
 }

@@ -66,6 +66,18 @@ public class TestOnChangeStrategy {
         assertTrue(onChangeStrategy.isChanged(testScript));
     }
 
+    @Test
+    public void testOne(){
+        Date now=new Date();
+        grubResultService.addOne(new GrubResult(now,testScript,"same"));
+        assertFalse(onChangeStrategy.isChanged(testScript));
+    }
+
+    @Test
+    public void testNull(){
+        assertFalse(onChangeStrategy.isChanged(testScript));
+    }
+
     @After
     public  void after(){
         grubResultService.deleteByScript(testScript);

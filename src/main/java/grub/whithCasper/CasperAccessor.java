@@ -16,7 +16,8 @@ public class CasperAccessor {
         StringBuffer output = new StringBuffer();
         Process p;
         try {
-            p = Runtime.getRuntime().exec("casperjs " + path+" "+args);
+            p = Runtime.getRuntime().exec("casperjs " + path+" "+
+                    args);
             p.waitFor();
             if (p.exitValue() != 0) {
                 log.error("CasperJs can't be execute");
