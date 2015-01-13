@@ -11,12 +11,12 @@ import java.io.InputStreamReader;
 public class CasperAccessor {
     private static final Logger log = LoggerFactory.getLogger(CasperAccessor.class);
 
-    public String execute(String path) {
+    public String execute(String path, String args) {
         log.debug("CasperAccessor start");
         StringBuffer output = new StringBuffer();
         Process p;
         try {
-            p = Runtime.getRuntime().exec("casperjs " + path);
+            p = Runtime.getRuntime().exec("casperjs " + path+" "+args);
             p.waitFor();
             if (p.exitValue() != 0) {
                 log.error("CasperJs can't be execute");

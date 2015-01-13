@@ -45,7 +45,10 @@ public class ScheduledTasks {
                 FileOutputStream fileOutputStream = new FileOutputStream(path);
                 fileOutputStream.write(script.getFile());
                 fileOutputStream.close();
-                grubResultService.addOne(new GrubResult(now, script, casperAccessor.execute(path)));
+                if(script.getArgs()==null) {
+                    script.setArgs("");
+                }
+                grubResultService.addOne(new GrubResult(now, script, casperAccessor.execute(path,script.getArgs())));
                 if (script.getDescription() != null && script.getDescription().equals("onchange")) {
                     if (onChangeStrategy.isChanged(script)) {
                         ChangeAlertDialog dialog = new ChangeAlertDialog(script.getName(),

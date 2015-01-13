@@ -21,9 +21,9 @@ public class TestCasperAccessor {
 
     @Test
     public void testError() {
-        String result=casperAccessor.execute("D://testNotFile.js");
+        String result=casperAccessor.execute("D://testNotFile.js","");
         assertEquals(result,"error");
-        result=casperAccessor.execute("D://test.js");
+        result=casperAccessor.execute("D://test.js","");
         assertFalse(result.equals("error"));
     }
 }

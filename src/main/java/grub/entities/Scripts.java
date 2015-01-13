@@ -22,6 +22,8 @@ public class Scripts {
 
     private String description;
 
+    private String args;
+
     @OneToMany(mappedBy = "script", fetch = FetchType.EAGER)
     List<GrubResult> results = new ArrayList<GrubResult>();
 
@@ -62,6 +64,14 @@ public class Scripts {
 
     public String getDescription() {
         return description;
+    }
+
+    public String getArgs() {
+        return args;
+    }
+
+    public void setArgs(String args) {
+        this.args = args;
     }
 
     public void setDescription(String description) {
