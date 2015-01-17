@@ -1,5 +1,6 @@
 package grub.whithCasper;
 
+import grub.entities.StringResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -11,9 +12,10 @@ import java.io.InputStreamReader;
 public class CasperAccessor {
     private static final Logger log = LoggerFactory.getLogger(CasperAccessor.class);
 
-    public String execute(String path, String args) {
+    public StringResult execute(String path, String args) {
         log.debug("CasperAccessor start");
         StringBuffer output = new StringBuffer();
+
         Process p;
         try {
             p = Runtime.getRuntime().exec("casperjs " + path+" "+
@@ -21,7 +23,7 @@ public class CasperAccessor {
             p.waitFor();
             if (p.exitValue() != 0) {
                 log.error("CasperJs can't be execute");
-                return "error";
+                return new StringResult("",true);
             } else {
                 log.debug("CasperJs calling success");
             }
@@ -36,13 +38,13 @@ public class CasperAccessor {
             }
         } catch (Exception e) {
             log.error("Failed access to CasperJs", e);
-            return "error";
+            return new StringResult("",true);
         }
         log.debug("Casper access done");
         if (output.toString().isEmpty()) {
             log.error("Can't get result");
-            return "error";
+            return new StringResult("",true);
         }
-        return output.toString();
+        return new StringResult(output.toString(),true);
     }
 }

@@ -28,7 +28,7 @@
 
                 <td>${result.date}</td>
                 <td></td>
-                <td>${result.details}</td>
+                <td>${result.stringResult.stringResult}</td>
             </tr>
 
         </#list>

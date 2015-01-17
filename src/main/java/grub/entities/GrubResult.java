@@ -12,10 +12,12 @@ public class GrubResult {
     private java.util.Date date;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "Sc_Id")
+    @JoinColumn(name = "scId")
     private Scripts script;
 
-    private String details;
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "resId")
+    private StringResult stringResult;
 
     public GrubResult() {
     }
@@ -44,17 +46,17 @@ public class GrubResult {
         this.script = script;
     }
 
-    public String getDetails() {
-        return details;
+    public StringResult getStringResult() {
+        return stringResult;
     }
 
-    public void setDetails(String details) {
-        this.details = details;
+    public void setStringResult(StringResult stringResult) {
+        this.stringResult = stringResult;
     }
 
-    public GrubResult(Date date, Scripts script, String details) {
+    public GrubResult(Date date, Scripts script, StringResult stringResult) {
         this.date = date;
         this.script = script;
-        this.details = details;
+        this.stringResult =stringResult;
     }
 }

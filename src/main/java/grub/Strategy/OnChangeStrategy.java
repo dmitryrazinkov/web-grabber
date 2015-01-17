@@ -21,10 +21,11 @@ public class OnChangeStrategy {
         List<GrubResult> results = grubResultService.findByScript(script);
         GrubResult last = null;
         GrubResult preLast = null;
+
         int size = results.size();
         while ((last == null || preLast == null) && size > 0) {
             if (last == null) {
-                if (results.get(size - 1).getDetails().equals("error")) {
+                if (results.get(size - 1).getStringResult().equals("error")) {
                     size = size - 1;
                 } else {
                     last = results.get(size - 1);
@@ -32,7 +33,7 @@ public class OnChangeStrategy {
                 }
 
             } else {
-                if (results.get(size - 1).getDetails().equals("error")) {
+                if (results.get(size - 1).getStringResult().equals("error")) {
                     size = size - 1;
                 } else {
                     preLast = results.get(size - 1);
@@ -43,7 +44,7 @@ public class OnChangeStrategy {
         }
         if (last != null && preLast != null) {
             log.debug("Find last two result");
-            return !last.getDetails().equals(preLast.getDetails());
+            return !last.getStringResult().equals(preLast.getStringResult());
         } else {
             log.debug("Don't find last two result");
             return false;

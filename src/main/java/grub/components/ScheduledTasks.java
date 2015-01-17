@@ -4,7 +4,9 @@ import grub.Frame.ChangeAlertDialog;
 import grub.Strategy.OnChangeStrategy;
 import grub.entities.GrubResult;
 import grub.entities.Scripts;
+import grub.entities.StringResult;
 import grub.services.GrubResultService;
+import grub.services.StringResultService;
 import grub.whithCasper.CasperAccessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,6 +33,9 @@ public class ScheduledTasks {
     @Autowired
     OnChangeStrategy onChangeStrategy;
 
+    @Autowired
+    StringResultService stringResultService;
+
     private String path = "D:\\testing.js";
 
     @Scheduled(cron = "0 0/1 * 1/1 * ?")
@@ -48,7 +53,9 @@ public class ScheduledTasks {
                 if(script.getArgs()==null) {
                     script.setArgs("");
                 }
-                grubResultService.addOne(new GrubResult(now, script, casperAccessor.execute(path,script.getArgs())));
+                StringResult stringResult=casperAccessor.execute(path,script.getArgs());
+                stringResultService.addOne(stringResult);
+                grubResultService.addOne(new GrubResult(now, script, stringResult));
                 if (script.getDescription() != null && script.getDescription().equals("onchange")) {
                     if (onChangeStrategy.isChanged(script)) {
                         ChangeAlertDialog dialog = new ChangeAlertDialog(script.getName(),
