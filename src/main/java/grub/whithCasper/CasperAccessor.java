@@ -45,6 +45,6 @@ public class CasperAccessor {
             log.error("Can't get result");
             return new StringResult("",true);
         }
-        return new StringResult(output.toString(),true);
+        return new StringResult(output.toString(),false);
     }
 }

@@ -1,15 +1,24 @@
 import grub.Strategy.OnChangeStrategy;
 import grub.app.Config;
+import grub.entities.GrubResult;
 import grub.entities.Scripts;
+import grub.entities.StringResult;
 import grub.services.GrubResultService;
 import grub.services.ScriptsService;
+import grub.services.StringResultService;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
+
+import java.util.Date;
+import java.util.List;
+
+import static org.junit.Assert.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
@@ -25,52 +34,42 @@ public class TestOnChangeStrategy {
     @Autowired
     OnChangeStrategy onChangeStrategy;
 
+    @Autowired
+    StringResultService stringResultService;
+
     Scripts testScript;
-/*
-    @Ignore
-    @Test
-    public void test() {
-        Scripts script = scriptsService.findByName("dollar rate");
-        assertTrue(onChangeStrategy.isChanged(script));
-    }
-*/
+
     @Before
     public void before() {
         testScript = new Scripts("testScript");
-        scriptsService.save(testScript);
+        testScript=scriptsService.save(testScript);
     }
 
-    /*
+
     @Test
-    public void testFalse() {
+    public void isChangedMustReturnFalse() {
         Date now = new Date();
-        grubResultService.addOne(new GrubResult(now, testScript, "same"));
+        StringResult one=stringResultService.addOne(new StringResult("same",true));
+        grubResultService.addOne(new GrubResult(now, testScript, one));
         now = new Date();
-        grubResultService.addOne(new GrubResult(now, testScript, "same"));
-        assertFalse(onChangeStrategy.isChanged(testScript));
+        StringResult two=stringResultService.addOne(new StringResult("same",true));
+        grubResultService.addOne(new GrubResult(now, testScript, two));
+        List<GrubResult> results=grubResultService.findLastTwo(testScript.getId());
+        assertFalse(onChangeStrategy.isChanged(results.get(0),results.get(1)));
     }
 
     @Test
-    public void testTrue() {
+    public void isChangedMustReturnTrue() {
         Date now = new Date();
-        grubResultService.addOne(new GrubResult(now, testScript, "same"));
+        StringResult one=stringResultService.addOne(new StringResult("same",true));
+        grubResultService.addOne(new GrubResult(now, testScript, one));
         now = new Date();
-        grubResultService.addOne(new GrubResult(now, testScript, "dontSame"));
-        assertTrue(onChangeStrategy.isChanged(testScript));
+        StringResult two=stringResultService.addOne(new StringResult("not_same",true));
+        grubResultService.addOne(new GrubResult(now, testScript, two));
+        List<GrubResult> results=grubResultService.findLastTwo(testScript.getId());
+        assertTrue(onChangeStrategy.isChanged(results.get(0),results.get(1)));
     }
 
-    @Test
-    public void testOne() {
-        Date now = new Date();
-        grubResultService.addOne(new GrubResult(now, testScript, "same"));
-        assertFalse(onChangeStrategy.isChanged(testScript));
-    }
-
-    @Test
-    public void testNull() {
-        assertFalse(onChangeStrategy.isChanged(testScript));
-    }
-*/
     @After
     public void after() {
         grubResultService.deleteByScript(testScript);

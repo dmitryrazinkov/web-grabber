@@ -16,4 +16,6 @@ public class StringResultService {
     public StringResult addOne(StringResult stringResult) {
         return stringResultRepository.save(stringResult);
     }
+
+
 }
