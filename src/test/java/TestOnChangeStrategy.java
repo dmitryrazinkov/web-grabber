@@ -5,15 +5,11 @@ import grub.services.GrubResultService;
 import grub.services.ScriptsService;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
-
-import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
@@ -30,14 +26,14 @@ public class TestOnChangeStrategy {
     OnChangeStrategy onChangeStrategy;
 
     Scripts testScript;
-
+/*
     @Ignore
     @Test
     public void test() {
         Scripts script = scriptsService.findByName("dollar rate");
         assertTrue(onChangeStrategy.isChanged(script));
     }
-
+*/
     @Before
     public void before() {
         testScript = new Scripts("testScript");

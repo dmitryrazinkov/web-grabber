@@ -12,11 +12,11 @@ public class GrubResult {
     private java.util.Date date;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "scId")
+    @JoinColumn(name = "sc_id")
     private Scripts script;
 
     @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "resId")
+    @JoinColumn(name = "res_id")
     private StringResult stringResult;
 
     public GrubResult() {

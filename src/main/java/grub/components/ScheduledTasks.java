@@ -17,6 +17,7 @@ import org.springframework.stereotype.Component;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Date;
+import java.util.List;
 
 @Component
 public class ScheduledTasks {
@@ -50,19 +51,24 @@ public class ScheduledTasks {
                 FileOutputStream fileOutputStream = new FileOutputStream(path);
                 fileOutputStream.write(script.getFile());
                 fileOutputStream.close();
+
                 if(script.getArgs()==null) {
                     script.setArgs("");
                 }
                 StringResult stringResult=casperAccessor.execute(path,script.getArgs());
                 stringResultService.addOne(stringResult);
                 grubResultService.addOne(new GrubResult(now, script, stringResult));
-                if (script.getDescription() != null && script.getDescription().equals("onchange")) {
-                    if (onChangeStrategy.isChanged(script)) {
-                        ChangeAlertDialog dialog = new ChangeAlertDialog(script.getName(),
-                                script.getSite().getUrl().toString(), now);
-                        dialog.pack();
-                        dialog.setVisible(true);
-                        log.debug("GhangeAlertDialog open");
+
+                List<GrubResult> lastTwo=grubResultService.findLastTwo(script.getId());
+                if (lastTwo.size()==2) {
+                    if (script.getDescription() != null && script.getDescription().equals("onchange")) {
+                        if (onChangeStrategy.isChanged(lastTwo.get(0),lastTwo.get(1))) {
+                            ChangeAlertDialog dialog = new ChangeAlertDialog(script.getName(),
+                                    script.getSite().getUrl().toString(), now);
+                            dialog.pack();
+                            dialog.setVisible(true);
+                            log.debug("GhangeAlertDialog open");
+                        }
                     }
                 }
                 file.delete();

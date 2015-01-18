@@ -1,14 +1,11 @@
 package grub.Strategy;
 
 import grub.entities.GrubResult;
-import grub.entities.Scripts;
 import grub.services.GrubResultService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
 
 @Component
 public class OnChangeStrategy {
@@ -17,8 +14,8 @@ public class OnChangeStrategy {
     @Autowired
     GrubResultService grubResultService;
 
-    public boolean isChanged(Scripts script) {
-        List<GrubResult> results = grubResultService.findByScript(script);
+    public boolean isChanged(GrubResult one, GrubResult two) {
+    /*    List<GrubResult> results = grubResultService.findByScript(script);
         GrubResult last = null;
         GrubResult preLast = null;
 
@@ -49,5 +46,11 @@ public class OnChangeStrategy {
             log.debug("Don't find last two result");
             return false;
         }
+        */
+        if (one.getStringResult().getStringResult().equals(two.getStringResult().getStringResult())){
+            return false;
+        }
+        else return true;
     }
+
 }

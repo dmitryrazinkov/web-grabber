@@ -30,12 +30,21 @@ public class GrubResultService {
     }
 
     @Transactional
-    public void delete(GrubResult grubResult){
+    public void delete(GrubResult grubResult) {
         grubResultRepository.delete(grubResult);
     }
 
     @Transactional
-    public void deleteByScript(Scripts script){
+    public void deleteByScript(Scripts script) {
         grubResultRepository.deleteByScript(script);
+    }
+
+    @Transactional
+    public List<GrubResult> findLastTwo(Integer id) {
+        List<GrubResult> grubResults = new ArrayList<GrubResult>();
+        for (GrubResult grubResult : grubResultRepository.findLastTwo(id)) {
+            grubResults.add(grubResult);
+        }
+        return grubResults;
     }
 }
