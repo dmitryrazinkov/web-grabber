@@ -18,12 +18,12 @@ public class CasperAccessor {
 
         Process p;
         try {
-            p = Runtime.getRuntime().exec("casperjs " + path+" "+
+            p = Runtime.getRuntime().exec("casperjs " + path + " " +
                     args);
             p.waitFor();
             if (p.exitValue() != 0) {
                 log.error("CasperJs can't be execute");
-                return new StringScriptOutput("",true);
+                return new StringScriptOutput("", true);
             } else {
                 log.debug("CasperJs calling success");
             }
@@ -38,13 +38,13 @@ public class CasperAccessor {
             }
         } catch (Exception e) {
             log.error("Failed access to CasperJs", e);
-            return new StringScriptOutput("",true);
+            return new StringScriptOutput("", true);
         }
         log.debug("Casper access done");
         if (output.toString().isEmpty()) {
             log.error("Can't get result");
-            return new StringScriptOutput("",true);
+            return new StringScriptOutput("", true);
         }
-        return new StringScriptOutput(output.toString(),false);
+        return new StringScriptOutput(output.toString(), false);
     }
 }

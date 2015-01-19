@@ -52,18 +52,18 @@ public class ScheduledTasks {
                 fileOutputStream.write(script.getFile());
                 fileOutputStream.close();
 
-                if(script.getArgs()==null) {
+                if (script.getArgs() == null) {
                     script.setArgs("");
                 }
-                StringScriptOutput stringScriptOutput =casperAccessor.execute(path,script.getArgs());
+                StringScriptOutput stringScriptOutput = casperAccessor.execute(path, script.getArgs());
                 stringResultService.addOne(stringScriptOutput);
                 grubResultService.addOne(new GrubResult(now, script, stringScriptOutput));
 
 
-                List<GrubResult> lastTwo=grubResultService.findLastTwo(script.getId());
-                if (lastTwo.size()==2) {
+                List<GrubResult> lastTwo = grubResultService.findLastTwo(script.getId());
+                if (lastTwo.size() == 2) {
                     if (script.getDescription() != null && script.getDescription().equals("onchange")) {
-                        if (onChangeStrategy.isChanged(lastTwo.get(0),lastTwo.get(1))) {
+                        if (onChangeStrategy.isChanged(lastTwo.get(0), lastTwo.get(1))) {
                             ChangeAlertDialog dialog = new ChangeAlertDialog(script.getName(),
                                     script.getSite().getUrl().toString(), now);
                             dialog.pack();

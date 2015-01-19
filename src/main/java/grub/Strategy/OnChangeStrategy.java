@@ -47,10 +47,9 @@ public class OnChangeStrategy {
             return false;
         }
         */
-        if (one.getStringScriptOutput().getStringResult().equals(two.getStringScriptOutput().getStringResult())){
+        if (one.getStringScriptOutput().getStringResult().equals(two.getStringScriptOutput().getStringResult())) {
             return false;
-        }
-        else return true;
+        } else return true;
     }
 
 }

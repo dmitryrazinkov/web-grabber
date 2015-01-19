@@ -27,6 +27,9 @@ public class Scripts {
     @OneToMany(mappedBy = "script", fetch = FetchType.EAGER)
     List<GrubResult> results = new ArrayList<GrubResult>();
 
+    @OneToMany(mappedBy = "script", fetch = FetchType.EAGER)
+    List<ScriptsForRun> scriptsForRun = new ArrayList<ScriptsForRun>();
+
     public Scripts() {
     }
 
@@ -86,6 +89,14 @@ public class Scripts {
         this.results = results;
     }
 
+    public List<ScriptsForRun> getScriptsForRun() {
+        return scriptsForRun;
+    }
+
+    public void setScriptsForRun(List<ScriptsForRun> scriptsForRun) {
+        this.scriptsForRun = scriptsForRun;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -112,7 +123,7 @@ public class Scripts {
         return result;
     }
 
-      public Scripts(String name) {
-           this.name = name;
-       }
+    public Scripts(String name) {
+        this.name = name;
+    }
 }

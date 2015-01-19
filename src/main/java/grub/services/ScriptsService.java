@@ -30,12 +30,12 @@ public class ScriptsService {
     }
 
     @Transactional
-    public Scripts save(Scripts script){
+    public Scripts save(Scripts script) {
         return scriptsRepository.save(script);
     }
 
     @Transactional
-    public void delete(Scripts script){
+    public void delete(Scripts script) {
         scriptsRepository.delete(script);
     }
 }

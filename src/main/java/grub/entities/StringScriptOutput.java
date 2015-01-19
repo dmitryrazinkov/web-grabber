@@ -13,7 +13,7 @@ public class StringScriptOutput {
 
     private boolean error;
 
-    @OneToOne(mappedBy = "stringScriptOutput",fetch= FetchType.EAGER)
+    @OneToOne(mappedBy = "stringScriptOutput", fetch = FetchType.EAGER)
     private GrubResult grubResult;
 
     public Integer getId() {
