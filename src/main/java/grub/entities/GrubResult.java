@@ -17,7 +17,7 @@ public class GrubResult {
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "res_id")
-    private StringResult stringResult;
+    private StringScriptOutput stringScriptOutput;
 
     public GrubResult() {
     }
@@ -46,17 +46,17 @@ public class GrubResult {
         this.script = script;
     }
 
-    public StringResult getStringResult() {
-        return stringResult;
+    public StringScriptOutput getStringScriptOutput() {
+        return stringScriptOutput;
     }
 
-    public void setStringResult(StringResult stringResult) {
-        this.stringResult = stringResult;
+    public void setStringScriptOutput(StringScriptOutput stringScriptOutput) {
+        this.stringScriptOutput = stringScriptOutput;
     }
 
-    public GrubResult(Date date, Scripts script, StringResult stringResult) {
+    public GrubResult(Date date, Scripts script, StringScriptOutput stringScriptOutput) {
         this.date = date;
         this.script = script;
-        this.stringResult =stringResult;
+        this.stringScriptOutput = stringScriptOutput;
     }
 }

@@ -1,6 +1,6 @@
 package grub.services;
 
-import grub.entities.StringResult;
+import grub.entities.StringScriptOutput;
 import grub.repositories.StringResultRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,8 +13,8 @@ public class StringResultService {
     StringResultRepository stringResultRepository;
 
     @Transactional
-    public StringResult addOne(StringResult stringResult) {
-        return stringResultRepository.save(stringResult);
+    public StringScriptOutput addOne(StringScriptOutput stringScriptOutput) {
+        return stringResultRepository.save(stringScriptOutput);
     }
 
 

@@ -4,7 +4,7 @@ import grub.Frame.ChangeAlertDialog;
 import grub.Strategy.OnChangeStrategy;
 import grub.entities.GrubResult;
 import grub.entities.Scripts;
-import grub.entities.StringResult;
+import grub.entities.StringScriptOutput;
 import grub.services.GrubResultService;
 import grub.services.StringResultService;
 import grub.whithCasper.CasperAccessor;
@@ -55,9 +55,10 @@ public class ScheduledTasks {
                 if(script.getArgs()==null) {
                     script.setArgs("");
                 }
-                StringResult stringResult=casperAccessor.execute(path,script.getArgs());
-                stringResultService.addOne(stringResult);
-                grubResultService.addOne(new GrubResult(now, script, stringResult));
+                StringScriptOutput stringScriptOutput =casperAccessor.execute(path,script.getArgs());
+                stringResultService.addOne(stringScriptOutput);
+                grubResultService.addOne(new GrubResult(now, script, stringScriptOutput));
+
 
                 List<GrubResult> lastTwo=grubResultService.findLastTwo(script.getId());
                 if (lastTwo.size()==2) {

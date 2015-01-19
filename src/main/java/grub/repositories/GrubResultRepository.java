@@ -16,8 +16,8 @@ public interface GrubResultRepository extends CrudRepository<GrubResult, Integer
 
     @Query(value = "SELECT * FROM test.grub_result\n" +
             "\tWHERE res_id IN(\n" +
-            "\t\tSELECT id FROM test.string_result\n" +
-            "\t\t\tWHERE error=1)AND(sc_id=:id)\n" +
+            "\t\tSELECT id FROM test.string_script_output\n" +
+            "\t\t\tWHERE (error=0)AND(sc_id=:id))\n" +
             "\tORDER BY id DESC\n" +
             "    LIMIT 2", nativeQuery = true)
     List<GrubResult> findLastTwo(@Param("id") Integer id);

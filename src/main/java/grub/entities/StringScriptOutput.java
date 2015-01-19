@@ -3,7 +3,7 @@ package grub.entities;
 import javax.persistence.*;
 
 @Entity
-public class StringResult {
+public class StringScriptOutput {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,7 +13,7 @@ public class StringResult {
 
     private boolean error;
 
-    @OneToOne(mappedBy = "stringResult",fetch= FetchType.EAGER)
+    @OneToOne(mappedBy = "stringScriptOutput",fetch= FetchType.EAGER)
     private GrubResult grubResult;
 
     public Integer getId() {
@@ -48,10 +48,10 @@ public class StringResult {
         this.grubResult = grubResult;
     }
 
-    public StringResult() {
+    public StringScriptOutput() {
     }
 
-    public StringResult(String stringResult, boolean error) {
+    public StringScriptOutput(String stringResult, boolean error) {
         this.stringResult = stringResult;
         this.error = error;
     }

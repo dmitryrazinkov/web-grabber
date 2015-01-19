@@ -28,7 +28,7 @@
 
                 <td>${result.date}</td>
                 <td></td>
-                <td>${result.stringResult.stringResult}</td>
+                <td>${result.stringScriptOutput.stringResult}</td>
             </tr>
 
         </#list>

@@ -2,7 +2,7 @@ import grub.Strategy.OnChangeStrategy;
 import grub.app.Config;
 import grub.entities.GrubResult;
 import grub.entities.Scripts;
-import grub.entities.StringResult;
+import grub.entities.StringScriptOutput;
 import grub.services.GrubResultService;
 import grub.services.ScriptsService;
 import grub.services.StringResultService;
@@ -49,10 +49,10 @@ public class TestOnChangeStrategy {
     @Test
     public void isChangedMustReturnFalse() {
         Date now = new Date();
-        StringResult one=stringResultService.addOne(new StringResult("same",true));
+        StringScriptOutput one=stringResultService.addOne(new StringScriptOutput("same",false));
         grubResultService.addOne(new GrubResult(now, testScript, one));
         now = new Date();
-        StringResult two=stringResultService.addOne(new StringResult("same",true));
+        StringScriptOutput two=stringResultService.addOne(new StringScriptOutput("same",false));
         grubResultService.addOne(new GrubResult(now, testScript, two));
         List<GrubResult> results=grubResultService.findLastTwo(testScript.getId());
         assertFalse(onChangeStrategy.isChanged(results.get(0),results.get(1)));
@@ -61,10 +61,10 @@ public class TestOnChangeStrategy {
     @Test
     public void isChangedMustReturnTrue() {
         Date now = new Date();
-        StringResult one=stringResultService.addOne(new StringResult("same",true));
+        StringScriptOutput one=stringResultService.addOne(new StringScriptOutput("same",false));
         grubResultService.addOne(new GrubResult(now, testScript, one));
         now = new Date();
-        StringResult two=stringResultService.addOne(new StringResult("not_same",true));
+        StringScriptOutput two=stringResultService.addOne(new StringScriptOutput("not_same",false));
         grubResultService.addOne(new GrubResult(now, testScript, two));
         List<GrubResult> results=grubResultService.findLastTwo(testScript.getId());
         assertTrue(onChangeStrategy.isChanged(results.get(0),results.get(1)));
