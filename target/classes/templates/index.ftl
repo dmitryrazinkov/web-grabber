@@ -25,7 +25,7 @@
     </#if>
 
     <hr>
-    <label>Current sites:</label>
+    <label>Current scripts:</label>
     <table class="table table-striped" id="table">
         <thead>
         <tr>

@@ -1,6 +1,5 @@
 package grub.components;
 
-import grub.Frame.ChangeAlertDialog;
 import grub.Strategy.OnChangeStrategy;
 import grub.entities.GrubResult;
 import grub.entities.ScriptsForRun;
@@ -66,11 +65,9 @@ public class ScheduledTasks {
                     List<GrubResult> lastTwo = grubResultService.findLastTwo(scriptsForRun.getId());
                     if (lastTwo.size() == 2) {
                         if (onChangeStrategy.isChanged(lastTwo.get(0), lastTwo.get(1))) {
-                            ChangeAlertDialog dialog = new ChangeAlertDialog(scriptsForRun.getScript().getName(),
+                            log.debug("Data changed \n Script: {}\n Site: {} \n Time: {} ",
+                                    scriptsForRun.getScript().getName(),
                                     scriptsForRun.getScript().getSite().getUrl().toString(), now);
-                            dialog.pack();
-                            dialog.setVisible(true);
-                            log.debug("GhangeAlertDialog open");
                         }
                     }
                 }

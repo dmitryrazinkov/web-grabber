@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("")
 public class MainController {
 
-
     @Autowired
     GrubResultService grubResultService;
 
@@ -28,7 +27,6 @@ public class MainController {
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String index(ModelMap modelMap) {
-        //sites.init();
         if (!scriptsService.allScripts().isEmpty()) {
             modelMap.addAttribute("sites", scriptsService.allScripts());
         }
