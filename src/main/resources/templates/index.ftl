@@ -35,15 +35,15 @@
         </tr>
         </thead>
         <tbody>
-        <#list onTaskSites as site>
+        <#list onTaskScripts as script>
             <tr>
-                <td>${site.getName()}</td>
+                <td>${script.script.getName()}</td>
                 <td>
                     <span class="glyphicon glyphicon-remove"></span>
-                    <a href="/delete/${site.getName()}">Delete</a>
+                    <a href="/delete/${script.id}">Delete</a>
                 </td>
                 <td>
-                    <a href="/${site.getName()}">Details</a>
+                    <a href="/${script.id}">Details</a>
                 </td>
             </tr>
         </#list>

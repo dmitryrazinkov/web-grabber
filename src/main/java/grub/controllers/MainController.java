@@ -1,7 +1,9 @@
 package grub.controllers;
 
 import grub.components.ScriptGrub;
+import grub.entities.ScriptsForRun;
 import grub.services.GrubResultService;
+import grub.services.ScriptsForRunService;
 import grub.services.ScriptsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,35 +25,39 @@ public class MainController {
     @Autowired
     ScriptsService scriptsService;
 
+    @Autowired
+    ScriptsForRunService scriptsForRunService;
+
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String index(ModelMap modelMap) {
         //sites.init();
-        if (!scriptGrub.getScripts().isEmpty()) {
-            modelMap.addAttribute("sites", scriptGrub.getScripts());
+        if (!scriptsService.allScripts().isEmpty()) {
+            modelMap.addAttribute("sites", scriptsService.allScripts());
         }
-        modelMap.addAttribute("onTaskSites", scriptGrub.getScriptsForGrub());
+        modelMap.addAttribute("onTaskScripts", scriptsForRunService.allScripts());
         return "index";
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST)
     public String addSite(@ModelAttribute("site1") String site1, ModelMap modelMap) {
-        scriptGrub.addScriptForGrub(scriptsService.findByName(site1));
+       // scriptGrub.addScriptForGrub(scriptsService.findByName(site1));
+        scriptsForRunService.add(new ScriptsForRun("",scriptsService.findByName(site1)));
         if (!scriptGrub.getScripts().isEmpty()) {
             modelMap.addAttribute("sites", scriptGrub.getScripts());
         }
 
-        modelMap.addAttribute("onTaskSites", scriptGrub.getScriptsForGrub());
+        modelMap.addAttribute("onTaskScripts", scriptsForRunService.allScripts());
 
         return "index";
     }
 
-    @RequestMapping("/delete/{site}")
-    public String delete(@PathVariable String site) {
-        scriptGrub.deleteScriptFromGrub(scriptsService.findByName(site));
+    @RequestMapping("/delete/{id}")
+    public String delete(@PathVariable Integer id) {
+        scriptsForRunService.delete(scriptsForRunService.getOne(id));
         return "redirect:/";
     }
 
-    @RequestMapping("/{site}")
+    @RequestMapping("/{id}")
     public String details(@PathVariable String site, ModelMap modelMap) {
         modelMap.addAttribute("resultList", grubResultService.findByScript(scriptsService.findByName(site)));
         return "details";

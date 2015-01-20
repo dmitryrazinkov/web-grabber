@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ScriptsForRunRepository extends CrudRepository<ScriptsForRun, Integer> {
+
+    //List<Integer> findScId();
 }

@@ -41,4 +41,9 @@ public class ScriptsForRun {
 
     public ScriptsForRun() {
     }
+
+    public ScriptsForRun(String args, Scripts script) {
+        this.args = args;
+        this.script = script;
+    }
 }

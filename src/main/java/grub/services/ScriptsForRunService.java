@@ -24,6 +24,11 @@ public class ScriptsForRunService {
     }
 
     @Transactional
+    public ScriptsForRun getOne(Integer id){
+        return scriptsForRunRepository.findOne(id);
+    }
+
+    @Transactional
     public ScriptsForRun add(ScriptsForRun scriptsForRun) {
         return scriptsForRunRepository.save(scriptsForRun);
     }
