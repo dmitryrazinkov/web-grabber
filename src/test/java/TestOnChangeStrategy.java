@@ -53,34 +53,34 @@ public class TestOnChangeStrategy {
     @Before
     public void before() {
         testScript = new Scripts("testScript");
-        testScript=scriptsService.save(testScript);
-        testScriptForRun=new ScriptsForRun("",testScript);
-        testScriptForRun=scriptsForRunService.add(testScriptForRun);
+        testScript = scriptsService.save(testScript);
+        testScriptForRun = new ScriptsForRun("", testScript);
+        testScriptForRun = scriptsForRunService.add(testScriptForRun);
     }
 
 
     @Test
     public void isChangedMustReturnFalse() {
         Date now = new Date();
-        one= stringScriptOutputService.addOne(new StringScriptOutput("same",false));
+        one = stringScriptOutputService.addOne(new StringScriptOutput("same", false));
         grubResultService.addOne(new GrubResult(now, testScriptForRun, one));
         now = new Date();
-        two= stringScriptOutputService.addOne(new StringScriptOutput("same",false));
+        two = stringScriptOutputService.addOne(new StringScriptOutput("same", false));
         grubResultService.addOne(new GrubResult(now, testScriptForRun, two));
-        List<GrubResult> results=grubResultService.findLastTwo(testScriptForRun.getId());
-        assertFalse(onChangeStrategy.isChanged(results.get(0),results.get(1)));
+        List<GrubResult> results = grubResultService.findLastTwo(testScriptForRun.getId());
+        assertFalse(onChangeStrategy.isChanged(results.get(0), results.get(1)));
     }
 
     @Test
     public void isChangedMustReturnTrue() {
         Date now = new Date();
-        one= stringScriptOutputService.addOne(new StringScriptOutput("same",false));
+        one = stringScriptOutputService.addOne(new StringScriptOutput("same", false));
         grubResultService.addOne(new GrubResult(now, testScriptForRun, one));
         now = new Date();
-        two= stringScriptOutputService.addOne(new StringScriptOutput("not_same",false));
+        two = stringScriptOutputService.addOne(new StringScriptOutput("not_same", false));
         grubResultService.addOne(new GrubResult(now, testScriptForRun, two));
-        List<GrubResult> results=grubResultService.findLastTwo(testScriptForRun.getId());
-        assertTrue(onChangeStrategy.isChanged(results.get(0),results.get(1)));
+        List<GrubResult> results = grubResultService.findLastTwo(testScriptForRun.getId());
+        assertTrue(onChangeStrategy.isChanged(results.get(0), results.get(1)));
     }
 
     @After

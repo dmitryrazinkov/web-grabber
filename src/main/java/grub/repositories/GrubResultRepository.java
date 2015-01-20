@@ -22,4 +22,7 @@ public interface GrubResultRepository extends CrudRepository<GrubResult, Integer
             "    LIMIT 2", nativeQuery = true)
     List<GrubResult> findLastTwo(@Param("id") Integer id);
 
+    @Query(value = "select COUNT(*) from test.grub_result", nativeQuery = true)
+    Integer countOfRecord();
+
 }

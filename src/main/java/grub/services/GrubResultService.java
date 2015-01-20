@@ -47,4 +47,9 @@ public class GrubResultService {
         }
         return grubResults;
     }
+
+    @Transactional
+    public Integer countOfRecord() {
+        return grubResultRepository.countOfRecord();
+    }
 }
