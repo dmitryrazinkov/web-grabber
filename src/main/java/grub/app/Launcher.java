@@ -7,6 +7,7 @@ import org.springframework.context.ApplicationContext;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 import java.net.URL;
 
 public class Launcher {
@@ -22,6 +23,8 @@ public class Launcher {
                 if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
                     try {
                         desktop.browse(new URL("http://localhost:4040").toURI());
+                    } catch (IOException e) {
+                        log.error("Desktop api is not supported", e);
                     } catch (Exception e) {
                         log.error("Failed open browser tab", e);
                     }

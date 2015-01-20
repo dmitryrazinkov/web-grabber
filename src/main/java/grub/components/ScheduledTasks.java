@@ -42,7 +42,7 @@ public class ScheduledTasks {
 
     private String path = "D:\\testing.js";
 
-    @Scheduled(cron = "0 0/1 * 1/1 * ?")
+    @Scheduled(cron = "${cron.schedule}")
     public void grub() {
         log.debug("task run");
 
