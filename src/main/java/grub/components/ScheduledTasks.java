@@ -16,6 +16,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.Date;
 import java.util.List;
@@ -23,8 +24,6 @@ import java.util.List;
 @Component
 public class ScheduledTasks {
     private static final Logger log = LoggerFactory.getLogger(ScheduledTasks.class);
-    @Autowired
-    ScriptGrub scriptGrub;
 
     @Autowired
     GrubResultService grubResultService;
@@ -76,6 +75,10 @@ public class ScheduledTasks {
                     }
                 }
                 file.delete();
+            } catch (NullPointerException e) {
+                log.error("Pathname is null", e);
+            } catch (FileNotFoundException e) {
+                log.error("File not found", e);
             } catch (Exception e) {
                 log.error("Failed create tmp file and execute casperJs", e);
             }

@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 
 @Service
@@ -14,7 +15,7 @@ public class CasperAccessor {
 
     public StringScriptOutput execute(String path, String args) {
         log.debug("CasperAccessor start");
-        StringBuffer output = new StringBuffer();
+        StringBuilder output = new StringBuilder();
 
         Process p;
         try {
@@ -36,6 +37,12 @@ public class CasperAccessor {
                     output.append(line + "\n");
                 }
             }
+        } catch (IOException e) {
+            log.error("Failed 'exec' CasperJs", e);
+            return new StringScriptOutput("", true);
+        } catch (InterruptedException e) {
+            log.error("Failed 'waitFor' in CasperJs", e);
+            return new StringScriptOutput("", true);
         } catch (Exception e) {
             log.error("Failed access to CasperJs", e);
             return new StringScriptOutput("", true);

@@ -29,7 +29,8 @@
     <table class="table table-striped" id="table">
         <thead>
         <tr>
-            <th data-type="string"></th>
+            <th data-type="string">Script</th>
+            <th>Args</th>
             <th></th>
             <th></th>
         </tr>
@@ -38,6 +39,7 @@
         <#list onTaskScripts as script>
             <tr>
                 <td>${script.script.getName()}</td>
+                <td>${script.getArgs()}</td>
                 <td>
                     <span class="glyphicon glyphicon-remove"></span>
                     <a href="/delete/${script.id}">Delete</a>

@@ -80,9 +80,6 @@ public class Scripts {
     }
 
 
-
-
-
     public List<ScriptsForRun> getScriptsForRun() {
         return scriptsForRun;
     }

@@ -18,7 +18,7 @@ public class StringScriptOutputService {
     }
 
     @Transactional
-    public void delete(StringScriptOutput stringScriptOutput){
+    public void delete(StringScriptOutput stringScriptOutput) {
         stringScriptOutputRepository.delete(stringScriptOutput);
     }
 

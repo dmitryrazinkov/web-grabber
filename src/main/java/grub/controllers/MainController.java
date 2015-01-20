@@ -1,6 +1,5 @@
 package grub.controllers;
 
-import grub.components.ScriptGrub;
 import grub.entities.ScriptsForRun;
 import grub.services.GrubResultService;
 import grub.services.ScriptsForRunService;
@@ -16,8 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping("")
 public class MainController {
-    @Autowired
-    ScriptGrub scriptGrub;
+
 
     @Autowired
     GrubResultService grubResultService;
@@ -40,10 +38,10 @@ public class MainController {
 
     @RequestMapping(value = "", method = RequestMethod.POST)
     public String addSite(@ModelAttribute("site1") String site1, ModelMap modelMap) {
-       // scriptGrub.addScriptForGrub(scriptsService.findByName(site1));
-        scriptsForRunService.add(new ScriptsForRun("",scriptsService.findByName(site1)));
-        if (!scriptGrub.getScripts().isEmpty()) {
-            modelMap.addAttribute("sites", scriptGrub.getScripts());
+        // scriptGrub.addScriptForGrub(scriptsService.findByName(site1));
+        scriptsForRunService.add(new ScriptsForRun("", scriptsService.findByName(site1)));
+        if (!scriptsService.allScripts().isEmpty()) {
+            modelMap.addAttribute("sites", scriptsService.allScripts());
         }
 
         modelMap.addAttribute("onTaskScripts", scriptsForRunService.allScripts());
@@ -60,7 +58,7 @@ public class MainController {
 
     @RequestMapping("/{id}")
     public String details(@PathVariable Integer id, ModelMap modelMap) {
-       modelMap.addAttribute("resultList", grubResultService.findByScript(scriptsForRunService.getOne(id)));
+        modelMap.addAttribute("resultList", grubResultService.findByScript(scriptsForRunService.getOne(id)));
         return "details";
     }
 
