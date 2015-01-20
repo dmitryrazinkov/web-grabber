@@ -1,7 +1,7 @@
 package grub.repositories;
 
 import grub.entities.GrubResult;
-import grub.entities.Scripts;
+import grub.entities.ScriptsForRun;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -10,9 +10,9 @@ import java.util.List;
 
 public interface GrubResultRepository extends CrudRepository<GrubResult, Integer> {
 
-    List<GrubResult> findByScript(Scripts script);
+    List<GrubResult> findByScript(ScriptsForRun script);
 
-    void deleteByScript(Scripts script);
+    void deleteByScript(ScriptsForRun script);
 
     @Query(value = "SELECT * FROM test.grub_result\n" +
             "\tWHERE res_id IN(\n" +

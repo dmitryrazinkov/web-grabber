@@ -5,6 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface StringResultRepository extends CrudRepository<StringScriptOutput, Integer> {
+public interface StringScriptOutputRepository extends CrudRepository<StringScriptOutput, Integer> {
 
 }

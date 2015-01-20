@@ -13,7 +13,7 @@ public class GrubResult {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "sc_id")
-    private Scripts script;
+    private ScriptsForRun script;
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "res_id")
@@ -38,11 +38,11 @@ public class GrubResult {
         this.date = date;
     }
 
-    public Scripts getScript() {
+    public ScriptsForRun getScript() {
         return script;
     }
 
-    public void setScript(Scripts script) {
+    public void setScript(ScriptsForRun script) {
         this.script = script;
     }
 
@@ -54,7 +54,7 @@ public class GrubResult {
         this.stringScriptOutput = stringScriptOutput;
     }
 
-    public GrubResult(Date date, Scripts script, StringScriptOutput stringScriptOutput) {
+    public GrubResult(Date date, ScriptsForRun script, StringScriptOutput stringScriptOutput) {
         this.date = date;
         this.script = script;
         this.stringScriptOutput = stringScriptOutput;

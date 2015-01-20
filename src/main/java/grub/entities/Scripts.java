@@ -24,8 +24,6 @@ public class Scripts {
 
     private String args;
 
-    @OneToMany(mappedBy = "script", fetch = FetchType.EAGER)
-    List<GrubResult> results = new ArrayList<GrubResult>();
 
     @OneToMany(mappedBy = "script", fetch = FetchType.EAGER)
     List<ScriptsForRun> scriptsForRun = new ArrayList<ScriptsForRun>();
@@ -81,13 +79,9 @@ public class Scripts {
         this.description = description;
     }
 
-    public List<GrubResult> getResults() {
-        return results;
-    }
 
-    public void setResults(List<GrubResult> results) {
-        this.results = results;
-    }
+
+
 
     public List<ScriptsForRun> getScriptsForRun() {
         return scriptsForRun;
@@ -107,7 +101,6 @@ public class Scripts {
         if (description != null ? !description.equals(scripts.description) : scripts.description != null) return false;
         if (id != null ? !id.equals(scripts.id) : scripts.id != null) return false;
         if (name != null ? !name.equals(scripts.name) : scripts.name != null) return false;
-        if (results != null ? !results.equals(scripts.results) : scripts.results != null) return false;
         if (site != null ? !site.equals(scripts.site) : scripts.site != null) return false;
 
         return true;
@@ -119,7 +112,6 @@ public class Scripts {
         result = 31 * result + (site != null ? site.hashCode() : 0);
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (description != null ? description.hashCode() : 0);
-        result = 31 * result + (results != null ? results.hashCode() : 0);
         return result;
     }
 

@@ -59,7 +59,7 @@ public class MainController {
 
     @RequestMapping("/{id}")
     public String details(@PathVariable String site, ModelMap modelMap) {
-        modelMap.addAttribute("resultList", grubResultService.findByScript(scriptsService.findByName(site)));
+       // modelMap.addAttribute("resultList", grubResultService.findByScript(scriptsService.findByName(site)));
         return "details";
     }
 

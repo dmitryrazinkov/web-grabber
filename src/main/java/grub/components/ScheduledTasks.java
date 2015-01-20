@@ -3,10 +3,11 @@ package grub.components;
 import grub.Frame.ChangeAlertDialog;
 import grub.Strategy.OnChangeStrategy;
 import grub.entities.GrubResult;
-import grub.entities.Scripts;
+import grub.entities.ScriptsForRun;
 import grub.entities.StringScriptOutput;
 import grub.services.GrubResultService;
-import grub.services.StringResultService;
+import grub.services.ScriptsForRunService;
+import grub.services.StringScriptOutputService;
 import grub.whithCasper.CasperAccessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,7 +36,10 @@ public class ScheduledTasks {
     OnChangeStrategy onChangeStrategy;
 
     @Autowired
-    StringResultService stringResultService;
+    StringScriptOutputService stringScriptOutputService;
+
+    @Autowired
+    ScriptsForRunService scriptsForRunService;
 
     private String path = "D:\\testing.js";
 
@@ -43,29 +47,28 @@ public class ScheduledTasks {
     public void grub() {
         log.debug("task run");
 
-        for (Scripts script : scriptGrub.getScriptsForGrub()) {
+        for (ScriptsForRun scriptsForRun : scriptsForRunService.allScripts()) {
             Date now = new Date();
 
             try {
                 File file = new File(path);
                 FileOutputStream fileOutputStream = new FileOutputStream(path);
-                fileOutputStream.write(script.getFile());
+                fileOutputStream.write(scriptsForRun.getScript().getFile());
                 fileOutputStream.close();
 
-                if (script.getArgs() == null) {
-                    script.setArgs("");
+                if (scriptsForRun.getArgs() == null) {
+                    scriptsForRun.setArgs("");
                 }
-                StringScriptOutput stringScriptOutput = casperAccessor.execute(path, script.getArgs());
-                stringResultService.addOne(stringScriptOutput);
-                grubResultService.addOne(new GrubResult(now, script, stringScriptOutput));
+                StringScriptOutput stringScriptOutput = casperAccessor.execute(path, scriptsForRun.getArgs());
+                stringScriptOutputService.addOne(stringScriptOutput);
+                grubResultService.addOne(new GrubResult(now, scriptsForRun, stringScriptOutput));
 
-
-                List<GrubResult> lastTwo = grubResultService.findLastTwo(script.getId());
-                if (lastTwo.size() == 2) {
-                    if (script.getDescription() != null && script.getDescription().equals("onchange")) {
+                if (scriptsForRun.getScript().getDescription() != null && scriptsForRun.getScript().getDescription().equals("onchange")) {
+                    List<GrubResult> lastTwo = grubResultService.findLastTwo(scriptsForRun.getId());
+                    if (lastTwo.size() == 2) {
                         if (onChangeStrategy.isChanged(lastTwo.get(0), lastTwo.get(1))) {
-                            ChangeAlertDialog dialog = new ChangeAlertDialog(script.getName(),
-                                    script.getSite().getUrl().toString(), now);
+                            ChangeAlertDialog dialog = new ChangeAlertDialog(scriptsForRun.getScript().getName(),
+                                    scriptsForRun.getScript().getSite().getUrl().toString(), now);
                             dialog.pack();
                             dialog.setVisible(true);
                             log.debug("GhangeAlertDialog open");

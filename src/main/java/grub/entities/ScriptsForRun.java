@@ -1,6 +1,8 @@
 package grub.entities;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class ScriptsForRun {
@@ -14,6 +16,9 @@ public class ScriptsForRun {
     private Scripts script;
 
     private String args;
+
+    @OneToMany(mappedBy = "script", fetch = FetchType.EAGER)
+    List<GrubResult> results = new ArrayList<GrubResult>();
 
     public Integer getId() {
         return id;
@@ -37,6 +42,14 @@ public class ScriptsForRun {
 
     public void setScript(Scripts script) {
         this.script = script;
+    }
+
+    public List<GrubResult> getResults() {
+        return results;
+    }
+
+    public void setResults(List<GrubResult> results) {
+        this.results = results;
     }
 
     public ScriptsForRun() {
