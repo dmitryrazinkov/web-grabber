@@ -53,13 +53,14 @@ public class MainController {
 
     @RequestMapping("/delete/{id}")
     public String delete(@PathVariable Integer id) {
+        grubResultService.deleteByScript(scriptsForRunService.getOne(id));
         scriptsForRunService.delete(scriptsForRunService.getOne(id));
         return "redirect:/";
     }
 
     @RequestMapping("/{id}")
-    public String details(@PathVariable String site, ModelMap modelMap) {
-       // modelMap.addAttribute("resultList", grubResultService.findByScript(scriptsService.findByName(site)));
+    public String details(@PathVariable Integer id, ModelMap modelMap) {
+       modelMap.addAttribute("resultList", grubResultService.findByScript(scriptsForRunService.getOne(id)));
         return "details";
     }
 
