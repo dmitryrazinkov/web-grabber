@@ -1,6 +1,6 @@
 package grub.components;
 
-import grub.Strategy.OnChangeStrategy;
+import grub.strategy.OnChangeStrategy;
 import grub.entities.GrubResult;
 import grub.entities.ScriptsForRun;
 import grub.entities.StringScriptOutput;

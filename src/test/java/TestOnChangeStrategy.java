@@ -1,4 +1,4 @@
-import grub.Strategy.OnChangeStrategy;
+import grub.strategy.OnChangeStrategy;
 import grub.app.Config;
 import grub.entities.GrubResult;
 import grub.entities.Scripts;
