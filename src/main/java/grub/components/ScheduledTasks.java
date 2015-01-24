@@ -8,6 +8,7 @@ import grub.services.GrubResultService;
 import grub.services.ScriptsForRunService;
 import grub.services.StringScriptOutputService;
 import grub.whithCasper.CasperAccessor;
+import grub.withHarvest.HarvestAccessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,9 @@ public class ScheduledTasks {
     CasperAccessor casperAccessor;
 
     @Autowired
+    HarvestAccessor harvestAccessor;
+
+    @Autowired
     OnChangeStrategy onChangeStrategy;
 
     @Autowired
@@ -39,7 +43,7 @@ public class ScheduledTasks {
     @Autowired
     ScriptsForRunService scriptsForRunService;
 
-    private String path = "D:\\testing.js";
+    private String path = "D:\\testing";
 
     @Scheduled(cron = "${cron.schedule}")
     public void grub() {
@@ -49,6 +53,11 @@ public class ScheduledTasks {
             Date now = new Date();
 
             try {
+                if(scriptsForRun.getScript().isCasper()) {
+                    path=path+".js";
+                }else {
+                    path=path+".xml";
+                }
                 File file = new File(path);
                 FileOutputStream fileOutputStream = new FileOutputStream(path);
                 fileOutputStream.write(scriptsForRun.getScript().getFile());
@@ -57,11 +66,18 @@ public class ScheduledTasks {
                 if (scriptsForRun.getArgs() == null) {
                     scriptsForRun.setArgs("");
                 }
-                StringScriptOutput stringScriptOutput = casperAccessor.execute(path, scriptsForRun.getArgs());
+
+                StringScriptOutput stringScriptOutput;
+                if (scriptsForRun.getScript().isCasper()) {
+                    stringScriptOutput = casperAccessor.execute(path, scriptsForRun.getArgs());
+                } else {
+                    stringScriptOutput= harvestAccessor.execute(path);
+                }
                 stringScriptOutputService.addOne(stringScriptOutput);
                 grubResultService.addOne(new GrubResult(now, scriptsForRun, stringScriptOutput));
 
-                if (scriptsForRun.getScript().getDescription() != null && scriptsForRun.getScript().getDescription().equals("onchange")) {
+                if (scriptsForRun.getScript().getDescription() != null &&
+                        scriptsForRun.getScript().getDescription().equals("onchange")) {
                     List<GrubResult> lastTwo = grubResultService.findLastTwo(scriptsForRun.getId());
                     if (lastTwo.size() == 2) {
                         if (onChangeStrategy.isChanged(lastTwo.get(0), lastTwo.get(1))) {

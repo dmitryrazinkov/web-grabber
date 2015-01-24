@@ -24,6 +24,8 @@ public class Scripts {
 
     private String args;
 
+    private boolean casper;
+
 
     @OneToMany(mappedBy = "script", fetch = FetchType.EAGER)
     List<ScriptsForRun> scriptsForRun = new ArrayList<ScriptsForRun>();
@@ -61,6 +63,14 @@ public class Scripts {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public boolean isCasper() {
+        return casper;
+    }
+
+    public void setCasper(boolean casper) {
+        this.casper = casper;
     }
 
     public String getDescription() {
