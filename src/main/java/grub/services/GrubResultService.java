@@ -40,9 +40,9 @@ public class GrubResultService {
 
     @Transactional
     public void deleteByScript(ScriptsForRun script) {
-        List<GrubResult> grubResults=grubResultRepository.findByScript(script);
+        List<GrubResult> grubResults = grubResultRepository.findByScript(script);
         grubResultRepository.deleteByScript(script);
-        for(GrubResult grubResult: grubResults) {
+        for (GrubResult grubResult : grubResults) {
             stringScriptOutputRepository.delete(stringScriptOutputRepository.findOne(
                     grubResult.getStringScriptOutput().getId()));
         }

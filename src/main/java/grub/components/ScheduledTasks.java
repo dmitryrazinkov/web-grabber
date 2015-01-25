@@ -1,5 +1,6 @@
 package grub.components;
 
+import grub.generators.PathGenerator;
 import grub.strategy.OnChangeStrategy;
 import grub.entities.GrubResult;
 import grub.entities.ScriptsForRun;
@@ -53,12 +54,13 @@ public class ScheduledTasks {
             Date now = new Date();
 
             try {
-                if(scriptsForRun.getScript().isCasper()) {
-                    path=path+".js";
-                }else {
-                    path=path+".xml";
+             /*   if (scriptsForRun.getScript().isCasper()) {
+                    path = path + ".js";
+                } else {
+                    path = path + ".xml";
                 }
-                File file = new File(path);
+                */
+                File file = PathGenerator.generate(scriptsForRun.getScript().isCasper());
                 FileOutputStream fileOutputStream = new FileOutputStream(path);
                 fileOutputStream.write(scriptsForRun.getScript().getFile());
                 fileOutputStream.close();
@@ -71,7 +73,7 @@ public class ScheduledTasks {
                 if (scriptsForRun.getScript().isCasper()) {
                     stringScriptOutput = casperAccessor.execute(path, scriptsForRun.getArgs());
                 } else {
-                    stringScriptOutput= harvestAccessor.execute(path);
+                    stringScriptOutput = harvestAccessor.execute(path);
                 }
                 stringScriptOutputService.addOne(stringScriptOutput);
                 grubResultService.addOne(new GrubResult(now, scriptsForRun, stringScriptOutput));

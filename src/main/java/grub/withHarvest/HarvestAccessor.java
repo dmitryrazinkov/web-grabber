@@ -16,18 +16,18 @@ public class HarvestAccessor {
     public StringScriptOutput execute(String path) {
         log.debug("HarvestAccessor start");
         try {
-            ScraperConfiguration config=new ScraperConfiguration(path);
-            Scraper scraper=new Scraper(config,"C:\\");
+            ScraperConfiguration config = new ScraperConfiguration(path);
+            Scraper scraper = new Scraper(config, "C:\\");
             scraper.setDebug(true);
             scraper.execute();
             log.debug("HarvestAccessor end");
-            return new StringScriptOutput(scraper.getContext().getVar("out").toString(),false);
+            return new StringScriptOutput(scraper.getContext().getVar("out").toString(), false);
         } catch (FileNotFoundException e) {
-            log.error("File not found",e);
-            return new StringScriptOutput("",true);
+            log.error("File not found", e);
+            return new StringScriptOutput("", true);
         } catch (Exception e) {
-            log.error("Harvest can't be execute",e);
-            return  new StringScriptOutput("",true);
+            log.error("Harvest can't be execute", e);
+            return new StringScriptOutput("", true);
         }
 
     }
