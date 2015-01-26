@@ -20,9 +20,27 @@
                     </#list>
                 </select>
             </div>
+            <div>
+                <textarea name="args" class="form-control"></textarea>
+                <script>
+                    moveCaretToEnd(document.getElementsByName("args"));
+                    function moveCaretToEnd(inputObject) {
+                        if (inputObject.createTextRange) {
+                            var r = inputObject.createTextRange();
+                            r.collapse(false);
+                            r.select();
+                        }
+                    }
+                </script>
+            </div>
+            <p></p>
+            <div>
             <input type="submit" value="Add" class="btn btn-default">
+            </div>
         </form>
     </#if>
+
+
 
     <hr>
     <label>Current scripts:</label>

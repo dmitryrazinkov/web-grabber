@@ -8,7 +8,7 @@ import grub.entities.StringScriptOutput;
 import grub.services.GrubResultService;
 import grub.services.ScriptsForRunService;
 import grub.services.StringScriptOutputService;
-import grub.whithCasper.CasperAccessor;
+import grub.withCasper.CasperAccessor;
 import grub.withHarvest.HarvestAccessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -54,12 +54,6 @@ public class ScheduledTasks {
             Date now = new Date();
 
             try {
-             /*   if (scriptsForRun.getScript().isCasper()) {
-                    path = path + ".js";
-                } else {
-                    path = path + ".xml";
-                }
-                */
                 File file = PathGenerator.generate(scriptsForRun.getScript().isCasper());
                 FileOutputStream fileOutputStream = new FileOutputStream(path);
                 fileOutputStream.write(scriptsForRun.getScript().getFile());

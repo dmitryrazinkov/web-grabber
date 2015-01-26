@@ -4,6 +4,8 @@ import grub.entities.ScriptsForRun;
 import grub.services.GrubResultService;
 import grub.services.ScriptsForRunService;
 import grub.services.ScriptsService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -15,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping("")
 public class MainController {
-
+    private static final Logger log = LoggerFactory.getLogger(MainController.class);
     @Autowired
     GrubResultService grubResultService;
 
@@ -35,9 +37,10 @@ public class MainController {
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST)
-    public String addSite(@ModelAttribute("site1") String site1, ModelMap modelMap) {
+    public String addSite(@ModelAttribute("site1") String site1, @ModelAttribute("args") String args, ModelMap modelMap) {
         // scriptGrub.addScriptForGrub(scriptsService.findByName(site1));
         scriptsForRunService.add(new ScriptsForRun("", scriptsService.findByName(site1)));
+        log.debug("args: {}",args);
         if (!scriptsService.allScripts().isEmpty()) {
             modelMap.addAttribute("sites", scriptsService.allScripts());
         }

@@ -1,4 +1,4 @@
-package grub.whithCasper;
+package grub.withCasper;
 
 import grub.entities.StringScriptOutput;
 import org.slf4j.Logger;
