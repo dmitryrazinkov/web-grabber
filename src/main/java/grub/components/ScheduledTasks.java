@@ -59,9 +59,6 @@ public class ScheduledTasks {
                 fileOutputStream.write(scriptsForRun.getScript().getFile());
                 fileOutputStream.close();
 
-                if (scriptsForRun.getArgs() == null) {
-                    scriptsForRun.setArgs("");
-                }
 
                 StringScriptOutput stringScriptOutput;
                 if (scriptsForRun.getScript().isCasper()) {

@@ -1,6 +1,7 @@
 package grub.withCasper;
 
 import grub.entities.StringScriptOutput;
+import grub.parsers.ArgParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,7 @@ public class CasperAccessor {
         Process p;
         try {
             p = Runtime.getRuntime().exec("casperjs " + path + " " +
-                    args);
+                    ArgParser.CasperParser(args));
             p.waitFor();
             if (p.exitValue() != 0) {
                 log.error("CasperJs can't be execute");
