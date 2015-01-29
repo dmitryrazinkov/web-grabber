@@ -9,10 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("")
@@ -61,6 +58,11 @@ public class MainController {
     public String details(@PathVariable Integer id, ModelMap modelMap) {
         modelMap.addAttribute("resultList", grubResultService.findByScript(scriptsForRunService.getOne(id)));
         return "details";
+    }
+
+    @RequestMapping(value ="/ajaxArgs",method = RequestMethod.GET)
+    public @ResponseBody String ajaxArgs(@RequestParam String script){
+        return scriptsService.findByName(script).getArgs();
     }
 
 

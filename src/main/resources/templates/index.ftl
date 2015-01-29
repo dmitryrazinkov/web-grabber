@@ -14,14 +14,26 @@
         <form method="post" action="" style="margin:60px 0px 0px 0px;">
             <div class="form-group">
                 <label>Select site:</label>
-                <select name="site1" class="form-control">
+                <select name="site1" class="form-control" onchange="change(this)">
                     <#list sites as site1>
                         <option>${site1.getName()}</option>
                     </#list>
                 </select>
+                <script>
+                    function change(sc) {
+                        $.ajax({
+                            url: '/ajaxArgs',
+                            data: {script: sc.value},
+                            dataType: 'text',
+                            success: function(text){
+                                document.getElementById('area').value = text;
+                            }
+                        })
+                    }
+                </script>
             </div>
             <div>
-                <textarea name="args" class="form-control"></textarea>
+                <textarea id="area" name="args" class="form-control"></textarea>
                 <script>
                     moveCaretToEnd(document.getElementsByName("args"));
                     function moveCaretToEnd(inputObject) {

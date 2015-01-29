@@ -16,11 +16,5 @@ casper.then(function(){
 	this.echo(this.fetchText('tr[data-title="USDRUB_TOM"]>td[data-name="CHANGE"]'));
 });
 
-//casper.then( function() {
-//    this.capture('moex.jpg', undefined, {
-//        format: 'jpg',
-//        quality: 100
-//    })
-//});
 
 casper.run();

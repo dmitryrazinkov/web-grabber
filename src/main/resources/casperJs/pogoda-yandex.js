@@ -10,11 +10,6 @@ casper.start('https://pogoda.yandex.ru/');
 casper.then(function(){
 	this.echo(this.getHTML("div.current-weather__thermometer"));
 	this.echo(this.getHTML("span.current-weather__comment"));
-})
-//casper.then( function(){ this.capture('ya.jpg', undefined, {
-//        format: 'jpg',
-//        quality: 100
-//    })
-//});
+});
 
 casper.run();
