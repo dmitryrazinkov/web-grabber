@@ -13,7 +13,7 @@ import java.io.FileNotFoundException;
 public class HarvestAccessor {
     private static final Logger log = LoggerFactory.getLogger(HarvestAccessor.class);
 
-    public StringScriptOutput execute(String path) {
+    public StringScriptOutput execute(String path, String args) {
         log.debug("HarvestAccessor start");
         try {
             ScraperConfiguration config = new ScraperConfiguration(path);

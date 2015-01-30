@@ -64,7 +64,7 @@ public class ScheduledTasks {
                 if (scriptsForRun.getScript().isCasper()) {
                     stringScriptOutput = casperAccessor.execute(path, scriptsForRun.getArgs());
                 } else {
-                    stringScriptOutput = harvestAccessor.execute(path);
+                    stringScriptOutput = harvestAccessor.execute(path, scriptsForRun.getArgs());
                 }
                 stringScriptOutputService.addOne(stringScriptOutput);
                 grubResultService.addOne(new GrubResult(now, scriptsForRun, stringScriptOutput));

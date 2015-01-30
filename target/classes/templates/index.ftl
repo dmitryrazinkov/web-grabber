@@ -14,36 +14,16 @@
         <form method="post" action="" style="margin:60px 0px 0px 0px;">
             <div class="form-group">
                 <label>Select site:</label>
-                <select name="site1" class="form-control" onchange="change(this)">
+                <select id="select" name="site1" class="form-control" onchange="change(this)">
                     <#list sites as site1>
                         <option>${site1.getName()}</option>
                     </#list>
                 </select>
-                <script>
-                    function change(sc) {
-                        $.ajax({
-                            url: '/ajaxArgs',
-                            data: {script: sc.value},
-                            dataType: 'text',
-                            success: function(text){
-                                document.getElementById('area').value = text;
-                            }
-                        })
-                    }
+                <script src="/assets/js/select-script.js">
                 </script>
             </div>
             <div>
                 <textarea id="area" name="args" class="form-control"></textarea>
-                <script>
-                    moveCaretToEnd(document.getElementsByName("args"));
-                    function moveCaretToEnd(inputObject) {
-                        if (inputObject.createTextRange) {
-                            var r = inputObject.createTextRange();
-                            r.collapse(false);
-                            r.select();
-                        }
-                    }
-                </script>
             </div>
             <p></p>
             <div>
@@ -83,9 +63,11 @@
     </table>
 
 </div>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="/assets/js/bootstrap.min.js"></script>
+<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="/assets/autosize-master/jquery.autosize.min.js"></script>
+<script>
+    $('#area').autosize();
+</script>
 </body>
 </html>
