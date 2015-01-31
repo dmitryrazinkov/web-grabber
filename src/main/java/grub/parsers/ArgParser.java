@@ -18,14 +18,5 @@ public class ArgParser {
         }
         return map;
     }
-/*
-    public static void main(String[] args) {
-        String s="p=2\nl=1";
-        Map<String,String> map= HarvestParser(s);
-        for (Map.Entry<String, String> entry : map.entrySet())
-        {
-            System.out.println(entry.getKey() + "/" + entry.getValue());
-        }
-    }
- */
+
 }
