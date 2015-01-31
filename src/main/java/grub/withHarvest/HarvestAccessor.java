@@ -21,10 +21,11 @@ public class HarvestAccessor {
         try {
             ScraperConfiguration config = new ScraperConfiguration(path);
             Scraper scraper = new Scraper(config, "C:\\");
-            Map<String,String> map= HarvestParser(args);
-            for (Map.Entry<String, String> entry : map.entrySet())
-            {
-                scraper.addVariableToContext(entry.getKey(),entry.getValue());
+            if(!args.isEmpty()) {
+                Map<String,String> map= HarvestParser(args);
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    scraper.addVariableToContext(entry.getKey(), entry.getValue());
+                }
             }
             scraper.setDebug(true);
             scraper.execute();

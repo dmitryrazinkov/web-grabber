@@ -7,6 +7,7 @@ public class ArgParser {
     public static String CasperParser(String string) {
         return string.replaceAll(".+(\\r\\n|\\n|\\r|$)","--$0");
     }
+
     public static Map<String,String> HarvestParser(String string) {
         Map<String,String> map=new HashMap<String,String>();
         String[] args=string.split("\\r\\n|\\n|\\r");
