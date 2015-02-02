@@ -26,12 +26,12 @@
                 <textarea id="area" name="args" class="form-control"></textarea>
             </div>
             <p></p>
+
             <div>
-            <input type="submit" value="Add" class="btn btn-default">
+                <input type="submit" value="Add" class="btn btn-default">
             </div>
         </form>
     </#if>
-
 
 
     <hr>
@@ -68,6 +68,7 @@
 <script src="/assets/autosize-master/jquery.autosize.min.js"></script>
 <script>
     $('#area').autosize();
+
 </script>
 </body>
 </html>

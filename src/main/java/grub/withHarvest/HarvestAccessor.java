@@ -20,9 +20,9 @@ public class HarvestAccessor {
         log.debug("HarvestAccessor start");
         try {
             ScraperConfiguration config = new ScraperConfiguration(path);
-            Scraper scraper = new Scraper(config, "C:\\");
-            if(!args.isEmpty()) {
-                Map<String,String> map= HarvestParser(args);
+            Scraper scraper = new Scraper(config, "");
+            if (!args.isEmpty()) {
+                Map<String, String> map = HarvestParser(args);
                 for (Map.Entry<String, String> entry : map.entrySet()) {
                     scraper.addVariableToContext(entry.getKey(), entry.getValue());
                 }

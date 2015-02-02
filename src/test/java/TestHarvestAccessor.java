@@ -19,7 +19,7 @@ public class TestHarvestAccessor {
 
     @Test()
     public void errorIsReturnedIfFileNotFound() {
-        StringScriptOutput result = harvestAccessor.execute("testNotFile.js", "");
+        StringScriptOutput result = harvestAccessor.execute("testNotFile.xml", "");
         assertEquals(result.isError(), true);
     }
 

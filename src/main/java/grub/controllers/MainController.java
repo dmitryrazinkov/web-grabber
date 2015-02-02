@@ -37,7 +37,7 @@ public class MainController {
     public String addSite(@ModelAttribute("site1") String site1, @ModelAttribute("args") String args, ModelMap modelMap) {
         // scriptGrub.addScriptForGrub(scriptsService.findByName(site1));
         scriptsForRunService.add(new ScriptsForRun(args, scriptsService.findByName(site1)));
-        log.debug("args: {}",args);
+        log.debug("args: {}", args);
         if (!scriptsService.allScripts().isEmpty()) {
             modelMap.addAttribute("sites", scriptsService.allScripts());
         }
@@ -60,8 +60,10 @@ public class MainController {
         return "details";
     }
 
-    @RequestMapping(value ="/ajaxArgs",method = RequestMethod.GET)
-    public @ResponseBody String ajaxArgs(@RequestParam String script){
+    @RequestMapping(value = "/ajaxArgs", method = RequestMethod.GET)
+    public
+    @ResponseBody
+    String ajaxArgs(@RequestParam String script) {
         return scriptsService.findByName(script).getArgs();
     }
 
