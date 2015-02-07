@@ -41,9 +41,7 @@ public class MainController {
         if (!scriptsService.allScripts().isEmpty()) {
             modelMap.addAttribute("sites", scriptsService.allScripts());
         }
-
         modelMap.addAttribute("onTaskScripts", scriptsForRunService.allScripts());
-
         return "index";
     }
 
@@ -66,6 +64,8 @@ public class MainController {
     String ajaxArgs(@RequestParam String script) {
         return scriptsService.findByName(script).getArgs();
     }
+
+
 
 
 }

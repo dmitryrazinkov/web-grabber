@@ -44,7 +44,7 @@ public class ScheduledTasks {
     @Autowired
     ScriptsForRunService scriptsForRunService;
 
-    private String path = "D:\\testing";
+    private String path;
 
     @Scheduled(cron = "${cron.schedule}")
     public void grub() {
@@ -55,10 +55,10 @@ public class ScheduledTasks {
 
             try {
                 File file = PathGenerator.generate(scriptsForRun.getScript().isCasper());
+                path=file.getPath();
                 FileOutputStream fileOutputStream = new FileOutputStream(path);
                 fileOutputStream.write(scriptsForRun.getScript().getFile());
                 fileOutputStream.close();
-
 
                 StringScriptOutput stringScriptOutput;
                 if (scriptsForRun.getScript().isCasper()) {

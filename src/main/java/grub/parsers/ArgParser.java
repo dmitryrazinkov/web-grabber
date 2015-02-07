@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ArgParser {
+
     public static String CasperParser(String string) {
         return string.replaceAll(".+(\\r\\n|\\n|\\r|$)", "--$0");
     }

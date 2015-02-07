@@ -14,6 +14,7 @@ public class Launcher {
     private static final Logger log = LoggerFactory.getLogger(Launcher.class);
 
     public static void main(final String[] args) {
+
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
