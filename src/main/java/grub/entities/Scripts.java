@@ -125,4 +125,13 @@ public class Scripts {
     public Scripts(String name) {
         this.name = name;
     }
+
+    public Scripts(String description, Site site, String name, String args, boolean casper, byte[] file) {
+        this.description = description;
+        this.site = site;
+        this.name = name;
+        this.args = args;
+        this.casper = casper;
+        this.file = file;
+    }
 }

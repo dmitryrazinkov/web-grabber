@@ -9,6 +9,7 @@ public class StringScriptOutput {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Column(columnDefinition = "varchar(9000)")
     private String stringResult;
 
     private boolean error;

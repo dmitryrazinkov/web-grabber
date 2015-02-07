@@ -31,4 +31,11 @@ public class Site {
     public void setUrl(URL url) {
         this.url = url;
     }
+
+    public Site(URL url) {
+        this.url = url;
+    }
+
+    public Site() {
+    }
 }

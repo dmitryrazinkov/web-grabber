@@ -55,7 +55,7 @@ public class ScheduledTasks {
 
             try {
                 File file = PathGenerator.generate(scriptsForRun.getScript().isCasper());
-                path=file.getPath();
+                path = file.getPath();
                 FileOutputStream fileOutputStream = new FileOutputStream(path);
                 fileOutputStream.write(scriptsForRun.getScript().getFile());
                 fileOutputStream.close();
@@ -66,20 +66,12 @@ public class ScheduledTasks {
                 } else {
                     stringScriptOutput = harvestAccessor.execute(path, scriptsForRun.getArgs());
                 }
+
                 stringScriptOutputService.addOne(stringScriptOutput);
                 grubResultService.addOne(new GrubResult(now, scriptsForRun, stringScriptOutput));
 
-                if (scriptsForRun.getScript().getDescription() != null &&
-                        scriptsForRun.getScript().getDescription().equals("onchange")) {
-                    List<GrubResult> lastTwo = grubResultService.findLastTwo(scriptsForRun.getId());
-                    if (lastTwo.size() == 2) {
-                        if (onChangeStrategy.isChanged(lastTwo.get(0), lastTwo.get(1))) {
-                            log.debug("Data changed \n Script: {}\n Site: {} \n Time: {} ",
-                                    scriptsForRun.getScript().getName(),
-                                    scriptsForRun.getScript().getSite().getUrl().toString(), now);
-                        }
-                    }
-                }
+                processScriptResult(scriptsForRun, now);
+
                 file.delete();
             } catch (NullPointerException e) {
                 log.error("Pathname is null", e);
@@ -90,6 +82,28 @@ public class ScheduledTasks {
             }
         }
         log.debug("task end");
+    }
+
+    private void processScriptResult(ScriptsForRun scriptsForRun, Date now) {
+        String description = getString(scriptsForRun.getScript().getDescription());
+        if (!description.equals("onchange")) {
+            return;
+        }
+
+        List<GrubResult> lastTwo = grubResultService.findLastTwo(scriptsForRun.getId());
+        if (lastTwo.size() != 2) {
+            return;
+        }
+
+        if (onChangeStrategy.isChanged(lastTwo.get(0), lastTwo.get(1))) {
+            log.debug("Data changed \n Script: {}\n Site: {} \n Time: {} ",
+                    scriptsForRun.getScript().getName(),
+                    scriptsForRun.getScript().getSite().getUrl().toString(), now);
+        }
+    }
+
+    private String getString(String description) {
+        return description != null ? description : "";
     }
 
 
