@@ -43,6 +43,7 @@
             <th>Args</th>
             <th></th>
             <th></th>
+            <th>Status</th>
         </tr>
         </thead>
         <tbody>
@@ -57,6 +58,9 @@
                 <td>
                     <a href="/${script.id}">Details</a>
                 </td>
+                <td>
+                    <#if script.changed==true>Data changed!!<#else>Data don't changed</#if>
+                </td>
             </tr>
         </#list>
         </tbody>
@@ -68,7 +72,7 @@
 <script src="/assets/autosize-master/jquery.autosize.min.js"></script>
 <script>
     $('#area').autosize();
-
 </script>
+<script src="/assets/js/reload.js"></script>
 </body>
 </html>

@@ -92,11 +92,13 @@ public class ScheduledTasks {
     private void processScriptResult(ScriptsForRun scriptsForRun, Date now) {
         String description = getString(scriptsForRun.getScript().getDescription());
         if (!description.equals("onchange")) {
+            log.debug("not onchange");
             return;
         }
 
         List<GrubResult> lastTwo = grubResultService.findLastTwo(scriptsForRun.getId());
         if (lastTwo.size() != 2) {
+            log.debug("don't find last two");
             return;
         }
 
@@ -104,6 +106,8 @@ public class ScheduledTasks {
             log.debug("Data changed \n Script: {}\n Site: {} \n Time: {} ",
                     scriptsForRun.getScript().getName(),
                     scriptsForRun.getScript().getSite().getUrl().toString(), now);
+            scriptsForRun.setChanged(true);
+            scriptsForRunService.add(scriptsForRun);
         }
     }
 

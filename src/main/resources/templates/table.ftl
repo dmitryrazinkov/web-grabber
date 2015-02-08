@@ -4,6 +4,7 @@
     <th>Args</th>
     <th></th>
     <th></th>
+    <th>Status</th>
 </tr>
 </thead>
 <tbody>
@@ -17,6 +18,11 @@
         </td>
         <td>
             <a href="/${script.id}">Details</a>
+        </td>
+        <td>
+            <#if script.changed==true>Data changed!!
+                <#else>Data don't changed
+            </#if>
         </td>
     </tr>
 </#list>

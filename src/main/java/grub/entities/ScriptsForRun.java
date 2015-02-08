@@ -17,6 +17,8 @@ public class ScriptsForRun {
 
     private String args;
 
+    private boolean changed;
+
     @OneToMany(mappedBy = "script", fetch = FetchType.EAGER)
     List<GrubResult> results = new ArrayList<GrubResult>();
 
@@ -42,6 +44,14 @@ public class ScriptsForRun {
 
     public void setScript(Scripts script) {
         this.script = script;
+    }
+
+    public boolean isChanged() {
+        return changed;
+    }
+
+    public void setChanged(boolean change) {
+        this.changed = change;
     }
 
     public List<GrubResult> getResults() {

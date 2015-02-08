@@ -35,7 +35,6 @@ public class MainController {
 
     @RequestMapping(value = "", method = RequestMethod.POST)
     public String addSite(@ModelAttribute("site1") String site1, @ModelAttribute("args") String args, ModelMap modelMap) {
-        // scriptGrub.addScriptForGrub(scriptsService.findByName(site1));
         scriptsForRunService.add(new ScriptsForRun(args, scriptsService.findByName(site1)));
         log.debug("args: {}", args);
         if (!scriptsService.allScripts().isEmpty()) {
@@ -54,7 +53,12 @@ public class MainController {
 
     @RequestMapping("/{id}")
     public String details(@PathVariable Integer id, ModelMap modelMap) {
-        modelMap.addAttribute("resultList", grubResultService.findByScript(scriptsForRunService.getOne(id)));
+        ScriptsForRun scriptsForRun = scriptsForRunService.getOne(id);
+        if (scriptsForRun.isChanged()) {
+            scriptsForRun.setChanged(false);
+            scriptsForRun = scriptsForRunService.add(scriptsForRun);
+        }
+        modelMap.addAttribute("resultList", grubResultService.findByScript(scriptsForRun));
         return "details";
     }
 

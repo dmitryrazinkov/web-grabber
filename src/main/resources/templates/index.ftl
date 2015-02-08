@@ -13,7 +13,7 @@
     <#if sites??>
         <form method="post" action="" style="margin:60px 0px 0px 0px;">
             <div class="form-group">
-                <label>Select site:</label>
+                <label>Select script:</label>
                 <select id="select" name="site1" class="form-control" onchange="change(this)">
                     <#list sites as site1>
                         <option>${site1.getName()}</option>
@@ -43,6 +43,7 @@
             <th>Args</th>
             <th></th>
             <th></th>
+            <th>Status</th>
         </tr>
         </thead>
         <tbody>
@@ -56,6 +57,11 @@
                 </td>
                 <td>
                     <a href="/${script.id}">Details</a>
+                </td>
+                <td>
+                    <#if script.changed==true>Data changed!!
+                        <#else>Data don't changed
+                    </#if>
                 </td>
             </tr>
         </#list>
