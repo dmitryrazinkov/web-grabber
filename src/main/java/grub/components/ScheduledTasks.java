@@ -61,7 +61,7 @@ public class ScheduledTasks {
                 fileOutputStream.write(scriptsForRun.getScript().getFile());
                 fileOutputStream.close();
 
-                processScriptResult(scriptsForRun, now);
+                processScript(scriptsForRun, now);
 
                 file.delete();
             } catch (NullPointerException e) {
@@ -76,17 +76,20 @@ public class ScheduledTasks {
     }
 
     @Transactional
-    private void processScriptResult(ScriptsForRun scriptsForRun, Date now) {
+    private void processScript(ScriptsForRun scriptsForRun, Date now) {
         StringScriptOutput stringScriptOutput;
         if (scriptsForRun.getScript().isCasper()) {
             stringScriptOutput = casperAccessor.execute(path, scriptsForRun.getArgs());
         } else {
             stringScriptOutput = harvestAccessor.execute(path, scriptsForRun.getArgs());
         }
-
         stringScriptOutput = stringScriptOutputService.addOne(stringScriptOutput);
         grubResultService.addOne(new GrubResult(now, scriptsForRun, stringScriptOutput));
 
+        processScriptResult(scriptsForRun, now);
+    }
+
+    private void processScriptResult(ScriptsForRun scriptsForRun, Date now) {
         String description = getString(scriptsForRun.getScript().getDescription());
         if (!description.equals("onchange")) {
             return;
