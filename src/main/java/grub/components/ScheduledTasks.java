@@ -1,13 +1,13 @@
 package grub.components;
 
-import grub.generators.PathGenerator;
-import grub.strategy.OnChangeStrategy;
 import grub.entities.GrubResult;
 import grub.entities.ScriptsForRun;
 import grub.entities.StringScriptOutput;
+import grub.generators.PathGenerator;
 import grub.services.GrubResultService;
 import grub.services.ScriptsForRunService;
 import grub.services.StringScriptOutputService;
+import grub.strategy.OnChangeStrategy;
 import grub.withCasper.CasperAccessor;
 import grub.withHarvest.HarvestAccessor;
 import org.slf4j.Logger;
@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import javax.transaction.Transactional;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -60,16 +61,6 @@ public class ScheduledTasks {
                 fileOutputStream.write(scriptsForRun.getScript().getFile());
                 fileOutputStream.close();
 
-                StringScriptOutput stringScriptOutput;
-                if (scriptsForRun.getScript().isCasper()) {
-                    stringScriptOutput = casperAccessor.execute(path, scriptsForRun.getArgs());
-                } else {
-                    stringScriptOutput = harvestAccessor.execute(path, scriptsForRun.getArgs());
-                }
-
-                stringScriptOutputService.addOne(stringScriptOutput);
-                grubResultService.addOne(new GrubResult(now, scriptsForRun, stringScriptOutput));
-
                 processScriptResult(scriptsForRun, now);
 
                 file.delete();
@@ -84,7 +75,18 @@ public class ScheduledTasks {
         log.debug("task end");
     }
 
+    @Transactional
     private void processScriptResult(ScriptsForRun scriptsForRun, Date now) {
+        StringScriptOutput stringScriptOutput;
+        if (scriptsForRun.getScript().isCasper()) {
+            stringScriptOutput = casperAccessor.execute(path, scriptsForRun.getArgs());
+        } else {
+            stringScriptOutput = harvestAccessor.execute(path, scriptsForRun.getArgs());
+        }
+
+        stringScriptOutput = stringScriptOutputService.addOne(stringScriptOutput);
+        grubResultService.addOne(new GrubResult(now, scriptsForRun, stringScriptOutput));
+
         String description = getString(scriptsForRun.getScript().getDescription());
         if (!description.equals("onchange")) {
             return;

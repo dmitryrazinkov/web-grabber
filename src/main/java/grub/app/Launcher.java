@@ -60,7 +60,6 @@ public class Launcher {
                         log.error("Failed open browser tab", e);
                     }
                 }
-
             }
         });
     }
