@@ -68,7 +68,7 @@
 <script src="/assets/autosize-master/jquery.autosize.min.js"></script>
 <script>
     $('#area').autosize();
-
 </script>
+<script src="/assets/js/reload.js"></script>
 </body>
 </html>

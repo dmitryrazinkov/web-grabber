@@ -65,7 +65,11 @@ public class MainController {
         return scriptsService.findByName(script).getArgs();
     }
 
-
+    @RequestMapping("/tableReload")
+    public String reload(ModelMap modelMap) {
+        modelMap.addAttribute("onTaskScripts", scriptsForRunService.allScripts());
+        return "table";
+    }
 
 
 }
