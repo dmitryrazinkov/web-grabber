@@ -2,9 +2,9 @@
 <tr>
     <th data-type="string">Script</th>
     <th>Args</th>
-    <th></th>
-    <th></th>
     <th>Status</th>
+    <th></th>
+    <th></th>
 </tr>
 </thead>
 <tbody>
@@ -13,16 +13,16 @@
         <td>${script.script.getName()}</td>
         <td>${script.getArgs()}</td>
         <td>
+            <#if script.changed==true><p class="text-warning">Data changed!!</p>
+                <#else>Data don't changed
+            </#if>
+        </td>
+        <td>
             <span class="glyphicon glyphicon-remove"></span>
             <a href="/delete/${script.id}">Delete</a>
         </td>
         <td>
             <a href="/${script.id}">Details</a>
-        </td>
-        <td>
-            <#if script.changed==true>Data changed!!
-                <#else>Data don't changed
-            </#if>
         </td>
     </tr>
 </#list>
