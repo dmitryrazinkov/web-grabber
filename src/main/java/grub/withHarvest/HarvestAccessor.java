@@ -12,10 +12,18 @@ import java.util.Map;
 
 import static grub.parsers.ArgParser.harvestParser;
 
+/**
+ * Service for access and execute Harvest
+ */
 @Service
 public class HarvestAccessor {
     private static final Logger log = LoggerFactory.getLogger(HarvestAccessor.class);
 
+    /**
+     * Access to Harvest and execute script
+     * @param path path of Harvest script file
+     * @param args args for script
+     * @return result of script running*/
     public StringScriptOutput execute(String path, String args) {
         log.debug("HarvestAccessor start");
         try {

@@ -4,6 +4,9 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Script entity, used for storage scripts
+ */
 @Entity
 public class Scripts {
     @Id

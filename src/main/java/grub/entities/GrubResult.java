@@ -3,6 +3,9 @@ package grub.entities;
 import javax.persistence.*;
 import java.util.Date;
 
+/**
+ * Results of script entity
+ */
 @Entity
 public class GrubResult {
     @Id

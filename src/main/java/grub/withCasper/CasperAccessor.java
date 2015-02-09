@@ -10,10 +10,18 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/**
+ * Service for access and execute casperJs
+ */
 @Service
 public class CasperAccessor {
     private static final Logger log = LoggerFactory.getLogger(CasperAccessor.class);
 
+    /**
+     * Access to casperJs and execute script
+     * @param path path of casperJs script file
+     * @param args args for script
+     * @return result of script running*/
     public StringScriptOutput execute(String path, String args) {
         log.debug("CasperAccessor start");
         StringBuilder output = new StringBuilder();

@@ -2,6 +2,9 @@ package grub.entities;
 
 import javax.persistence.*;
 
+/**
+ * Used for storage string representation of script and error messages
+ */
 @Entity
 public class StringScriptOutput {
 

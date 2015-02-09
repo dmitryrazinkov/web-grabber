@@ -3,12 +3,21 @@ package grub.parsers;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Class for parse String args
+ */
 public class ArgParser {
 
+    /**Parse for CasperJs
+     * @param string String args
+     * @return String args for casperJs */
     public static String casperParser(String string) {
         return string.replaceAll(".+(\\r\\n|\\n|\\r|$)", "--$0");
     }
 
+    /**Parse for Harvest
+     * @param string String args
+     * @return Map of args and value */
     public static Map<String, String> harvestParser(String string) {
         Map<String, String> map = new HashMap<String, String>();
         String[] args = string.split("\\r\\n|\\n|\\r");

@@ -23,6 +23,9 @@ import java.io.FileOutputStream;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Class used for run scripts on a schedule
+ */
 @Component
 public class ScheduledTasks {
     private static final Logger log = LoggerFactory.getLogger(ScheduledTasks.class);
@@ -47,6 +50,8 @@ public class ScheduledTasks {
 
     private String path;
 
+    /**
+     *  Method to execute scripts on a schedule */
     @Scheduled(cron = "${cron.schedule}")
     public void grub() {
         log.debug("task run");
@@ -75,6 +80,10 @@ public class ScheduledTasks {
         log.debug("task end");
     }
 
+    /**
+     *  All script works and add records in DB
+     *  @param scriptsForRun current script
+     *  @param now now date*/
     @Transactional
     private void processScript(ScriptsForRun scriptsForRun, Date now) {
         StringScriptOutput stringScriptOutput;
@@ -94,6 +103,10 @@ public class ScheduledTasks {
         processScriptResult(scriptsForRun, now);
     }
 
+    /**
+     *  Method for checking the data changes, if required
+     *  @param scriptsForRun current script
+     *  @param now now date */
     private void processScriptResult(ScriptsForRun scriptsForRun, Date now) {
         String description = getString(scriptsForRun.getScript().getDescription());
         if (!description.equals("onchange")) {
@@ -116,6 +129,9 @@ public class ScheduledTasks {
         }
     }
 
+    /**
+     *  @param description description
+     *  @return description or an empty string if null */
     private String getString(String description) {
         return description != null ? description : "";
     }

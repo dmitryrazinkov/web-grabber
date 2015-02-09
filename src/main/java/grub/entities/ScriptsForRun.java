@@ -4,6 +4,9 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Used for storage current scripts and info for it (args and other)
+ */
 @Entity
 public class ScriptsForRun {
 
