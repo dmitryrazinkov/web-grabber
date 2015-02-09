@@ -59,7 +59,8 @@ public class CasperAccessor {
         log.debug("Casper access done");
         if (output.toString().isEmpty()) {
             log.error("Can't get result");
-            return new StringScriptOutput("", true, "Result is empty");
+            return new StringScriptOutput("", true, "Result is empty (data is not available " +
+                    "(or empty) or arguments invalid)");
         }
         return new StringScriptOutput(output.toString(), false, "");
     }
