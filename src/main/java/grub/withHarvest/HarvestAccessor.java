@@ -10,7 +10,7 @@ import org.webharvest.runtime.Scraper;
 import java.io.FileNotFoundException;
 import java.util.Map;
 
-import static grub.parsers.ArgParser.HarvestParser;
+import static grub.parsers.ArgParser.harvestParser;
 
 @Service
 public class HarvestAccessor {
@@ -22,7 +22,7 @@ public class HarvestAccessor {
             ScraperConfiguration config = new ScraperConfiguration(path);
             Scraper scraper = new Scraper(config, "");
             if (!args.isEmpty()) {
-                Map<String, String> map = HarvestParser(args);
+                Map<String, String> map = harvestParser(args);
                 for (Map.Entry<String, String> entry : map.entrySet()) {
                     scraper.addVariableToContext(entry.getKey(), entry.getValue());
                 }
@@ -30,13 +30,13 @@ public class HarvestAccessor {
             scraper.setDebug(true);
             scraper.execute();
             log.debug("HarvestAccessor end");
-            return new StringScriptOutput(scraper.getContext().getVar("out").toString(), false);
+            return new StringScriptOutput(scraper.getContext().getVar("out").toString(), false, "");
         } catch (FileNotFoundException e) {
             log.error("File not found", e);
-            return new StringScriptOutput("", true);
+            return new StringScriptOutput("", true, "Can't create tmp file in Harvest");
         } catch (Exception e) {
             log.error("Harvest can't be execute", e);
-            return new StringScriptOutput("", true);
+            return new StringScriptOutput("", true, "Harvest can't be execute");
         }
 
     }

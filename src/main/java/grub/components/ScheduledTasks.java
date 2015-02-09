@@ -86,6 +86,11 @@ public class ScheduledTasks {
         stringScriptOutput = stringScriptOutputService.addOne(stringScriptOutput);
         grubResultService.addOne(new GrubResult(now, scriptsForRun, stringScriptOutput));
 
+        if (stringScriptOutput.isError()) {
+            scriptsForRun.setErrorMessage(stringScriptOutput.getErrorMessage());
+            scriptsForRunService.add(scriptsForRun);
+        }
+
         processScriptResult(scriptsForRun, now);
     }
 

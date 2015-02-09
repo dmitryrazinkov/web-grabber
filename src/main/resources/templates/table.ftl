@@ -5,6 +5,7 @@
     <th>Status</th>
     <th></th>
     <th></th>
+    <th></th>
 </tr>
 </thead>
 <tbody>
@@ -23,6 +24,11 @@
         </td>
         <td>
             <a href="/${script.id}">Details</a>
+        </td>
+        <td>
+            <#if script.errorMessage??>
+                <p><font color="red">${script.errorMessage}</font></p>
+            </#if>
         </td>
     </tr>
 </#list>

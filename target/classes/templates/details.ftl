@@ -17,18 +17,17 @@
         <tr>
 
             <th>Date</th>
+            <th>Result of script running</th>
             <th></th>
-            <th>Details</th>
         </tr>
         </thead>
         <tbody>
         <#list resultList as result>
 
             <tr>
-
                 <td>${result.date}</td>
-                <td></td>
                 <td>${result.stringScriptOutput.stringResult}</td>
+                <td><p><font color="red">${result.stringScriptOutput.errorMessage}</font></p></td>
             </tr>
 
         </#list>

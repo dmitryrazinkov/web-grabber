@@ -19,6 +19,8 @@ public class ScriptsForRun {
 
     private boolean changed;
 
+    private String errorMessage;
+
     @OneToMany(mappedBy = "script", fetch = FetchType.EAGER)
     List<GrubResult> results = new ArrayList<GrubResult>();
 
@@ -52,6 +54,14 @@ public class ScriptsForRun {
 
     public void setChanged(boolean change) {
         this.changed = change;
+    }
+
+    public String getErrorMessage() {
+        return errorMessage;
+    }
+
+    public void setErrorMessage(String errorMessage) {
+        this.errorMessage = errorMessage;
     }
 
     public List<GrubResult> getResults() {

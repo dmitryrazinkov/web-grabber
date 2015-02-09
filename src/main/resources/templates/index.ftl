@@ -23,7 +23,7 @@
                 </script>
             </div>
             <div>
-                <textarea id="area" name="args" class="form-control"></textarea>
+                <textarea id="area" name="args" class="form-control" disabled></textarea>
             </div>
             <p></p>
 
@@ -42,6 +42,7 @@
             <th data-type="string">Script</th>
             <th>Args</th>
             <th>Status</th>
+            <th></th>
             <th></th>
             <th></th>
         </tr>
@@ -66,6 +67,11 @@
                 <td>
                     <#if script.changed==true><p class="text-warning">Data changed!!</p>
                         <#else>Data don't changed
+                    </#if>
+                </td>
+                <td>
+                    <#if script.errorMessage??>
+                        <p><font color="red">${script.errorMessage}</font></p>
                     </#if>
                 </td>
             </tr>

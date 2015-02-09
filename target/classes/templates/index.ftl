@@ -13,7 +13,7 @@
     <#if sites??>
         <form method="post" action="" style="margin:60px 0px 0px 0px;">
             <div class="form-group">
-                <label>Select site:</label>
+                <label>Select script:</label>
                 <select id="select" name="site1" class="form-control" onchange="change(this)">
                     <#list sites as site1>
                         <option>${site1.getName()}</option>
@@ -23,7 +23,7 @@
                 </script>
             </div>
             <div>
-                <textarea id="area" name="args" class="form-control"></textarea>
+                <textarea id="area" name="args" class="form-control" disabled></textarea>
             </div>
             <p></p>
 
@@ -41,9 +41,10 @@
         <tr>
             <th data-type="string">Script</th>
             <th>Args</th>
-            <th></th>
-            <th></th>
             <th>Status</th>
+            <th></th>
+            <th></th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -52,6 +53,11 @@
                 <td>${script.script.getName()}</td>
                 <td>${script.getArgs()}</td>
                 <td>
+                    <#if script.changed==true><p class="text-warning">Data changed!!</p>
+                        <#else>Data don't changed
+                    </#if>
+                </td>
+                <td>
                     <span class="glyphicon glyphicon-remove"></span>
                     <a href="/delete/${script.id}">Delete</a>
                 </td>
@@ -59,7 +65,14 @@
                     <a href="/${script.id}">Details</a>
                 </td>
                 <td>
-                    <#if script.changed==true>Data changed!!<#else>Data don't changed</#if>
+                    <#if script.changed==true><p class="text-warning">Data changed!!</p>
+                        <#else>Data don't changed
+                    </#if>
+                </td>
+                <td>
+                    <#if script.errorMessage??>
+                        <p><font color="red">${script.errorMessage}</font></p>
+                    </#if>
                 </td>
             </tr>
         </#list>

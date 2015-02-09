@@ -14,6 +14,8 @@ public class StringScriptOutput {
 
     private boolean error;
 
+    private String errorMessage;
+
     @OneToOne(mappedBy = "stringScriptOutput", fetch = FetchType.EAGER)
     private GrubResult grubResult;
 
@@ -41,6 +43,14 @@ public class StringScriptOutput {
         this.error = error;
     }
 
+    public String getErrorMessage() {
+        return errorMessage;
+    }
+
+    public void setErrorMessage(String errorMessage) {
+        this.errorMessage = errorMessage;
+    }
+
     public GrubResult getGrubResult() {
         return grubResult;
     }
@@ -52,8 +62,9 @@ public class StringScriptOutput {
     public StringScriptOutput() {
     }
 
-    public StringScriptOutput(String stringResult, boolean error) {
+    public StringScriptOutput(String stringResult, boolean error, String errorMessage) {
         this.stringResult = stringResult;
         this.error = error;
+        this.errorMessage = errorMessage;
     }
 }

@@ -17,8 +17,8 @@
         <tr>
 
             <th>Date</th>
-            <th></th>
             <th>Result of script running</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -26,8 +26,8 @@
 
             <tr>
                 <td>${result.date}</td>
-                <td></td>
                 <td>${result.stringScriptOutput.stringResult}</td>
+                <td><p><font color="red">${result.stringScriptOutput.errorMessage}</font></p></td>
             </tr>
 
         </#list>

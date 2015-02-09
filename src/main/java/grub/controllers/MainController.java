@@ -58,6 +58,10 @@ public class MainController {
             scriptsForRun.setChanged(false);
             scriptsForRun = scriptsForRunService.add(scriptsForRun);
         }
+        if (scriptsForRun.getErrorMessage() != null) {
+            scriptsForRun.setErrorMessage(null);
+            scriptsForRun = scriptsForRunService.add(scriptsForRun);
+        }
         modelMap.addAttribute("resultList", grubResultService.findByScript(scriptsForRun));
         return "details";
     }

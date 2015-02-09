@@ -21,11 +21,11 @@ public class CasperAccessor {
         Process p;
         try {
             p = Runtime.getRuntime().exec("casperjs " + path + " " +
-                    ArgParser.CasperParser(args));
+                    ArgParser.casperParser(args));
             p.waitFor();
             if (p.exitValue() != 0) {
                 log.error("CasperJs can't be execute");
-                return new StringScriptOutput("", true);
+                return new StringScriptOutput("", true, "CasperJs can't be execute");
             } else {
                 log.debug("CasperJs calling success");
             }
@@ -39,20 +39,20 @@ public class CasperAccessor {
                 }
             }
         } catch (IOException e) {
-            log.error("Failed 'exec' CasperJs", e);
-            return new StringScriptOutput("", true);
+            log.error("Failed execute CasperJs", e);
+            return new StringScriptOutput("", true, "Failed execute CasperJs(install Casper or check path)");
         } catch (InterruptedException e) {
             log.error("Failed 'waitFor' in CasperJs", e);
-            return new StringScriptOutput("", true);
+            return new StringScriptOutput("", true, "Failed 'waitFor' in CasperJs");
         } catch (Exception e) {
             log.error("Failed access to CasperJs", e);
-            return new StringScriptOutput("", true);
+            return new StringScriptOutput("", true, "Failed access to CasperJs");
         }
         log.debug("Casper access done");
         if (output.toString().isEmpty()) {
             log.error("Can't get result");
-            return new StringScriptOutput("", true);
+            return new StringScriptOutput("", true, "Result is empty");
         }
-        return new StringScriptOutput(output.toString(), false);
+        return new StringScriptOutput(output.toString(), false, "");
     }
 }
