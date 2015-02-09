@@ -7,7 +7,7 @@ import grub.generators.PathGenerator;
 import grub.services.GrubResultService;
 import grub.services.ScriptsForRunService;
 import grub.services.StringScriptOutputService;
-import grub.strategy.OnChangeStrategy;
+import grub.strategies.OnChangeStrategy;
 import grub.withCasper.CasperAccessor;
 import grub.withHarvest.HarvestAccessor;
 import org.slf4j.Logger;
