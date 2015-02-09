@@ -17,7 +17,7 @@
         <tr>
 
             <th>Date</th>
-            <th>Result of script running</th>
+            <th>Script result</th>
             <th></th>
         </tr>
         </thead>

@@ -9,6 +9,6 @@ function reload() {
 
 $(document).ready( function() {
     reload();
-    setInterval("reload()",10000);
+    setInterval("reload()", 1000);
     }
 )
