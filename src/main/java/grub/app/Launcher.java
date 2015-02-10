@@ -25,30 +25,33 @@ public class Launcher {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
+                System.getProperties().setProperty("db-strategy", args[0]);
                 ApplicationContext context = SpringApplication.run(Config.class, args);
-                SiteRepository siteRepository = context.getBean(SiteRepository.class);
-                ScriptsRepository scriptsRepository = context.getBean(ScriptsRepository.class);
-                Site site;
-                try {
-                    site = siteRepository.save(new Site(new URL("http://yandex.ru/")));
-                    scriptsRepository.save(new Scripts("onchange", site, "yandex-pogoda", "", true, Files.toByteArray(
-                            ResourceUtils.getFile("classpath:casperJs/pogoda-yandex.js"))));
-                    site = siteRepository.save(new Site(new URL("http://moex.com/")));
-                    scriptsRepository.save(new Scripts("onchange", site, "dollar rate", "", true, Files.toByteArray(
-                            ResourceUtils.getFile("classpath:casperJs/moex.js"))));
-                    site = siteRepository.save(new Site(new URL("http://vk.com/")));
-                    scriptsRepository.save(new Scripts("onchange", site, "vk", "email=\npass=\npage=", true,
-                            Files.toByteArray(ResourceUtils.getFile("classpath:casperJs/vk.js"))));
-                    site = siteRepository.save(new Site(new URL("http://mail.ru/")));
-                    scriptsRepository.save(new Scripts("onchange", site, "oil", "", false, Files.toByteArray(
-                            ResourceUtils.getFile("classpath:harvest/oil.xml"))));
-                    site = siteRepository.save(new Site(new URL("http://lenta.ru/")));
-                    scriptsRepository.save(new Scripts("onchange", site, "lenta", "", false, Files.toByteArray(
-                            ResourceUtils.getFile("classpath:harvest/lenta.xml"))));
-                } catch (MalformedURLException e) {
-                    log.error("Format url wrong");
-                } catch (IOException e) {
-                    log.error("Can't get file");
+                if (args[0].equals("create")) {
+                    SiteRepository siteRepository = context.getBean(SiteRepository.class);
+                    ScriptsRepository scriptsRepository = context.getBean(ScriptsRepository.class);
+                    Site site;
+                    try {
+                        site = siteRepository.save(new Site(new URL("http://yandex.ru/")));
+                        scriptsRepository.save(new Scripts("onchange", site, "yandex-pogoda", "", true, Files.toByteArray(
+                                ResourceUtils.getFile("classpath:casperJs/pogoda-yandex.js"))));
+                        site = siteRepository.save(new Site(new URL("http://moex.com/")));
+                        scriptsRepository.save(new Scripts("onchange", site, "dollar rate", "", true, Files.toByteArray(
+                                ResourceUtils.getFile("classpath:casperJs/moex.js"))));
+                        site = siteRepository.save(new Site(new URL("http://vk.com/")));
+                        scriptsRepository.save(new Scripts("onchange", site, "vk", "email=\npass=\npage=", true,
+                                Files.toByteArray(ResourceUtils.getFile("classpath:casperJs/vk.js"))));
+                        site = siteRepository.save(new Site(new URL("http://mail.ru/")));
+                        scriptsRepository.save(new Scripts("onchange", site, "oil", "", false, Files.toByteArray(
+                                ResourceUtils.getFile("classpath:harvest/oil.xml"))));
+                        site = siteRepository.save(new Site(new URL("http://lenta.ru/")));
+                        scriptsRepository.save(new Scripts("onchange", site, "lenta", "", false, Files.toByteArray(
+                                ResourceUtils.getFile("classpath:harvest/lenta.xml"))));
+                    } catch (MalformedURLException e) {
+                        log.error("Format url wrong");
+                    } catch (IOException e) {
+                        log.error("Can't get file");
+                    }
                 }
                 Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
                 if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
