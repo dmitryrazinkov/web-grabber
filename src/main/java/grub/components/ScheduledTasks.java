@@ -92,6 +92,8 @@ public class ScheduledTasks {
         } else {
             stringScriptOutput = harvestAccessor.execute(path, scriptsForRun.getArgs());
         }
+        log.debug("{} script result: {}", scriptsForRun.getScript().getName(), stringScriptOutput.getStringResult());
+
         stringScriptOutput = stringScriptOutputService.addOne(stringScriptOutput);
         grubResultService.addOne(new GrubResult(now, scriptsForRun, stringScriptOutput));
 
