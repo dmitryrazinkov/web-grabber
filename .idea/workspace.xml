@@ -4,12 +4,7 @@
     <option name="ANALYZE_TEST_SOURCES" value="false" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e78bce88-c4ea-444e-b9f3-3dafc45faf27" name="Default" comment="log script result">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/grub/app/Launcher$1.class" afterPath="$PROJECT_DIR$/target/classes/grub/app/Launcher$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/grub/app/Launcher.class" afterPath="$PROJECT_DIR$/target/classes/grub/app/Launcher.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/grub/components/ScheduledTasks.class" afterPath="$PROJECT_DIR$/target/classes/grub/components/ScheduledTasks.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/TestCasperAccessor.class" afterPath="$PROJECT_DIR$/target/test-classes/TestCasperAccessor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/grub/app/Launcher.java" afterPath="$PROJECT_DIR$/src/main/java/grub/app/Launcher.java" />
+    <list default="true" id="e78bce88-c4ea-444e-b9f3-3dafc45faf27" name="Default" comment="exit application if db settings invalid">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -46,15 +41,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Launcher.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Launcher.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/grub/app/Launcher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.60362697" vertical-offset="1025" max-vertical-offset="1513">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1025" max-vertical-offset="1513">
               <caret line="74" column="42" selection-start-line="74" selection-start-column="42" selection-end-line="74" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#854#4383#0" expanded="true" />
-                <element signature="e#4382#4383#0" expanded="true" />
+                <element signature="e#854#4386#0" expanded="true" />
+                <element signature="e#4385#4386#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -132,11 +127,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.properties" pinned="false" current-in-tab="false">
+      <file leaf-file-name="application.properties" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="84" max-vertical-offset="680">
-              <caret line="15" column="53" selection-start-line="15" selection-start-column="53" selection-end-line="15" selection-end-column="53" />
+            <state vertical-scroll-proportion="0.6632124" vertical-offset="84" max-vertical-offset="680">
+              <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -204,8 +199,8 @@
         <option value="$PROJECT_DIR$/src/main/java/grub/withCasper/CasperAccessor.java" />
         <option value="$PROJECT_DIR$/src/test/java/TestCasperAccessor.java" />
         <option value="$PROJECT_DIR$/src/main/java/grub/components/ScheduledTasks.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/java/grub/app/Launcher.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
       </list>
     </option>
   </component>
@@ -1090,12 +1085,6 @@
       <option name="number" value="Default" />
       <updated>1418666254052</updated>
     </task>
-    <task id="LOCAL-00007" summary="table wits task results in DB">
-      <created>1419641241026</created>
-      <option name="number" value="00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1419641241026</updated>
-    </task>
     <task id="LOCAL-00008" summary="pogoda.yandex grub">
       <created>1419719172085</created>
       <option name="number" value="00008" />
@@ -1384,7 +1373,13 @@
       <option name="project" value="LOCAL" />
       <updated>1423601338936</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="exit application if db settings invalid">
+      <created>1423604735019</created>
+      <option name="number" value="00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1423604735019</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1453,7 +1448,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Last two result with sql" />
     <MESSAGE value="StringScriptOutput, sql fix" />
     <MESSAGE value="view change" />
     <MESSAGE value="with scriptsForRun table" />
@@ -1478,7 +1472,8 @@
     <MESSAGE value="&quot;create&quot; arg for create db, &quot;update&quot; - for update" />
     <MESSAGE value="other way execute casper" />
     <MESSAGE value="log script result" />
-    <option name="LAST_COMMIT_MESSAGE" value="log script result" />
+    <MESSAGE value="exit application if db settings invalid" />
+    <option name="LAST_COMMIT_MESSAGE" value="exit application if db settings invalid" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1858,23 +1853,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="84" max-vertical-offset="680">
-          <caret line="15" column="53" selection-start-line="15" selection-start-column="53" selection-end-line="15" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/grub/app/Launcher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.60362697" vertical-offset="1025" max-vertical-offset="1513">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1025" max-vertical-offset="1513">
           <caret line="74" column="42" selection-start-line="74" selection-start-column="42" selection-end-line="74" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#854#4383#0" expanded="true" />
-            <element signature="e#4382#4383#0" expanded="true" />
+            <element signature="e#854#4386#0" expanded="true" />
+            <element signature="e#4385#4386#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6632124" vertical-offset="84" max-vertical-offset="680">
+          <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
