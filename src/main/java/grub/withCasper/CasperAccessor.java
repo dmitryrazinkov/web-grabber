@@ -4,11 +4,14 @@ import grub.entities.StringScriptOutput;
 import grub.parsers.ArgParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Service for access and execute casperJs
@@ -16,6 +19,9 @@ import java.io.InputStreamReader;
 @Service
 public class CasperAccessor {
     private static final Logger log = LoggerFactory.getLogger(CasperAccessor.class);
+
+    @Value("${casper.directory}")
+    String directory;
 
     /**
      * Access to casperJs and execute script
@@ -28,8 +34,15 @@ public class CasperAccessor {
 
         Process p;
         try {
-            p = Runtime.getRuntime().exec("casperjs " + path + " " +
-                    ArgParser.casperParser(args));
+            List<String> casperArgs = new ArrayList<String>();
+            casperArgs.add(directory);
+            casperArgs.add(path);
+            for (String arg : ArgParser.casperParser(args)) {
+                casperArgs.add(arg);
+            }
+
+            p = new ProcessBuilder(casperArgs).start();
+
             p.waitFor();
             if (p.exitValue() != 0) {
                 log.error("CasperJs can't be execute");

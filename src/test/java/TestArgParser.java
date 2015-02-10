@@ -4,7 +4,8 @@ import java.util.Map;
 
 import static grub.parsers.ArgParser.casperParser;
 import static grub.parsers.ArgParser.harvestParser;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class TestArgParser {
     @Test
@@ -20,8 +21,8 @@ public class TestArgParser {
     @Test
     public void casperParserMustReturnCorrectResult() {
         String s = "d=1\nl=2";
-        s = casperParser(s);
-        assertEquals(s, "--d=1\n--l=2");
+        String s1[] = casperParser(s);
+        assertEquals(s1[0], "--d=1");
     }
 
 

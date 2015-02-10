@@ -11,8 +11,9 @@ public class ArgParser {
     /**Parse for CasperJs
      * @param string String args
      * @return String args for casperJs */
-    public static String casperParser(String string) {
-        return string.replaceAll(".+(\\r\\n|\\n|\\r|$)", "--$0");
+    public static String[] casperParser(String string) {
+        string = string.replaceAll(".+(\\r\\n|\\n|\\r|$)", "--$0");
+        return string.split("\\r\\n|\\n|\\r");
     }
 
     /**Parse for Harvest
