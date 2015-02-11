@@ -65,6 +65,7 @@ public class TestCasperAccessor {
         } catch (FileNotFoundException e) {
             log.error("Can't get file");
         }
+        System.out.println(result.getStringResult());
         assertTrue(result.isError() == false);
 
     }

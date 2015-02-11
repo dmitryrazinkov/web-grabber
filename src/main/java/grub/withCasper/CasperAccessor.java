@@ -36,7 +36,7 @@ public class CasperAccessor {
         try {
             List<String> casperArgs = new ArrayList<String>();
             casperArgs.add(directory);
-            casperArgs.add(path);
+            casperArgs.add("\\\"" + path + "\\\"");
             for (String arg : ArgParser.casperParser(args)) {
                 casperArgs.add(arg);
             }
