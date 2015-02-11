@@ -1,6 +1,6 @@
 package grub.strategies;
 
-import grub.entities.GrubResult;
+import grub.entities.GrabResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -19,7 +19,7 @@ public class OnChangeStrategy {
      * @param two second result
      * @return true if changed, false otherwise
      */
-    public boolean isChanged(GrubResult one, GrubResult two) {
+    public boolean isChanged(GrabResult one, GrabResult two) {
         if (one.getStringScriptOutput().getStringResult().equals(two.getStringScriptOutput().getStringResult())) {
             return false;
         } else return true;

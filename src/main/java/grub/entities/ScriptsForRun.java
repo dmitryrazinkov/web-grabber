@@ -25,7 +25,7 @@ public class ScriptsForRun {
     private String errorMessage;
 
     @OneToMany(mappedBy = "script", fetch = FetchType.EAGER)
-    List<GrubResult> results = new ArrayList<GrubResult>();
+    List<GrabResult> results = new ArrayList<GrabResult>();
 
     public Integer getId() {
         return id;
@@ -67,11 +67,11 @@ public class ScriptsForRun {
         this.errorMessage = errorMessage;
     }
 
-    public List<GrubResult> getResults() {
+    public List<GrabResult> getResults() {
         return results;
     }
 
-    public void setResults(List<GrubResult> results) {
+    public void setResults(List<GrabResult> results) {
         this.results = results;
     }
 

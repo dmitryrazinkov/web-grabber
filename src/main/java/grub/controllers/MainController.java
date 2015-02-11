@@ -1,7 +1,7 @@
 package grub.controllers;
 
 import grub.entities.ScriptsForRun;
-import grub.services.GrubResultService;
+import grub.services.GrabResultService;
 import grub.services.ScriptsForRunService;
 import grub.services.ScriptsService;
 import org.slf4j.Logger;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 public class MainController {
     private static final Logger log = LoggerFactory.getLogger(MainController.class);
     @Autowired
-    GrubResultService grubResultService;
+    GrabResultService grabResultService;
 
     @Autowired
     ScriptsService scriptsService;
@@ -47,7 +47,7 @@ public class MainController {
 
     @RequestMapping("/delete/{id}")
     public String delete(@PathVariable Integer id) {
-        grubResultService.deleteByScript(scriptsForRunService.getOne(id));
+        grabResultService.deleteByScript(scriptsForRunService.getOne(id));
         scriptsForRunService.delete(scriptsForRunService.getOne(id));
         return "redirect:/";
     }
@@ -63,7 +63,7 @@ public class MainController {
             scriptsForRun.setErrorMessage(null);
             scriptsForRun = scriptsForRunService.add(scriptsForRun);
         }
-        modelMap.addAttribute("resultList", grubResultService.findByScript(scriptsForRun));
+        modelMap.addAttribute("resultList", grabResultService.findByScript(scriptsForRun));
         return "details";
     }
 

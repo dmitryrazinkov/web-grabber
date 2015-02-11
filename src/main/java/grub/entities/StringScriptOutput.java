@@ -20,7 +20,7 @@ public class StringScriptOutput {
     private String errorMessage;
 
     @OneToOne(mappedBy = "stringScriptOutput", fetch = FetchType.EAGER)
-    private GrubResult grubResult;
+    private GrabResult grabResult;
 
     public Integer getId() {
         return id;
@@ -54,12 +54,12 @@ public class StringScriptOutput {
         this.errorMessage = errorMessage;
     }
 
-    public GrubResult getGrubResult() {
-        return grubResult;
+    public GrabResult getGrabResult() {
+        return grabResult;
     }
 
-    public void setGrubResult(GrubResult grubResult) {
-        this.grubResult = grubResult;
+    public void setGrabResult(GrabResult grabResult) {
+        this.grabResult = grabResult;
     }
 
     public StringScriptOutput() {

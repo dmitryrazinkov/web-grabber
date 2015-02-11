@@ -6,7 +6,7 @@ import grub.entities.ScriptsForRun;
 import grub.entities.Site;
 import grub.repositories.ScriptsRepository;
 import grub.repositories.SiteRepository;
-import grub.services.GrubResultService;
+import grub.services.GrabResultService;
 import grub.services.ScriptsForRunService;
 import grub.services.ScriptsService;
 import org.junit.After;
@@ -44,7 +44,7 @@ public class TestSchedulesTask {
     ScriptsService scriptsService;
 
     @Autowired
-    GrubResultService grubResultService;
+    GrabResultService grabResultService;
 
     ScriptsForRun testScriptForRun;
 
@@ -62,15 +62,15 @@ public class TestSchedulesTask {
 
     @Test
     public void taskMustAddRecordAtDB() {
-        Integer before = grubResultService.countOfRecord();
+        Integer before = grabResultService.countOfRecord();
         scheduledTasks.grub();
-        Integer after = grubResultService.countOfRecord();
+        Integer after = grabResultService.countOfRecord();
         assertNotEquals(before, after);
     }
 
     @After
     public void after() {
-        grubResultService.deleteByScript(testScriptForRun);
+        grabResultService.deleteByScript(testScriptForRun);
         scriptsForRunService.delete(testScriptForRun);
         scriptsRepository.delete(script);
         siteRepository.delete(site);

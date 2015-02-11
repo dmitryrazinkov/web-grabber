@@ -1,10 +1,10 @@
 package grub.components;
 
-import grub.entities.GrubResult;
+import grub.entities.GrabResult;
 import grub.entities.ScriptsForRun;
 import grub.entities.StringScriptOutput;
 import grub.generators.PathGenerator;
-import grub.services.GrubResultService;
+import grub.services.GrabResultService;
 import grub.services.ScriptsForRunService;
 import grub.services.StringScriptOutputService;
 import grub.strategies.OnChangeStrategy;
@@ -31,7 +31,7 @@ public class ScheduledTasks {
     private static final Logger log = LoggerFactory.getLogger(ScheduledTasks.class);
 
     @Autowired
-    GrubResultService grubResultService;
+    GrabResultService grabResultService;
 
     @Autowired
     CasperAccessor casperAccessor;
@@ -95,7 +95,7 @@ public class ScheduledTasks {
         log.debug("{} script result: {}", scriptsForRun.getScript().getName(), stringScriptOutput.getStringResult());
 
         stringScriptOutput = stringScriptOutputService.addOne(stringScriptOutput);
-        grubResultService.addOne(new GrubResult(now, scriptsForRun, stringScriptOutput));
+        grabResultService.addOne(new GrabResult(now, scriptsForRun, stringScriptOutput));
 
         if (stringScriptOutput.isError()) {
             scriptsForRun.setErrorMessage(stringScriptOutput.getErrorMessage());
@@ -116,7 +116,7 @@ public class ScheduledTasks {
             return;
         }
 
-        List<GrubResult> lastTwo = grubResultService.findLastTwo(scriptsForRun.getId());
+        List<GrabResult> lastTwo = grabResultService.findLastTwo(scriptsForRun.getId());
         if (lastTwo.size() != 2) {
             log.debug("don't find last two");
             return;

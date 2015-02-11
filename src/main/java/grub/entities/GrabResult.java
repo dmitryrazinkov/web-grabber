@@ -7,7 +7,7 @@ import java.util.Date;
  * Results of script entity
  */
 @Entity
-public class GrubResult {
+public class GrabResult {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -22,7 +22,7 @@ public class GrubResult {
     @JoinColumn(name = "res_id")
     private StringScriptOutput stringScriptOutput;
 
-    public GrubResult() {
+    public GrabResult() {
     }
 
     public Integer getId() {
@@ -57,7 +57,7 @@ public class GrubResult {
         this.stringScriptOutput = stringScriptOutput;
     }
 
-    public GrubResult(Date date, ScriptsForRun script, StringScriptOutput stringScriptOutput) {
+    public GrabResult(Date date, ScriptsForRun script, StringScriptOutput stringScriptOutput) {
         this.date = date;
         this.script = script;
         this.stringScriptOutput = stringScriptOutput;
