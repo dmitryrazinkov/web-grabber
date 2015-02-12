@@ -24,6 +24,10 @@ public class Launcher {
     private static final Logger log = LoggerFactory.getLogger(Launcher.class);
 
     public static void main(final String[] args) {
+        if (args.length != 1 || (!args[0].equals("create") && !args[0].equals("update"))) {
+            log.error("Start app with argument \"create\" or \"update\"");
+            System.exit(1);
+        }
 
         SwingUtilities.invokeLater(new Runnable() {
             @Override
@@ -59,9 +63,9 @@ public class Launcher {
                             scriptsRepository.save(new Scripts("onchange", site, "lenta", "", false, Files.toByteArray(
                                     ResourceUtils.getFile("classpath:harvest/lenta.xml"))));
                         } catch (MalformedURLException e) {
-                            log.error("Format url wrong");
+                            log.error("Format url wrong", e);
                         } catch (IOException e) {
-                            log.error("Can't get file");
+                            log.error("Can't get file", e);
                         }
                     }
                     Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
