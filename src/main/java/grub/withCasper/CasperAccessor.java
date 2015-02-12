@@ -2,6 +2,7 @@ package grub.withCasper;
 
 import grub.entities.StringScriptOutput;
 import grub.parsers.ArgParser;
+import grub.parsers.JsonParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -35,10 +36,14 @@ public class CasperAccessor {
         Process p;
         try {
             List<String> casperArgs = new ArrayList<String>();
-            casperArgs.add(directory);
+            if (directory != null && !directory.isEmpty()) {
+                casperArgs.add(directory);
+            } else {
+                casperArgs.add("casperjs");
+            }
             casperArgs.add("\\\"" + path + "\\\"");
             for (String arg : ArgParser.casperParser(args)) {
-                casperArgs.add(arg);
+                casperArgs.add("\\\"" + arg + "\\\"");
             }
 
             p = new ProcessBuilder(casperArgs).start();
@@ -70,7 +75,7 @@ public class CasperAccessor {
             return new StringScriptOutput("", true, "Failed access to CasperJs");
         }
         log.debug("Casper access done");
-        if (output.toString().isEmpty()) {
+        if (JsonParser.getResult(output.toString()).isEmpty()) {
             log.error("Can't get result");
             return new StringScriptOutput("", true, "Result is empty (data is not available " +
                     "(or empty) or arguments invalid)");
