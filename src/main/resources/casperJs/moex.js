@@ -6,14 +6,47 @@ var casper = require('casper').create({
 casper.start('http://moex.com/ru/markets/currency/');
 
 casper.then(function(){
-	if(this.exists('button[type="button"]')) {
+	if(this.exists('button[type="button"]')){
 		this.click('button[type="button"]');
 		};
 });
 
+var USDselector='tr[data-title="USDRUB_TOM"]>td[data-name="LAST"]';
+var changeSelector='tr[data-title="USDRUB_TOM"]>td[data-name="CHANGE"]';
+var USD;
+var change;
+var error=false;
+var output={
+	result:"",
+	error:""
+}
+
+casper.waitForSelector(	USDselector,
+	function then(){
+		USD=this.fetchText(USDselector);
+	},
+	function onTimeout() {
+		error=true;
+	},
+	2000
+)
+
+casper.waitForSelector(	changeSelector,
+	function then(){
+		change=this.fetchText(changeSelector);
+	},
+	function onTimeout() {
+		error=true;
+	},
+	2000
+)
+casper.then( function() {
+	output.error=error;
+	output.result=USD+" "+change;
+})
+
 casper.then(function(){
-	this.echo(this.fetchText('tr[data-title="USDRUB_TOM"]>td[data-name="LAST"]'));
-	this.echo(this.fetchText('tr[data-title="USDRUB_TOM"]>td[data-name="CHANGE"]'));
+	this.echo(JSON.stringify(output));
 });
 
 

@@ -3,6 +3,7 @@ package grub.components;
 import grub.entities.GrabResult;
 import grub.entities.ScriptsForRun;
 import grub.entities.StringScriptOutput;
+import grub.parsers.JsonParser;
 import grub.services.GrabResultService;
 import grub.services.ScriptsForRunService;
 import grub.services.StringScriptOutputService;
@@ -56,6 +57,8 @@ public class ScriptProcess {
         }
         log.debug("{} script result: {}", scriptsForRun.getScript().getName(), stringScriptOutput.getStringResult());
 
+        stringScriptOutput = jsonProcess(stringScriptOutput, scriptsForRun);
+
         Date now = new Date();
         stringScriptOutput = stringScriptOutputService.addOne(stringScriptOutput);
         grabResultService.addOne(new GrabResult(now, scriptsForRun, stringScriptOutput));
@@ -102,5 +105,19 @@ public class ScriptProcess {
      */
     private String getString(String description) {
         return description != null ? description : "";
+    }
+
+    private StringScriptOutput jsonProcess(StringScriptOutput stringScriptOutput, ScriptsForRun scriptsForRun) {
+        if (!scriptsForRun.getScript().isCasper()) {
+            return stringScriptOutput;
+        }
+        if (JsonParser.isError(stringScriptOutput.getStringResult())) {
+            stringScriptOutput.setStringResult("");
+            stringScriptOutput.setError(true);
+            stringScriptOutput.setErrorMessage("Script invalid(selectors invalid) or args incorrect");
+            return stringScriptOutput;
+        }
+        stringScriptOutput.setStringResult(JsonParser.getResult(stringScriptOutput.getStringResult()));
+        return stringScriptOutput;
     }
 }

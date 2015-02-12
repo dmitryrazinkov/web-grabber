@@ -42,10 +42,12 @@ public class Launcher {
                         Site site;
                         try {
                             site = siteRepository.save(new Site(new URL("http://yandex.ru/")));
-                            scriptsRepository.save(new Scripts("onchange", site, "yandex-pogoda", "", true, Files.toByteArray(
+                            scriptsRepository.save(new Scripts("onchange", site, "yandex-pogoda", "", true,
+                                    Files.toByteArray(
                                     ResourceUtils.getFile("classpath:casperJs/pogoda-yandex.js"))));
                             site = siteRepository.save(new Site(new URL("http://moex.com/")));
-                            scriptsRepository.save(new Scripts("onchange", site, "dollar rate", "", true, Files.toByteArray(
+                            scriptsRepository.save(new Scripts("onchange", site, "dollar rate", "", true,
+                                    Files.toByteArray(
                                     ResourceUtils.getFile("classpath:casperJs/moex.js"))));
                             site = siteRepository.save(new Site(new URL("http://vk.com/")));
                             scriptsRepository.save(new Scripts("onchange", site, "vk", "email=\npass=\npage=", true,

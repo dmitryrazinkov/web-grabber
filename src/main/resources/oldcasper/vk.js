@@ -15,28 +15,18 @@ casper.then(function() {
 );
 
 page=casper.cli.get('page');
+
 casper.thenOpen(page);
 
-var selector="div.wall_text";
-var error=false;
-var output={
-	result:"",
-	error:""
-};
-
-casper.waitForSelector(	selector,
-	function then(){
-		output.result=this.fetchText(selector).replace(/\s+/g,' ').trim();
-	},
-	function onTimeout() {
-		error=true;
-	},
-	2000
-);
+//casper.then(function(){
+//this.echo(this.fetchText("#page_wall_posts_count"));
+//}
+//)
 
 casper.then(function() {
-    output.error=error;
-	this.echo(JSON.stringify(output));
+	this.echo(this.fetchText("div.wall_text").replace(/\s+/g,' ').trim());
 }
 );
+
+
 casper.run();
