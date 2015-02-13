@@ -1,6 +1,6 @@
 import grub.app.Config;
 import grub.entities.StringScriptOutput;
-import grub.withHarvest.HarvestAccessor;
+import grub.accessors.HarvestAccessor;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

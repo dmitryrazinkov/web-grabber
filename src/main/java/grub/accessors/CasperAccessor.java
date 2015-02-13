@@ -1,4 +1,4 @@
-package grub.withCasper;
+package grub.accessors;
 
 import grub.entities.StringScriptOutput;
 import grub.parsers.ArgParser;

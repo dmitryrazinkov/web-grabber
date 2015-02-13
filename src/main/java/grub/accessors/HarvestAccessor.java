@@ -1,4 +1,4 @@
-package grub.withHarvest;
+package grub.accessors;
 
 import grub.entities.StringScriptOutput;
 import org.slf4j.Logger;
