@@ -1,6 +1,6 @@
-import grub.app.Config;
-import grub.entities.StringScriptOutput;
-import grub.accessors.CasperAccessor;
+import grab.app.Config;
+import grab.entities.StringScriptOutput;
+import grab.accessors.CasperAccessor;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;

@@ -1,4 +1,4 @@
-import grub.parsers.JsonParser;
+import grab.parsers.JsonParser;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

@@ -2,8 +2,8 @@ import org.junit.Test;
 
 import java.util.Map;
 
-import static grub.parsers.ArgParser.casperParser;
-import static grub.parsers.ArgParser.harvestParser;
+import static grab.parsers.ArgParser.casperParser;
+import static grab.parsers.ArgParser.harvestParser;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
