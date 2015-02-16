@@ -19,7 +19,6 @@ public class ScriptsService {
         List<Scripts> scripts = new ArrayList<Scripts>();
         for (Scripts script : scriptsRepository.findAll()) {
             scripts.add(script);
-            System.out.println(script.getName());
         }
         return scripts;
     }
