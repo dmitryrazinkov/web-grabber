@@ -76,7 +76,7 @@ public class ProjectInit implements Runnable {
                 ((ConfigurableApplicationContext) context).close();
             }
         } catch (SQLException e) {
-            log.error("not valid db settings");
+            log.error("not valid db settings", e);
             ((ConfigurableApplicationContext) context).close();
         }
     }
