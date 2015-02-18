@@ -61,6 +61,8 @@ public class ProjectInit implements Runnable {
             site = siteRepository.save(new Site(new URL("http://lenta.ru/")));
             scriptsRepository.save(new Scripts("onchange", site, "lenta", "", false, Files.toByteArray(
                     ResourceUtils.getFile("classpath:harvest/lenta.xml")), "Data don't changed"));
+            scriptsRepository.save(new Scripts("onwait", site, "euro", "lessThan=", true, Files.toByteArray(
+                    ResourceUtils.getFile("classpath:casperJs/euro.js")), "Expected data don't available"));
         } catch (MalformedURLException e) {
             log.error("Format url wrong", e);
         } catch (IOException e) {

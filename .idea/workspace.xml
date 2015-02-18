@@ -4,8 +4,8 @@
     <option name="ANALYZE_TEST_SOURCES" value="false" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e78bce88-c4ea-444e-b9f3-3dafc45faf27" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/casperJs/euro.js" />
+    <list default="true" id="e78bce88-c4ea-444e-b9f3-3dafc45faf27" name="Default" comment="status">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/grab/strategies/OnWaitStrategy.java" />
       <change type="DELETED" beforePath="C:\Users\Дмитрий\Desktop\Practice\target\classes\grub\app\Config.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\Дмитрий\Desktop\Practice\target\classes\grub\app\Launcher$1.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\Дмитрий\Desktop\Practice\target\classes\grub\app\Launcher.class" afterPath="" />
@@ -33,24 +33,18 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/TestArgParser.class" afterPath="$PROJECT_DIR$/target/test-classes/TestArgParser.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/TestCasperAccessor.class" afterPath="$PROJECT_DIR$/target/test-classes/TestCasperAccessor.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/TestHarvestAccessor.class" afterPath="$PROJECT_DIR$/target/test-classes/TestHarvestAccessor.class" />
-      <change type="MODIFICATION" beforePath="C:\Users\Дмитрий\Desktop\Practice\target\test-classes\TestOnChangeStrategy.class" afterPath="C:\Users\Дмитрий\Desktop\Practice\target\test-classes\TestOnChangeStrategy.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/TestOnChangeStrategy.class" afterPath="$PROJECT_DIR$/target/test-classes/TestOnChangeStrategy.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/TestPathGenerator.class" afterPath="$PROJECT_DIR$/target/test-classes/TestPathGenerator.class" />
-      <change type="MODIFICATION" beforePath="C:\Users\Дмитрий\Desktop\Practice\target\test-classes\TestSchedulesTask.class" afterPath="C:\Users\Дмитрий\Desktop\Practice\target\test-classes\TestSchedulesTask.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/grab/controllers/MainController.java" afterPath="$PROJECT_DIR$/src/main/java/grab/controllers/MainController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/TestSchedulesTask.class" afterPath="$PROJECT_DIR$/target/test-classes/TestSchedulesTask.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/grab/strategies/OnChangeStrategy.java" afterPath="$PROJECT_DIR$/src/main/java/grab/strategies/OnChangeStrategy.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/grab/app/ProjectInit.java" afterPath="$PROJECT_DIR$/src/main/java/grab/app/ProjectInit.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/grab/components/ScriptProcess.java" afterPath="$PROJECT_DIR$/src/main/java/grab/components/ScriptProcess.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/grab/entities/Scripts.java" afterPath="$PROJECT_DIR$/src/main/java/grab/entities/Scripts.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/grab/entities/ScriptsForRun.java" afterPath="$PROJECT_DIR$/src/main/java/grab/entities/ScriptsForRun.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/TestOnChangeStrategy.java" afterPath="$PROJECT_DIR$/src/test/java/TestOnChangeStrategy.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/TestSchedulesTask.java" afterPath="$PROJECT_DIR$/src/test/java/TestSchedulesTask.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/application.properties" afterPath="$PROJECT_DIR$/target/classes/application.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/details.ftl" afterPath="$PROJECT_DIR$/target/classes/templates/details.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/index.ftl" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/casperJs/euro.js" afterPath="$PROJECT_DIR$/src/main/resources/casperJs/euro.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/index.ftl" afterPath="$PROJECT_DIR$/target/classes/templates/index.ftl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/casperJs/moex.js" afterPath="$PROJECT_DIR$/target/classes/casperJs/moex.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/casperJs/test dir/pogoda-yandex.js" afterPath="$PROJECT_DIR$/src/main/resources/casperJs/test dir/pogoda-yandex.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/casperJs/pogoda-yandex.js" afterPath="$PROJECT_DIR$/target/classes/casperJs/pogoda-yandex.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/table.ftl" afterPath="$PROJECT_DIR$/src/main/resources/templates/table.ftl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/casperJs/vk.js" afterPath="$PROJECT_DIR$/target/classes/casperJs/vk.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -77,31 +71,63 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MainController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/grab/controllers/MainController.java">
+      <file leaf-file-name="ScheduledTasks.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/grab/components/ScheduledTasks.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="268" max-vertical-offset="1360">
-              <caret line="40" column="65" selection-start-line="40" selection-start-column="65" selection-end-line="40" selection-end-column="65" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="935">
+              <caret line="20" column="3" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="84" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestSchedulesTask.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/grab/controllers/MainController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.48933142" vertical-offset="625" max-vertical-offset="1360">
+              <caret line="67" column="62" selection-start-line="67" selection-start-column="62" selection-end-line="67" selection-end-column="62" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestSchedulesTask.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/TestSchedulesTask.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6130501" vertical-offset="361" max-vertical-offset="1020">
+            <state vertical-scroll-proportion="0.0" vertical-offset="124" max-vertical-offset="1020">
               <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestCasperAccessor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/TestCasperAccessor.java">
+      <file leaf-file-name="ScriptProcess.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/grab/components/ScriptProcess.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="446" max-vertical-offset="1105">
-              <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="837" max-vertical-offset="1819">
+              <caret line="64" column="8" selection-start-line="64" selection-start-column="8" selection-end-line="64" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OnWaitStrategy.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/grab/strategies/OnWaitStrategy.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
+              <caret line="17" column="52" selection-start-line="17" selection-start-column="52" selection-end-line="17" selection-end-column="52" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OnChangeStrategy.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/grab/strategies/OnChangeStrategy.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="1003">
+              <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="23" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -110,8 +136,18 @@
       <file leaf-file-name="pogoda-yandex.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/casperJs/test dir/pogoda-yandex.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="242" max-vertical-offset="901">
+            <state vertical-scroll-proportion="0.0" vertical-offset="5" max-vertical-offset="901">
               <caret line="47" column="13" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProjectInit.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/grab/app/ProjectInit.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="217" max-vertical-offset="1445">
+              <caret line="64" column="104" selection-start-line="64" selection-start-column="104" selection-end-line="64" selection-end-column="104" />
               <folding />
             </state>
           </provider>
@@ -127,62 +163,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestOnChangeStrategy.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/TestOnChangeStrategy.java">
+      <file leaf-file-name="euro.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/casperJs/euro.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="430" max-vertical-offset="1326">
-              <caret line="56" column="63" selection-start-line="56" selection-start-column="63" selection-end-line="56" selection-end-column="63" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="867">
+              <caret line="33" column="51" selection-start-line="33" selection-start-column="51" selection-end-line="33" selection-end-column="51" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Scripts.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/grab/entities/Scripts.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1234" max-vertical-offset="2057">
-              <caret line="148" column="41" selection-start-line="148" selection-start-column="41" selection-end-line="148" selection-end-column="41" />
-              <folding>
-                <element signature="e#1439#1440#0" expanded="true" />
-                <element signature="e#1475#1476#0" expanded="true" />
-                <element signature="e#1533#1534#0" expanded="true" />
-                <element signature="e#1583#1584#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="table.ftl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/table.ftl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="680">
-              <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.ftl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/index.ftl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.8076925" vertical-offset="758" max-vertical-offset="1547">
-              <caret line="55" column="20" selection-start-line="54" selection-start-column="20" selection-end-line="57" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ScriptsForRun.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/grab/entities/ScriptsForRun.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="294" max-vertical-offset="1190">
-              <caret line="83" column="27" selection-start-line="83" selection-start-column="27" selection-end-line="83" selection-end-column="27" />
-              <folding>
-                <element signature="e#1035#1036#0" expanded="true" />
-                <element signature="e#1064#1065#0" expanded="true" />
-                <element signature="e#1108#1109#0" expanded="true" />
-                <element signature="e#1144#1145#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -200,8 +186,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/resources/casperJs/moex.js" />
-        <option value="$PROJECT_DIR$/src/main/resources/assets/js/select-script.js" />
         <option value="$PROJECT_DIR$/src/main/resources/assets/autosize-master/readme.md" />
         <option value="$PROJECT_DIR$/src/test/java/TestHarvestAccessor.java" />
         <option value="$PROJECT_DIR$/src/main/java/grub/repositories/ScriptsForRunRepository.java" />
@@ -240,10 +224,7 @@
         <option value="$PROJECT_DIR$/src/main/java/grab/app/Launcher.java" />
         <option value="$PROJECT_DIR$/src/main/java/grab/services/ScriptsService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/src/main/resources/casperJs/euro.js" />
         <option value="$PROJECT_DIR$/src/main/java/grab/entities/Scripts.java" />
-        <option value="$PROJECT_DIR$/src/main/java/grab/app/ProjectInit.java" />
-        <option value="$PROJECT_DIR$/src/main/java/grab/components/ScriptProcess.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/index.ftl" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/table.ftl" />
         <option value="$PROJECT_DIR$/src/main/java/grab/controllers/MainController.java" />
@@ -251,6 +232,11 @@
         <option value="$PROJECT_DIR$/src/test/java/TestOnChangeStrategy.java" />
         <option value="$PROJECT_DIR$/src/main/resources/casperJs/test dir/pogoda-yandex.js" />
         <option value="$PROJECT_DIR$/src/test/java/TestSchedulesTask.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/casperJs/euro.js" />
+        <option value="$PROJECT_DIR$/src/main/java/grab/strategies/OnChangeStrategy.java" />
+        <option value="$PROJECT_DIR$/src/main/java/grab/components/ScriptProcess.java" />
+        <option value="$PROJECT_DIR$/src/main/java/grab/strategies/OnWaitStrategy.java" />
+        <option value="$PROJECT_DIR$/src/main/java/grab/app/ProjectInit.java" />
       </list>
     </option>
   </component>
@@ -849,7 +835,7 @@
       <recent name="C:\Users\Дмитрий\Desktop\Practice\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in Practice">
+  <component name="RunManager" selected="Application.Launcher">
     <configuration default="false" name="Launcher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -859,7 +845,7 @@
       </extension>
       <option name="MAIN_CLASS_NAME" value="grab.app.Launcher" />
       <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="update" />
+      <option name="PROGRAM_PARAMETERS" value="create" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" value="" />
@@ -1184,12 +1170,6 @@
       <option name="number" value="Default" />
       <updated>1418666254052</updated>
     </task>
-    <task id="LOCAL-00019" summary="logging">
-      <created>1420908606728</created>
-      <option name="number" value="00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1420908606728</updated>
-    </task>
     <task id="LOCAL-00020" summary="check casperjs in system">
       <created>1420912023981</created>
       <option name="number" value="00020" />
@@ -1478,7 +1458,13 @@
       <option name="project" value="LOCAL" />
       <updated>1424088029382</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="status">
+      <created>1424272869460</created>
+      <option name="number" value="00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1424272869460</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1515,10 +1501,10 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22919819" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2564935" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20887446" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18390192" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19616205" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1547,7 +1533,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="harvest dependecy and simple class" />
     <MESSAGE value="harvest accesor simple+ all dependesy add" />
     <MESSAGE value="casper arg parser" />
     <MESSAGE value="vk.js" />
@@ -1572,7 +1557,8 @@
     <MESSAGE value="launcher modify" />
     <MESSAGE value="log level and sql output" />
     <MESSAGE value="/" />
-    <option name="LAST_COMMIT_MESSAGE" value="/" />
+    <MESSAGE value="status" />
+    <option name="LAST_COMMIT_MESSAGE" value="status" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1586,13 +1572,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/java/TestPathGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="408">
-          <caret line="18" column="48" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2329">
@@ -1789,13 +1768,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/grab/strategies/OnChangeStrategy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="110" max-vertical-offset="527">
-          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/grab/accessors/CasperAccessor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="567" max-vertical-offset="1343">
@@ -1852,38 +1824,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/casperJs/euro.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="867">
-          <caret line="45" column="13" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/grab/components/ScheduledTasks.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="935">
-          <caret line="20" column="3" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="84" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/grab/app/ProjectInit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="1411">
-          <caret line="62" column="94" selection-start-line="62" selection-start-column="94" selection-end-line="62" selection-end-column="94" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/grab/components/ScriptProcess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="599" max-vertical-offset="1938">
-          <caret line="103" column="48" selection-start-line="103" selection-start-column="48" selection-end-line="103" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/index.ftl">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.8076925" vertical-offset="758" max-vertical-offset="1547">
@@ -1900,23 +1840,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/grab/controllers/MainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="268" max-vertical-offset="1360">
-          <caret line="40" column="65" selection-start-line="40" selection-start-column="65" selection-end-line="40" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/grab/entities/Scripts.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1424" max-vertical-offset="2057">
-          <caret line="148" column="41" selection-start-line="148" selection-start-column="41" selection-end-line="148" selection-end-column="41" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1234" max-vertical-offset="2057">
+          <caret line="148" column="43" selection-start-line="148" selection-start-column="43" selection-end-line="148" selection-end-column="43" />
           <folding>
-            <element signature="e#1439#1440#0" expanded="true" />
-            <element signature="e#1475#1476#0" expanded="true" />
-            <element signature="e#1533#1534#0" expanded="true" />
-            <element signature="e#1583#1584#0" expanded="true" />
+            <element signature="e#1439#1440#0" expanded="false" />
+            <element signature="e#1475#1476#0" expanded="false" />
+            <element signature="e#1533#1534#0" expanded="false" />
+            <element signature="e#1583#1584#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1924,7 +1856,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/grab/entities/ScriptsForRun.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="294" max-vertical-offset="1190">
-          <caret line="83" column="27" selection-start-line="83" selection-start-column="27" selection-end-line="83" selection-end-column="27" />
+          <caret line="83" column="29" selection-start-line="83" selection-start-column="29" selection-end-line="83" selection-end-column="29" />
           <folding>
             <element signature="e#1035#1036#0" expanded="true" />
             <element signature="e#1064#1065#0" expanded="true" />
@@ -1958,6 +1890,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/TestSchedulesTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="124" max-vertical-offset="1020">
+          <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/casperJs/test dir/pogoda-yandex.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="242" max-vertical-offset="901">
@@ -1966,10 +1906,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/TestSchedulesTask.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/casperJs/euro.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6130501" vertical-offset="361" max-vertical-offset="1020">
-          <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="867">
+          <caret line="33" column="51" selection-start-line="33" selection-start-column="51" selection-end-line="33" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/grab/components/ScheduledTasks.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="935">
+          <caret line="20" column="3" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="84" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/grab/components/ScriptProcess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="837" max-vertical-offset="1819">
+          <caret line="64" column="8" selection-start-line="64" selection-start-column="8" selection-end-line="64" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/grab/strategies/OnChangeStrategy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="1003">
+          <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/grab/strategies/OnWaitStrategy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
+          <caret line="17" column="52" selection-start-line="17" selection-start-column="52" selection-end-line="17" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/grab/app/ProjectInit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="217" max-vertical-offset="1445">
+          <caret line="64" column="104" selection-start-line="64" selection-start-column="104" selection-end-line="64" selection-end-column="104" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/grab/controllers/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.48933142" vertical-offset="625" max-vertical-offset="1360">
+          <caret line="67" column="62" selection-start-line="67" selection-start-column="62" selection-end-line="67" selection-end-column="62" />
           <folding />
         </state>
       </provider>

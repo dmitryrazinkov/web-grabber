@@ -1,5 +1,7 @@
 package grab.components;
 
+import grab.accessors.CasperAccessor;
+import grab.accessors.HarvestAccessor;
 import grab.entities.GrabResult;
 import grab.entities.ScriptsForRun;
 import grab.entities.StringScriptOutput;
@@ -8,8 +10,7 @@ import grab.services.GrabResultService;
 import grab.services.ScriptsForRunService;
 import grab.services.StringScriptOutputService;
 import grab.strategies.OnChangeStrategy;
-import grab.accessors.CasperAccessor;
-import grab.accessors.HarvestAccessor;
+import grab.strategies.OnWaitStrategy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,6 @@ import org.springframework.stereotype.Component;
 
 import javax.transaction.Transactional;
 import java.util.Date;
-import java.util.List;
 
 @Component
 public class ScriptProcess {
@@ -40,6 +40,9 @@ public class ScriptProcess {
 
     @Autowired
     OnChangeStrategy onChangeStrategy;
+
+    @Autowired
+    OnWaitStrategy onWaitStrategy;
 
     /**
      * All script works and add records in DB
@@ -68,40 +71,30 @@ public class ScriptProcess {
             scriptsForRunService.add(scriptsForRun);
         }
 
-        processScriptResult(scriptsForRun, now);
+        processScriptResult(scriptsForRun, stringScriptOutput);
     }
 
     /**
      * Method for checking the data changes, if required
      *
      * @param scriptsForRun current script
-     * @param now           now date
      */
-    private void processScriptResult(ScriptsForRun scriptsForRun, Date now) {
+    private void processScriptResult(ScriptsForRun scriptsForRun, StringScriptOutput stringScriptOutput) {
         String description = getString(scriptsForRun.getScript().getDescription());
-        if (!description.equals("onchange")) {
-            log.debug("not onchange");
+
+        if (description.equals("onchange")) {
+            log.debug("onchange");
+            onChangeStrategy.changeProcess(scriptsForRun);
             return;
         }
 
-        List<GrabResult> lastTwo = grabResultService.findLastTwo(scriptsForRun.getId());
-        if (lastTwo.size() != 2) {
-            log.debug("don't find last two");
-            scriptsForRun.setStatus("Data don't changed");
-            scriptsForRunService.add(scriptsForRun);
+        if (description.equals("onwait")) {
+            log.debug("onwait");
+            onWaitStrategy.onWait(scriptsForRun, stringScriptOutput);
             return;
         }
 
-        if (onChangeStrategy.isChanged(lastTwo.get(0), lastTwo.get(1))) {
-            log.debug("Data changed \n Script: {}\n Site: {} \n Time: {} ",
-                    scriptsForRun.getScript().getName(),
-                    scriptsForRun.getScript().getSite().getUrl().toString(), now);
-            scriptsForRun.setStatus("Data changed!!");
-            scriptsForRunService.add(scriptsForRun);
-            return;
-        }
-        scriptsForRun.setStatus("Data don't changed");
-        scriptsForRunService.add(scriptsForRun);
+
     }
 
     /**

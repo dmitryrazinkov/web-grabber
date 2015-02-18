@@ -31,7 +31,7 @@ casper.waitForSelector(	EURselector,
 
 casper.then( function() {
 	output.error=error;
-	if (EUR.replace(',','.')<this.cli.get('eur')) {
+	if (EUR.replace(',','.')<this.cli.get('lessThan')) {
 	    output.result="true";
 	} else {
 	    output.result="false";
