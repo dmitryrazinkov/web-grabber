@@ -87,6 +87,8 @@ public class ScriptProcess {
         List<GrabResult> lastTwo = grabResultService.findLastTwo(scriptsForRun.getId());
         if (lastTwo.size() != 2) {
             log.debug("don't find last two");
+            scriptsForRun.setStatus("Data don't changed");
+            scriptsForRunService.add(scriptsForRun);
             return;
         }
 
@@ -94,9 +96,12 @@ public class ScriptProcess {
             log.debug("Data changed \n Script: {}\n Site: {} \n Time: {} ",
                     scriptsForRun.getScript().getName(),
                     scriptsForRun.getScript().getSite().getUrl().toString(), now);
-            scriptsForRun.setChanged(true);
+            scriptsForRun.setStatus("Data changed!!");
             scriptsForRunService.add(scriptsForRun);
+            return;
         }
+        scriptsForRun.setStatus("Data don't changed");
+        scriptsForRunService.add(scriptsForRun);
     }
 
     /**

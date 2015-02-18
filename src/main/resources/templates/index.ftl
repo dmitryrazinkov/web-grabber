@@ -53,8 +53,8 @@
                 <td>${script.script.getName()}</td>
                 <td>${script.getArgs()}</td>
                 <td>
-                    <#if script.changed==true><p class="text-warning">Data changed!!</p>
-                        <#else>Data don't changed
+                    <#if script.status??>
+                        ${script.status}
                     </#if>
                 </td>
                 <td>
@@ -63,11 +63,6 @@
                 </td>
                 <td>
                     <a href="/${script.id}">Details</a>
-                </td>
-                <td>
-                    <#if script.changed==true><p class="text-warning">Data changed!!</p>
-                        <#else>Data don't changed
-                    </#if>
                 </td>
                 <td>
                     <#if script.errorMessage??>

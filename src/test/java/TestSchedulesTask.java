@@ -54,10 +54,10 @@ public class TestSchedulesTask {
 
     @Before
     public void before() throws IOException {
-        site = siteRepository.save(new Site(new URL("http://yandex.ru/")));
+        site = siteRepository.save(new Site(new URL("http://ya.ru/")));
         script = scriptsRepository.save(new Scripts("onchange", site, "yandex-pogoda", "", true, Files.toByteArray(
-                ResourceUtils.getFile("classpath:casperJs/pogoda-yandex.js"))));
-        testScriptForRun = scriptsForRunService.add(new ScriptsForRun("", scriptsService.findByName("yandex-pogoda")));
+                ResourceUtils.getFile("classpath:casperJs/pogoda-yandex.js")), "Data don't changed"));
+        testScriptForRun = scriptsForRunService.add(new ScriptsForRun("", script, script.getDefaultStatus()));
     }
 
     @Test

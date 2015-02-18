@@ -47,20 +47,20 @@ public class ProjectInit implements Runnable {
             site = siteRepository.save(new Site(new URL("http://yandex.ru/")));
             scriptsRepository.save(new Scripts("onchange", site, "yandex-pogoda", "", true,
                     Files.toByteArray(
-                            ResourceUtils.getFile("classpath:casperJs/pogoda-yandex.js"))));
+                            ResourceUtils.getFile("classpath:casperJs/pogoda-yandex.js")), "Data don't changed"));
             site = siteRepository.save(new Site(new URL("http://moex.com/")));
             scriptsRepository.save(new Scripts("onchange", site, "dollar rate", "", true,
                     Files.toByteArray(
-                            ResourceUtils.getFile("classpath:casperJs/moex.js"))));
+                            ResourceUtils.getFile("classpath:casperJs/moex.js")), "Data don't changed"));
             site = siteRepository.save(new Site(new URL("http://vk.com/")));
             scriptsRepository.save(new Scripts("onchange", site, "vk", "email=\npass=\npage=", true,
-                    Files.toByteArray(ResourceUtils.getFile("classpath:casperJs/vk.js"))));
+                    Files.toByteArray(ResourceUtils.getFile("classpath:casperJs/vk.js")), "Data don't changed"));
             site = siteRepository.save(new Site(new URL("http://mail.ru/")));
             scriptsRepository.save(new Scripts("onchange", site, "oil", "", false, Files.toByteArray(
-                    ResourceUtils.getFile("classpath:harvest/oil.xml"))));
+                    ResourceUtils.getFile("classpath:harvest/oil.xml")), "Data don't changed"));
             site = siteRepository.save(new Site(new URL("http://lenta.ru/")));
             scriptsRepository.save(new Scripts("onchange", site, "lenta", "", false, Files.toByteArray(
-                    ResourceUtils.getFile("classpath:harvest/lenta.xml"))));
+                    ResourceUtils.getFile("classpath:harvest/lenta.xml")), "Data don't changed"));
         } catch (MalformedURLException e) {
             log.error("Format url wrong", e);
         } catch (IOException e) {

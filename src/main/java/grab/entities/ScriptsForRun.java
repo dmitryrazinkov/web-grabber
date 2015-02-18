@@ -20,7 +20,7 @@ public class ScriptsForRun {
 
     private String args;
 
-    private boolean changed;
+    private String status;
 
     private String errorMessage;
 
@@ -51,12 +51,12 @@ public class ScriptsForRun {
         this.script = script;
     }
 
-    public boolean isChanged() {
-        return changed;
+    public String getStatus() {
+        return status;
     }
 
-    public void setChanged(boolean change) {
-        this.changed = change;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getErrorMessage() {
@@ -78,8 +78,9 @@ public class ScriptsForRun {
     public ScriptsForRun() {
     }
 
-    public ScriptsForRun(String args, Scripts script) {
+    public ScriptsForRun(String args, Scripts script, String status) {
         this.args = args;
         this.script = script;
+        this.status = status;
     }
 }

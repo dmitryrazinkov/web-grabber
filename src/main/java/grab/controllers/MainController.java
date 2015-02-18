@@ -1,5 +1,6 @@
 package grab.controllers;
 
+import grab.entities.Scripts;
 import grab.entities.ScriptsForRun;
 import grab.services.GrabResultService;
 import grab.services.ScriptsForRunService;
@@ -36,7 +37,8 @@ public class MainController {
 
     @RequestMapping(value = "", method = RequestMethod.POST)
     public String addSite(@ModelAttribute("site1") String site1, @ModelAttribute("args") String args, ModelMap modelMap) {
-        scriptsForRunService.add(new ScriptsForRun(args, scriptsService.findByName(site1)));
+        Scripts script = scriptsService.findByName(site1);
+        scriptsForRunService.add(new ScriptsForRun(args, script, script.getDefaultStatus()));
         log.debug("args: {}", args);
         if (!scriptsService.allScripts().isEmpty()) {
             modelMap.addAttribute("sites", scriptsService.allScripts());
@@ -55,8 +57,8 @@ public class MainController {
     @RequestMapping("/{id}")
     public String details(@PathVariable Integer id, ModelMap modelMap) {
         ScriptsForRun scriptsForRun = scriptsForRunService.getOne(id);
-        if (scriptsForRun.isChanged()) {
-            scriptsForRun.setChanged(false);
+        if (!scriptsForRun.getStatus().equals(scriptsForRun.getScript().getDefaultStatus())) {
+            scriptsForRun.setStatus(scriptsForRun.getScript().getDefaultStatus());
             scriptsForRun = scriptsForRunService.add(scriptsForRun);
         }
         if (scriptsForRun.getErrorMessage() != null) {

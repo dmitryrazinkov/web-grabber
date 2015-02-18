@@ -5,11 +5,44 @@ var casper = require('casper').create({
 		}
 });
 casper.start('https://pogoda.yandex.ru/');
+var weatherSelector="div.current-weather__thermometer";
+var commentSelector="span.current-weather__comment";
+var weather;
+var comment;
+var error=false;
+var output={
+	result:"",
+	error:""
+}
+
+casper.waitForSelector(	weatherSelector,
+	function then(){
+		weather=this.getHTML(weatherSelector);
+	},
+	function onTimeout() {
+		error=true;
+	},
+	2000
+);
+
+casper.waitForSelector(	commentSelector,
+	function then(){
+		comment=this.fetchText(commentSelector);
+	},
+	function onTimeout() {
+		error=true;
+	},
+	2000
+);
+casper.then( function() {
+	output.error=error;
+	output.result=weather+" "+comment;
+});
+
 
 
 casper.then(function(){
-	this.echo(this.getHTML("div.current-weather__thermometer"));
-	this.echo(this.getHTML("span.current-weather__comment"));
+	this.echo(JSON.stringify(output));
 });
 
 casper.run();

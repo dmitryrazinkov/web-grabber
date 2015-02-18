@@ -29,6 +29,8 @@ public class Scripts {
 
     private boolean casper;
 
+    private String defaultStatus;
+
 
     @OneToMany(mappedBy = "script", fetch = FetchType.EAGER)
     List<ScriptsForRun> scriptsForRun = new ArrayList<ScriptsForRun>();
@@ -74,6 +76,14 @@ public class Scripts {
 
     public void setCasper(boolean casper) {
         this.casper = casper;
+    }
+
+    public String getDefaultStatus() {
+        return defaultStatus;
+    }
+
+    public void setDefaultStatus(String defaultStatus) {
+        this.defaultStatus = defaultStatus;
     }
 
     public String getDescription() {
@@ -129,12 +139,13 @@ public class Scripts {
         this.name = name;
     }
 
-    public Scripts(String description, Site site, String name, String args, boolean casper, byte[] file) {
+    public Scripts(String description, Site site, String name, String args, boolean casper, byte[] file, String defaultStatus) {
         this.description = description;
         this.site = site;
         this.name = name;
         this.args = args;
         this.casper = casper;
         this.file = file;
+        this.defaultStatus = defaultStatus;
     }
 }

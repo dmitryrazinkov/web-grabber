@@ -54,7 +54,7 @@ public class TestOnChangeStrategy {
     public void before() {
         testScript = new Scripts("testScript");
         testScript = scriptsService.save(testScript);
-        testScriptForRun = new ScriptsForRun("", testScript);
+        testScriptForRun = new ScriptsForRun("", testScript, "");
         testScriptForRun = scriptsForRunService.add(testScriptForRun);
     }
 
