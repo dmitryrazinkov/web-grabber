@@ -23,6 +23,7 @@ public class TestArgParser {
         String s = "d=1\nl=2";
         String s1[] = casperParser(s);
         assertEquals(s1[0], "--d=1");
+        assertEquals(s1[1], "--l=2");
     }
 
 

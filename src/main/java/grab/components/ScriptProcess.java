@@ -78,6 +78,7 @@ public class ScriptProcess {
      * Method for checking the data changes, if required
      *
      * @param scriptsForRun current script
+     * @param stringScriptOutput script output
      */
     private void processScriptResult(ScriptsForRun scriptsForRun, StringScriptOutput stringScriptOutput) {
         String description = getString(scriptsForRun.getScript().getDescription());
